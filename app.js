@@ -7,11 +7,13 @@ var io = require('socket.io')(http);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 
+const router = require('./routes/index.js')
 
-app.get('/', function(req, res){
-   res.render('index');
-});
+app.use(router);
   
 app.get('*', function(req, res) {
   res.render('error');
