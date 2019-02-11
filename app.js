@@ -11,9 +11,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
-const indexRouter = require('./routes/index.js')
+const player1router = require('./routes/index1.js');
+const player2router = require('./routes/index2.js');
+const player3router = require('./routes/index3.js');
+const player4router = require('./routes/index4.js');
 
-app.use(indexRouter);
+//The following 4 lines are what we use to route each player. The first player to join 
+//uses 'app.use(player1router)' and so forth until all players are routed to their respective 
+//page. 
+// app.use(player1router);
+// app.use(player2router);
+// app.use(player3router);
+// app.use(player4router);
   
 app.get('*', function(req, res) {
   res.render('error');
