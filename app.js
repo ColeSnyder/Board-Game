@@ -20,7 +20,7 @@ const player1router = require('./routes/player1route.js');
 const player2router = require('./routes/player2route.js');
 const player3router = require('./routes/player3route.js');
 const player4router = require('./routes/player4route.js');
- 
+
 //The following 4 lines are what we use to route each player. The first player to join 
 //uses 'app.use(player1router)' and so forth until all players are routed to their respective 
 //page. 
