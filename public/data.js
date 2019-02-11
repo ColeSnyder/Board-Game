@@ -5,9 +5,13 @@
 
 var player1PublicData = [];
 
+
+function RandomNum() {  
+    var random =  Math.floor(Math.random() * 20) + 1 
+    return random
+}
 for (i=0; i<3; i++) {
-   var random =  Math.floor(Math.random() * 20) + 1 
-   player1PublicData.push(random);
+   player1PublicData.push(RandomNum());
 }
 
 
@@ -16,8 +20,7 @@ for (i=0; i<3; i++) {
 var player2PublicData = [];
 
 for (i=0; i<3; i++) {
-    var random =  Math.floor(Math.random() * 20) + 1 
-    player2PublicData.push(random);
+    player2PublicData.push(RandomNum());
  }
 
 
@@ -26,8 +29,7 @@ for (i=0; i<3; i++) {
 var player3PublicData = [];
 
 for (i=0; i<3; i++) {
-    var random =  Math.floor(Math.random() * 20) + 1 
-    player3PublicData.push(random);
+    player3PublicData.push(RandomNum());
  }
 
 
@@ -36,7 +38,8 @@ for (i=0; i<3; i++) {
 var player4PublicData = [];
 
 for (i=0; i<3; i++) {
-    var random =  Math.floor(Math.random() * 20) + 1 
-    player4PublicData.push(random);
+    player4PublicData.push(RandomNum());
  }
+
+ 
 
