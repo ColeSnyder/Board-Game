@@ -12,6 +12,13 @@ h3 {
     text-align: center;
 }
 
+button {
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    background-color: aqua;
+}
+
 #board {
     display: grid;
     grid-template-rows: repeat(4, 2fr);
