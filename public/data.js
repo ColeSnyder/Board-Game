@@ -99,6 +99,11 @@ function RandomNum() {
 
 function FillHand(player) {  
    for (let i = 0; i < 3    ; i++) {
-        player.Hand.push(RandomNum())    
+        var num =  RandomNum();
+        if(player.Hand.includes(num)){
+            nums =  RandomNum();
+        }else{
+        player.Hand.push(Num);    
+        }
    }
 }
