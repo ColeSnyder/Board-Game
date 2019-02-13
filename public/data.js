@@ -3,13 +3,13 @@
 
 /*********************************** Player 1 data ****************************************/
 
-var player1PublicData = [];
-
-
 function RandomNum() {  
     var random =  Math.floor(Math.random() * 20) + 1 
     return random
 }
+
+var player1PublicData = [];
+
 for (i=0; i<3; i++) {
    player1PublicData.push(RandomNum());
 }
@@ -41,5 +41,12 @@ for (i=0; i<3; i++) {
     player4PublicData.push(RandomNum());
  }
 
- 
+function CreatePlayer(Name) {  
+    var Player = [];
+    Player.name = Name;
+    Player.Hand = [];
+
+    return Player;
+}
+
 
