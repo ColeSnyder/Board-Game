@@ -50,9 +50,14 @@ function Comapare(arr1, arr2) {
         const Current = arr1[i]
         for(let j = 0; j < arr2.length; j++) {
             const element = arr2[j];
-            
+            if(Current == element){
+                break;
+            }else{
+                return false
+            }
         }
     }
+    return true;
 }
 
 function AddNumber() {
@@ -82,6 +87,8 @@ function Disconnect(Player) {
 }
 
 function RedOrGreen(Compare, Hand) {  
+    // False == red
+    //true ==  green
     for (let i = 0; i < Players.length; i++) {
         const element = Players[i];
         for (let j = 0; j < Players.length; j++) {
