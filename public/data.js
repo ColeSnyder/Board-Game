@@ -54,6 +54,12 @@ function ComapareHands() {
 }
 
 function AddNumber() {
-    
-  }
 
+}
+
+function join(Player) {
+
+}
+function Disconnect(Player) {
+
+}
