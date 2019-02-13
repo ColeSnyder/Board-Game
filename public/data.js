@@ -49,4 +49,11 @@ function CreatePlayer(Name) {
     return Player;
 }
 
+function ComapareHands() {  
+
+}
+
+function AddNumber() {
+    
+  }
 
