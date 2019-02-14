@@ -1,7 +1,6 @@
 body {
     background-color: antiquewhite;
-    padding-left: 5%;
-    padding-right: 5%;
+
 }
 
 h2 {
@@ -26,6 +25,24 @@ button {
     border-radius: 30px;
     border: 2px solid white;
 }
+.grid-container1 {
+    background-image:  url("./Images/wood-background.jpg");
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.85);
+
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
 #stats
 {
   font-size: 20px;
@@ -33,7 +50,7 @@ button {
 
 #users-numbers
 {
-  float: left;
+
 }
 
 
@@ -57,17 +74,16 @@ button:hover {
 }
 
 .grid-container {
-    float: right;
+
     display:  inline-grid;
     align-self: center;
-    background-color: #edb85c;
     grid-template-columns: 125px 125px 125px 125px;
     grid-template-rows:  125px  125px  125px  125px;
-    padding: 10px;
+    padding-top: 2%;
     width: 550px;
     justify-content: center;
     margin: auto;
-    margin-bottom: 10px;
+
   }
   .odd {
     background-image:  url("./Images/odd.jpg");
@@ -87,15 +103,17 @@ button:hover {
 
   .number-grid
   {
-    display:  inline-grid;
-    align-self: right;
-    grid-template-columns: 125px 125px 125px 125px 125px 125px 125px 125px 125px 125px;
-    grid-template-rows:  125px  125px
-    padding: 20px;
+
+    display: inline-grid;
+    align-self: center;
+    grid-template-columns: 75px 75px;
+    grid-template-rows:  55px 55px 55px 55px 55px 55px 55px 55px 55px 55px;
+
     width: 100%;
-    height: 20px;
+    height: 50px;
     justify-content: center;
     margin: auto;
+    font-size: 10px;
   }
 
   #one

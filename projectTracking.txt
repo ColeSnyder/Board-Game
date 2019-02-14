@@ -17,6 +17,7 @@ Frontend focus -
 Feb 7th - group meeting 1 hour
 Feb 10th - 3 hours - logic work and flow with Cole.
 Feb 11th - group meeting 30 mins
+Feb 13th - 3 hours - gui
 
 
 // Sid *************************************************************************************************
