@@ -1,7 +1,7 @@
 body {
     background-color: antiquewhite;
-    padding-right: 25%;
-    padding-left: 25%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 h2 {
@@ -27,6 +27,19 @@ button {
     border: 2px solid white;
 }
 
+#users-numbers
+{
+  float: left;
+}
+
+#selected-num
+{
+  clear: both;
+  float: left;
+}
+
+
+
 button:hover {
     cursor: pointer;
     background-color: rgb(107, 255, 255);
@@ -41,15 +54,17 @@ button:hover {
 }
 
 .grid-container {
+    float: right;
     display:  inline-grid;
     align-self: center;
     background-color: #edb85c;
     grid-template-columns: 125px 125px 125px 125px;
     grid-template-rows:  125px  125px  125px  125px;
     padding: 10px;
-    width: 100%;
+    width: 50%;
     justify-content: center;
     margin: auto;
+    margin-bottom: 10px;
   }
   .odd {
     background-image:  url("./Images/odd.jpg");
@@ -59,7 +74,183 @@ button:hover {
     text-align: center;
   }
   .even {
-    background-image:  url("Images/even.jpg");
+    background-image:  url("./Images/even.jpg");
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+
+  .number-grid
+  {
+    display:  inline-grid;
+    align-self: right;
+    grid-template-columns: 125px 125px 125px 125px 125px 125px 125px 125px 125px 125px;
+    grid-template-rows:  125px  125px
+    padding: 20px;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #one
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #two
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #three
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #four
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #five
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #six
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #seven
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+
+  }
+  #eight
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #nine
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #ten
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #eleven
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #twelve
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #thirteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #fourteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #fifteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #sixteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #seventeen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #eighteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #nineteen
+  {
+    background-color: #F7F536;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #twenty
+  {
+    background-color: #F7F536;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
