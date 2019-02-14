@@ -38,9 +38,11 @@ server.listen(3001, function(){
 });
 
 
-
-
+// Everything below this line will have to do with Socket.io *********************************************
 
 io.on('connection', function(socket) {
   console.log("Made socket connection", socket.id);
+  socket.on('object', function(data) {
+    io.sockets.emit('object', data);
+  });
 });
