@@ -34,6 +34,16 @@ console.log(P3.Hand);
 var P4 = CreatePlayer("P4");
 FillHand(P4);
 console.log(P4.Hand);
+ ///  Testing  arera 
+
+join();
+join();
+join();
+join();
+join(); // throws error test 
+RedOrGreen();
+console.log("+++++++++++++++++++++")
+console.log(Players)
 
 
 /*********************************** Functions  ****************************************/
@@ -46,19 +56,23 @@ function CreatePlayer(Name) {
 }
 
 function Comapare(arr1, arr2) {  
-    for (let i = 0; i < arr1.length; i++) {
-        const Current = arr1[i]
-        for(let j = 0; j < arr2.length; j++) {
-            const element = arr2[j];
-            if(Current == element){
+    console.log(arr1)
+    console.log(arr2)
+    for (var i = 0; i < arr1.length; i++) 
+    { 
+        for (var j = 0; j < arr2.length; j++) 
+            if(arr2[i] == arr2[j]) {
                 break;
             }else{
-                return false
-            }
+            console.log("green")
+            return false; 
+
         }
-    }
-    return true;
+    } 
+    console.log("red")
+    return true; 
 }
+
 
 function AddNumber() {
 
@@ -66,19 +80,15 @@ function AddNumber() {
 
 function join(Player) {
     // Very basic and will probably change 
-    if(Players.length == 3){
+    if(Players.length == 4){
         console.log("Player area full")
-    }
-    if(Players.length == 0){
+    }else if(Players.length == 0){
         Players.push(P1);
-    }
-    if(Players.length == 1){
+    }else if(Players.length == 1){
         Players.push(P2);
-    }
-    if(Players.length == 2){
+    }else if(Players.length == 2){
         Players.push(P3);
-    }
-    if(Players.length == 3){
+    }else if(Players.length == 3){
         Players.push(P4);
     }
 }
@@ -86,18 +96,19 @@ function Disconnect(Player) {
  // no idea how we want to impliment this 
 }
 
-function RedOrGreen(Compare, Hand) {  
-    // False == red
-    //true ==  green
+function RedOrGreen() {  
+    // False == Green
+    //true ==  Red
     for (let i = 0; i < Players.length; i++) {
-        const element = Players[i];
+        const Current = Players[i].Hand;
         for (let j = 0; j < Players.length; j++) {
-            const element = Players[j];
-            
+            const element = Players[j].Hand;
+            Comapare(Current, element)
+            }
         }
         
     }
-}
+
 
 function RandomNum() {  
     var random =  Math.floor(Math.random() * 20) + 1 
@@ -106,11 +117,11 @@ function RandomNum() {
 
 function FillHand(player) {  
    for (let i = 0; i < 3    ; i++) {
-        var num =  RandomNum();
-        if(player.Hand.includes(num)){
-            nums =  RandomNum();
-        }else{
-        player.Hand.push(Num);    
+        var Num =  RandomNum();
+        if(player.Hand.includes(Num)){
+           Num = RandomNum();
         }
+            player.Hand.push(Num)
+        
    }
 }
