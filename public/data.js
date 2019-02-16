@@ -57,9 +57,7 @@ function CreatePlayer(Name) {
 
 function Comapare(arr1, arr2) {  
     console.log(arr1 + "\n" + arr2)
-   console.log(arr1.every(function(val){
-       return arr2.indexOf(val)
-   }))
+   console.log(arr2.every(val => arr1.includes(val)))
     
 }
 
