@@ -3,43 +3,125 @@
 
 /*********************************** Player 1 data ****************************************/
 
-var player1PublicData = [];
+var Players = [];
+
+
+var P1 = CreatePlayer("P1");
+FillHand(P1);
+console.log(P1.Hand);
+
+
+
+
+/*********************************** Player 2 data ****************************************/
+
+var P2 = CreatePlayer("P2");
+FillHand(P2);
+console.log(P2.Hand);
+
+
+
+/*********************************** Player 3 data ****************************************/
+
+var P3 = CreatePlayer("P3");
+FillHand(P3);
+console.log(P3.Hand);
+
+
+
+/*********************************** Player 4 data ****************************************/
+
+var P4 = CreatePlayer("P4");
+FillHand(P4);
+console.log(P4.Hand);
+ ///  Testing  arera 
+
+join();
+join();
+join();
+join();
+join(); // throws error test 
+RedOrGreen();
+console.log("+++++++++++++++++++++")
+console.log(Players)
+
+
+/*********************************** Functions  ****************************************/
+function CreatePlayer(Name) {  
+    var Player = [];
+    Player.name = Name;
+    Player.Hand = [];
+
+    return Player;
+}
+
+function Comapare(arr1, arr2) {  
+    console.log(arr1)
+    console.log(arr2)
+    for (var i = 0; i < arr1.length; i++) 
+    { 
+        for (var j = 0; j < arr2.length; j++) 
+            if(arr2[i] == arr2[j]) {
+                break;
+            }else{
+            console.log("green")
+            return false; 
+
+        }
+    } 
+    console.log("red")
+    return true; 
+}
+
+
+function AddNumber() {
+
+}
+
+function join(Player) {
+    // Very basic and will probably change 
+    if(Players.length == 4){
+        console.log("Player area full")
+    }else if(Players.length == 0){
+        Players.push(P1);
+    }else if(Players.length == 1){
+        Players.push(P2);
+    }else if(Players.length == 2){
+        Players.push(P3);
+    }else if(Players.length == 3){
+        Players.push(P4);
+    }
+}
+function Disconnect(Player) {
+ // no idea how we want to impliment this 
+}
+
+function RedOrGreen() {  
+    // False == Green
+    //true ==  Red
+    for (let i = 0; i < Players.length; i++) {
+        const Current = Players[i].Hand;
+        for (let j = 0; j < Players.length; j++) {
+            const element = Players[j].Hand;
+            Comapare(Current, element)
+            }
+        }
+        
+    }
 
 
 function RandomNum() {  
     var random =  Math.floor(Math.random() * 20) + 1 
     return random
 }
-for (i=0; i<3; i++) {
-   player1PublicData.push(RandomNum());
+
+function FillHand(player) {  
+   for (let i = 0; i < 3    ; i++) {
+        var Num =  RandomNum();
+        if(player.Hand.includes(Num)){
+           Num = RandomNum();
+        }
+            player.Hand.push(Num)
+        
+   }
 }
-
-
-/*********************************** Player 2 data ****************************************/
-
-var player2PublicData = [];
-
-for (i=0; i<3; i++) {
-    player2PublicData.push(RandomNum());
- }
-
-
-/*********************************** Player 3 data ****************************************/
-
-var player3PublicData = [];
-
-for (i=0; i<3; i++) {
-    player3PublicData.push(RandomNum());
- }
-
-
-/*********************************** Player 4 data ****************************************/
-
-var player4PublicData = [];
-
-for (i=0; i<3; i++) {
-    player4PublicData.push(RandomNum());
- }
-
- 
-
