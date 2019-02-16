@@ -56,21 +56,11 @@ function CreatePlayer(Name) {
 }
 
 function Comapare(arr1, arr2) {  
-    console.log(arr1)
-    console.log(arr2)
-    for (var i = 0; i < arr1.length; i++) 
-    { 
-        for (var j = 0; j < arr2.length; j++) 
-            if(arr2[i] == arr2[j]) {
-                break;
-            }else{
-            console.log("green")
-            return false; 
-
-        }
-    } 
-    console.log("red")
-    return true; 
+    console.log(arr1 + "\n" + arr2)
+   console.log(arr1.every(function(val){
+       return arr2.indexOf(val)
+   }))
+    
 }
 
 
