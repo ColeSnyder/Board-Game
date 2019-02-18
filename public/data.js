@@ -60,7 +60,10 @@ function Comapare(arr1, arr2) {
    console.log(arr2.every(val => arr1.includes(val)))
     
 }
+function Winner(Player) { 
 
+    return false;
+ }
 
 function AddNumber() {
 
