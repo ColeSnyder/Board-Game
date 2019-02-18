@@ -58,7 +58,7 @@ main {
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.75);
   padding: 20px;
   font-size: 30px;
   text-align: center;
