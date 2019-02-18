@@ -5,17 +5,17 @@
 
 var Players = [];
 
-
-var P1 = CreatePlayer("P1");
+var P1 = CreatePlayer("P1",1);
 FillHand(P1);
 console.log(P1.Hand);
+init(P1)
 
 
 
 
 /*********************************** Player 2 data ****************************************/
 
-var P2 = CreatePlayer("P2");
+var P2 = CreatePlayer("P2",2 );
 FillHand(P2);
 console.log(P2.Hand);
 
@@ -23,7 +23,7 @@ console.log(P2.Hand);
 
 /*********************************** Player 3 data ****************************************/
 
-var P3 = CreatePlayer("P3");
+var P3 = CreatePlayer("P3", 3);
 FillHand(P3);
 console.log(P3.Hand);
 
@@ -31,7 +31,7 @@ console.log(P3.Hand);
 
 /*********************************** Player 4 data ****************************************/
 
-var P4 = CreatePlayer("P4");
+var P4 = CreatePlayer("P4", 4);
 FillHand(P4);
 console.log(P4.Hand);
  ///  Testing  arera 
@@ -47,11 +47,12 @@ console.log(Players)
 
 
 /*********************************** Functions  ****************************************/
-function CreatePlayer(Name) {  
+function CreatePlayer(Name, ID) {  
     var Player = [];
     Player.name = Name;
+    Player.ID =  ID;
     Player.Hand = [];
-
+    
     return Player;
 }
 
@@ -61,7 +62,6 @@ function Comapare(arr1, arr2) {
     
 }
 function Winner(Player) { 
-
     return false;
  }
 
@@ -115,4 +115,8 @@ function FillHand(player) {
             player.Hand.push(Num)
         
    }
+}
+
+function init(Player){
+    var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
