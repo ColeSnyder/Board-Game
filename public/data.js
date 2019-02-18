@@ -35,15 +35,18 @@ var P4 = CreatePlayer("P4", 4);
 FillHand(P4);
 console.log(P4.Hand);
  ///  Testing  arera 
+ document.addEventListener("DOMContentLoaded", function(event) {
+    join();
+    join();
+    join();
+    join();
+    join(); // throws error test 
+    RedOrGreen();
+    setBoard();
+    console.log("+++++++++++++++++++++")
+    console.log(Players)
 
-join();
-join();
-join();
-join();
-join(); // throws error test 
-RedOrGreen();
-console.log("+++++++++++++++++++++")
-console.log(Players)
+ });
 
 
 /*********************************** Functions  ****************************************/
@@ -59,7 +62,7 @@ function CreatePlayer(Name, ID) {
 function Comapare(arr1, arr2) {  
     console.log(arr1 + "\n" + arr2)
    console.log(arr2.every(val => arr1.includes(val)))
-    
+   return arr2.every(val => arr1.includes(val))
 }
 function Winner(Player) { 
     return false;
@@ -120,3 +123,25 @@ function FillHand(player) {
 function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
+
+function setBoard() {
+    console.log("Testing")
+    for (let i = 0; i < Players.length; i++) {
+        const Current = Players[i].Hand;
+        for (let j = 0; j < Players.length; j++) {
+            const element = Players[j].Hand;
+           
+            var CurrentNum = (j+1) + (4*i)
+            console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")")
+            if(!Comapare(Current, element)){
+                console.log("This is a false")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<p>False</p>').css("color", "red")
+            }
+            if(Comapare(Current, element)){
+                console.log("This is a truth")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<p>Truth</p>').css("color", "green")
+            }
+        }
+        }
+        
+  }
