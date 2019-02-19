@@ -5,8 +5,7 @@ var join = document.getElementById("joinGame");
 
 //Emit Events
 join.addEventListener('click', function() {
-    socket.emit('joinRequest', {
-    }); 
+    socket.emit('joinRequest'); 
 });
 
 // join.addEventListener('click', function() {
