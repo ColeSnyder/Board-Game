@@ -32,7 +32,7 @@ app.get('*', function(req, res) {
   res.render('error');
 });
 
-server.listen(3001, function(){
+server.listen(3001, '0.0.0.0', function(){
   console.log('listening on *:3001');
   // app.use(player1router);
 });
