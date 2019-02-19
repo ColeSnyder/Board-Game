@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:3001");
+var socket = io.connect("192.168.0.17:3001");
 
 // Query DOM
 var join = document.getElementById("joinGame");
@@ -7,7 +7,7 @@ var output = document.getElementById("output");
 
 //Emit Events
 join.addEventListener('click', function() {
-    socket.broadcast.emit('object', {
+    socket.emit('object', {
         input: input.value
     }); 
 });
