@@ -7,9 +7,9 @@ var output = document.getElementById("output");
 
 //Emit Events
 join.addEventListener('click', function() {
-    socket.emit('object', {
+    socket.broadcast.emit('object', {
         input: input.value
-    })
+    }); 
 });
 
 //Listen for events 
