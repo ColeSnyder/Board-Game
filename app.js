@@ -34,7 +34,6 @@ app.get('*', function(req, res) {
 
 server.listen(3001, '0.0.0.0', function(){
   console.log('listening on *:3001');
-  // app.use(player1router);
 });
 
 
@@ -48,7 +47,10 @@ io.on('connection', function(socket) {
   socket.on('joinRequest', function(data) {
     playerArray.push("player"+playerArray.length);
     console.log(playerArray.length);
-    socket.emit(console.log("emitted"));
+    var playerNum = playerArray.length;
+    socket.emit(playerNum);
+    console.log("emitted");
+    io.sockets.emit('object', data);
   });
 });
 
@@ -56,9 +58,9 @@ io.on('connection', function(socket) {
 
 var playerArray = new Array;
 
-if (playerArray.length == 4) {
-  
-}
+// if (playerArray.length == 4) {
+
+// }
 
 
 
