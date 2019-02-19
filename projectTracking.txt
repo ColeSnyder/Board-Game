@@ -26,6 +26,8 @@ Feb 13th - 3 hours - gui
 
 
 // Sid ******************************************************************************************
-
-
-
+2/7- meeting group
+2/8- reading and understanding game -1-1.5 hrs
+2/9- began making the game board- 2 hrs
+2/10- logic understamding of game- 1.5 hrs
+2/14- understanding socket/node- 1hr
