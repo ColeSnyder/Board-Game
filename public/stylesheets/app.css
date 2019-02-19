@@ -151,8 +151,7 @@ header {
   margin-bottom: 1%;
 }
 .grid-container1 {
-  /*background-image:  url("./Images/wood-background.jpg");*/
-  background-image:  url("../Images/wood-background.jpg");
+  background-image:  url("./Images/wood-background.jpg");
   display: grid;
   grid-column-gap: 50px;
   grid-template-columns: auto auto auto;

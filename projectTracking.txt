@@ -31,3 +31,4 @@ Feb 13th - 3 hours - gui
 2/9- began making the game board- 2 hrs
 2/10- logic understamding of game- 1.5 hrs
 2/14- understanding socket/node- 1hr
+2/19- working on the index and rules page-1-1.5 hrs
