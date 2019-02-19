@@ -46,7 +46,7 @@ io.on('connection', function(socket) {
     io.sockets.emit('object', data);
   });
   socket.on('joinRequest', function(data) {
-    playerArray.append("player"+playerArray.length);
+    playerArray.push("player"+playerArray.length);
     console.log(playerArray.length);
     socket.emit(window.location.assign("192.168.0.17:3001/player"+playerArray.length));
 
