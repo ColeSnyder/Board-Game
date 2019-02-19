@@ -56,5 +56,9 @@ io.on('connection', function(socket) {
 
 var playerArray = new Array;
 
+if (playerArray.length == 4) {
+  
+}
+
 
 

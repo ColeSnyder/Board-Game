@@ -1,4 +1,4 @@
-var socket = io.connect("192.168.0.17:3001");
+var socket = io.connect("192.168.0.16:3001");
 
 // Query DOM
 var join = document.getElementById("joinGame");
@@ -6,6 +6,7 @@ var join = document.getElementById("joinGame");
 //Emit Events
 join.addEventListener('click', function() {
     socket.emit('joinRequest'); 
+    window.location.href = "http://192.168.0.16:3001/LoadPool.html";
 });
 
 // join.addEventListener('click', function() {

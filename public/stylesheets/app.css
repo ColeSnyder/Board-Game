@@ -16,6 +16,11 @@ h3 {
     text-align: center;
 }
 
+#waitMessage {
+  margin-top: 30%;
+  text-align: center;
+}
+
 button {
     width: 400px;
     height: 200px;
