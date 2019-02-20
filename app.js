@@ -48,9 +48,12 @@ io.on('connection', function(socket) {
     playerArray.push("player"+playerArray.length);
     console.log(playerArray.length);
     var playerNum = playerArray.length;
-    socket.emit(playerNum);
+    var asdf = data.input;
+    socket.emit('Request', 
+    {
+      num: playerNum, asdf: asdf
+    });
     console.log("emitted");
-    io.sockets.emit('object', data);
   });
 });
 
@@ -61,6 +64,3 @@ var playerArray = new Array;
 // if (playerArray.length == 4) {
 
 // }
-
-
-

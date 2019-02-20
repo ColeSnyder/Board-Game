@@ -1,12 +1,9 @@
 var playerNum;
-
-
-
-
 var socket = io.connect("192.168.0.16:3001");
 
 // Query DOM
 var join = document.getElementById("joinGame");
+var input = document.getElementById("input");
 
 //Emit Events
 join.addEventListener('click', function() {
@@ -23,8 +20,10 @@ join.addEventListener('click', function() {
 // });
 
 //Listen for events 
-socket.on('object', function(data) {
-    var playerNum = data;
+socket.on('Request', function(data) {
+    console.log("into last socket");
+    var playerNum = data.num;
+    var a = data.asdf;
     console.log(playerNum);
-    queueOutput.innerHTML += '<p>' + playerNum.value + '</p>';
+    queueOutput.innerHTML += '<h1>' + playerNum.value + a + '</h1>';
 });
