@@ -17,17 +17,28 @@ h3 {
 }
 
 button {
+    /* since button is a built in css variable, put all styling for irregular buttons(like join) 
+    as their own item in css. I did this by adding a joinGameButton id and put all unique styling in there. */
+}
+
+#joinGameButton {
     top :50px;
-    width: 400x;
+    width: 400px;
     height: 200px;
     text-align: center;
     background-color:orange;
     color: #444;
     margin: auto;
     display: flex;
+    font-size: 3em;
     justify-content: center;
     border-radius: 30px;
     border: 2px solid white;
+}
+
+#joinGameButton:hover {
+  cursor: pointer;
+  background-color: #fcad1b;
 }
 
 header {
@@ -72,11 +83,6 @@ main {
   width: 200px;
   background-color: black;
   color: white;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: rgb(107, 255, 255);
 }
 
 #board {
@@ -143,14 +149,6 @@ button:hover {
     text-align: center;
   }
 
-h2#join {
-    text-align: center;
-    color:chocolate;
-    margin-top: 40px;
-    margin-left: 20px; 
-    vertical-align: bottom;
-    float: left;
-}
 header {
   background-color: black;
   width: 100%;

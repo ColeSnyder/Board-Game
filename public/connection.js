@@ -1,11 +1,11 @@
 var playerNum;
 var ColesIPHome = "192.168.0.16";
-// var ColesIPWSU = ;
+ var ColesIPWSU = "10.19.80.107";
 
 var socket = io.connect("ColesIPHome" + ":3001");
 
 // Query DOM
-var join = document.getElementById("joinGame");
+var join = document.getElementById("joinGameButton");
 var input = document.getElementById("input");
 
 //Emit Events
