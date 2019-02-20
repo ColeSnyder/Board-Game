@@ -51,7 +51,8 @@ io.on('connection', function(socket) {
     var asdf = data.input;
     socket.emit('Request', 
     {
-      num: playerNum, asdf: asdf
+      num: playerNum, 
+      sdf: asdf
     });
     console.log("emitted");
   });
