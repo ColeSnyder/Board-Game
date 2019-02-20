@@ -17,14 +17,13 @@ h3 {
 }
 
 button {
-    width: 400px;
+    top :50px;
+    width: 400x;
     height: 200px;
     text-align: center;
-    background-color: aqua;
-    font-size: 5em;
+    background-color:orange;
     color: #444;
     margin: auto;
-    margin-top: 15%;
     display: flex;
     justify-content: center;
     border-radius: 30px;
@@ -183,34 +182,7 @@ div.transbox ul {
   font-weight: bold;
   color: #000000;
 }
-.buttonj 
-{
-  height:30px; 
-   width:100px; 
-   margin: -20px -50px; 
-   position:relative;
-   top:50%; 
-   left:50%;
-  cursor: pointer;
-  text-size-adjust:auto;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  background-color: orange;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  align-content:center;
-  align-items: center;
-}
 
-.buttonj:hover {background-color: orange}
-
-.buttonj:active {
-  background-color: orange;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
 
 #waitBox {
   display: inline;
