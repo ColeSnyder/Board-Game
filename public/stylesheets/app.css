@@ -100,8 +100,9 @@ button:hover {
   }
 
   .playergrid {
-    display: grid;
-    grid-template-columns: auto 
+    display:  inline-grid;
+    grid-template-columns: 125px;
+    grid-template-rows:  125px;
     background-color: #2196F3;
     padding: 10px;
   }

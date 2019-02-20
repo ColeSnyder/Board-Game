@@ -8,6 +8,8 @@
 2/13 - 10:30-10:45 => .25 HOURS
 2/14 - 3:30-5 => 1.5 HOURS
 2/17 - 9:00-10:45 => 1.75 HOURS
+2/18 - 7:00-9:00PM => 2 hours - player queue and join handling.
+
 
 // ANDREW ******************************************************************************************
 2/7 - 6:30 - 8:15 => 1.75 HOURS
@@ -23,6 +25,7 @@ Feb 7th - group meeting 1 hour
 Feb 10th - 3 hours - logic work and flow with Cole.
 Feb 11th - group meeting 30 mins
 Feb 13th - 3 hours - gui
+Feb 18th -7:00 - 9:00PM => 2 hours - player queue and join handling.
 
 
 // Sid ******************************************************************************************
