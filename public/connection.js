@@ -1,5 +1,5 @@
 var playerNum;
-var socket = io.connect("192.168.0.16:3001");
+var socket = io.connect("10.19.80.107:3001");
 
 // Query DOM
 var join = document.getElementById("joinGame");
