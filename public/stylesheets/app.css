@@ -164,6 +164,10 @@ font-size: .6em;
     text-align: center;
   }
 
+  .playerNumbers:hover {
+    cursor: pointer;
+  }
+
 header {
   background-color: black;
   width: 100%;
