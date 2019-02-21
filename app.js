@@ -4,7 +4,6 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
-var ColesIPHome = "192.168.0.16";
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

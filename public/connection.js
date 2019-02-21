@@ -20,7 +20,6 @@ btn.addEventListener('click', function() {
 
 //Listen for events
 socket.on('player1', function(data) {
-    alert("into");
     console.log("into");
     // output.innerHTML += '<p>' + data + '</p>';
     window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
