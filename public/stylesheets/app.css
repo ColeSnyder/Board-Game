@@ -161,7 +161,8 @@ font-size: .6em;
   .playerNumbers {
     background-color: #F7F536;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 10px;
+
     font-size: 30px;
     text-align: center;
   }
