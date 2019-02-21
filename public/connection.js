@@ -3,7 +3,7 @@ var ColesIPHome = "192.168.0.16";
 var ColesIPWSU = "10.19.80.107";
 var StevensIPHome = "192.168.0.17";
 
-var socket = io.connect(ColesIPHome + ":3001");
+var socket = io.connect(StevensIPHome + ":3001");
 
 // Query DOM
 var btn = document.getElementById("joinGameButton");
@@ -22,20 +22,20 @@ btn.addEventListener('click', function() {
 socket.on('player1', function(data) {
     console.log("into");
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+    window.location.href = "http://" + StevensIPHome + ":3001/player" + data;
 });
 
 socket.on('player2', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+    window.location.href = "http://" + StevensIPHome + ":3001/player" + data;
 });
 
 socket.on('player3', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+    window.location.href = "http://" + StevensIPHome + ":3001/player" + data;
 });
 
 socket.on('player4', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+    window.location.href = "http://" + StevensIPHome + ":3001/player" + data;
 });

@@ -27,7 +27,7 @@ app.get('/player4', function(req, res){
   console.log('Routing to index4.ejs')
  res.render('player4');
 });
-  
+
 app.get('*', function(req, res) {
   res.render('error');
 });
@@ -46,7 +46,8 @@ io.on('connection', function(socket) {
     playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
     var num = playerArray.length;
-    socket.broadcast.to(socket.id).emit("player"+num, num);
+  //  socket.broadcast.to(socket.id).emit("player"+num, num);
+      io.to(socket.id).emit("player"+num, num);
   });
 });
 
