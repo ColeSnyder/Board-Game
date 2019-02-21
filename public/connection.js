@@ -1,19 +1,20 @@
 var playerNum;
 var ColesIPHome = "192.168.0.16";
- var ColesIPWSU = "10.19.80.107";
+var ColesIPWSU = "10.19.80.107";
 
-var socket = io.connect("ColesIPHome" + ":3001");
+var socket = io.connect(ColesIPHome + ":3001");
+var socket2 = io.connect(ColesIPHome + ":3001/LoadPool.html");
 
 // Query DOM
-var join = document.getElementById("joinGameButton");
-var input = document.getElementById("input");
+var btn = document.getElementById("joinGameButton");
+var message = document.getElementById("message");
 
 //Emit Events
-join.addEventListener('click', function() {
+btn.addEventListener('click', function() {
     socket.emit('joinRequest', {
-        input: input.value
+        message: message.value
     }); 
-    window.location.href = "http://" + ColesIPHome+ ":3001/LoadPool.html";
+    window.location.href = "http://" + ColesIPHome + ":3001/LoadPool.html";
 });
 
 // join.addEventListener('click', function() {
@@ -23,10 +24,10 @@ join.addEventListener('click', function() {
 // });
 
 //Listen for events 
-socket.on('Request', function(data) {
+socket.on('joinRequest', function(data) {
     console.log("into last socket");
-    var playerNum = data.num;
-    var a = data.asdf;
-    console.log(playerNum);
-    queueOutput.innerHTML += '<h1>' + playerNum.value + a + '</h1>';
+    // var playerNum = data.num;
+    // var a = data.asdf;
+    console.log(data.message);
+    queueOutput.innerHTML += '<h1>' + data.message + '</h1>';
 });

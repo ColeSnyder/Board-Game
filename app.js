@@ -41,19 +41,14 @@ server.listen(3001, '0.0.0.0', function(){
 
 io.on('connection', function(socket) {
   console.log("Made socket connection", socket.id);
-  socket.on('object', function(data) {
-    io.sockets.emit('object', data);
-  });
+  // socket.on('object', function(data) {
+  //   io.sockets.emit('object', data);
+  // });
   socket.on('joinRequest', function(data) {
     playerArray.push("player"+playerArray.length);
     console.log(playerArray.length);
-    var playerNum = playerArray.length;
-    var asdf = data.input;
-    socket.emit('Request', 
-    {
-      num: playerNum, 
-      sdf: asdf
-    });
+    console.log(data.message);
+    io.sockets.emit('joinRequest', data);
     console.log("emitted");
   });
 });
@@ -61,7 +56,3 @@ io.on('connection', function(socket) {
 // Player position array ********************************************************************************
 
 var playerArray = new Array;
-
-// if (playerArray.length == 4) {
-
-// }
