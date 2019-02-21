@@ -4,6 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
+var ColesIPHome = "192.168.0.16";
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,12 +45,16 @@ io.on('connection', function(socket) {
   // socket.on('object', function(data) {
   //   io.sockets.emit('object', data);
   // });
-  socket.on('joinRequest', function(data) {
+  socket.on('joinRequest', function() {
     playerArray.push("player"+playerArray.length);
     console.log(playerArray.length);
-    console.log(data.message);
-    io.sockets.emit('joinRequest', data);
-    console.log("emitted");
+    var num = playerArray.length;
+
+// var url = "http://" + ColesIPHome + ":3001/player" + playerArray.length;
+    window.location = "www.Goole.com";
+
+    // console.log(data.message);
+    // io.sockets.emit('joinRequest', data);
   });
 });
 
