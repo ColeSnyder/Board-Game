@@ -130,7 +130,7 @@ font-size: .6em;
   .odd {
     background-image:  url("./Images/odd.jpg");
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 12px;
     font-size: 30px;
     text-align: center;
   }
@@ -138,9 +138,11 @@ font-size: .6em;
   .even {
     background-image:  url("./Images/even.jpg");
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 12px;
     font-size: 30px;
     text-align: center;
+    display:table-cell;
+    vertical-align:middle;
   }
 
   .number-grid

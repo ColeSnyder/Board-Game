@@ -34,13 +34,13 @@ console.log(P3.Hand);
 var P4 = CreatePlayer("P4", 4);
 FillHand(P4);
 console.log(P4.Hand);
- ///  Testing  arera 
+ ///  Testing  arera
  document.addEventListener("DOMContentLoaded", function(event) {
     join();
     join();
     join();
     join();
-    join(); // throws error test 
+    join(); // throws error test
     RedOrGreen();
     setBoard();
     console.log("+++++++++++++++++++++")
@@ -50,21 +50,21 @@ console.log(P4.Hand);
 
 
 /*********************************** Functions  ****************************************/
-function CreatePlayer(Name, ID) {  
+function CreatePlayer(Name, ID) {
     var Player = [];
     Player.name = Name;
     Player.ID =  ID;
     Player.Hand = [];
-    
+
     return Player;
 }
 
-function Comapare(arr1, arr2) {  
+function Comapare(arr1, arr2) {
     console.log(arr1 + "\n" + arr2)
    console.log(arr2.every(val => arr1.includes(val)))
    return arr2.every(val => arr1.includes(val))
 }
-function Winner(Player) { 
+function Winner(Player) {
     return false;
  }
 
@@ -73,7 +73,7 @@ function AddNumber() {
 }
 
 function join(Player) {
-    // Very basic and will probably change 
+    // Very basic and will probably change
     if(Players.length == 4){
         console.log("Player area full")
     }else if(Players.length == 0){
@@ -87,10 +87,10 @@ function join(Player) {
     }
 }
 function Disconnect(Player) {
- // no idea how we want to impliment this 
+ // no idea how we want to impliment this
 }
 
-function RedOrGreen() {  
+function RedOrGreen() {
     // False == Green
     //true ==  Red
     for (let i = 0; i < Players.length; i++) {
@@ -100,23 +100,23 @@ function RedOrGreen() {
             Comapare(Current, element)
             }
         }
-        
+
     }
 
 
-function RandomNum() {  
-    var random =  Math.floor(Math.random() * 20) + 1 
+function RandomNum() {
+    var random =  Math.floor(Math.random() * 20) + 1
     return random
 }
 
-function FillHand(player) {  
+function FillHand(player) {
    for (let i = 0; i < 3    ; i++) {
         var Num =  RandomNum();
         if(player.Hand.includes(Num)){
            Num = RandomNum();
         }
             player.Hand.push(Num)
-        
+
    }
 }
 
@@ -130,18 +130,18 @@ function setBoard() {
         const Current = Players[i].Hand;
         for (let j = 0; j < Players.length; j++) {
             const element = Players[j].Hand;
-           
+
             var CurrentNum = (j+1) + (4*i)
             console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")")
             if(!Comapare(Current, element)){
                 console.log("This is a false")
-                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<p>False</p>').css("color", "red")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
             }
             if(Comapare(Current, element)){
                 console.log("This is a truth")
-                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<p>Truth</p>').css("color", "green")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
             }
         }
         }
-        
+
   }

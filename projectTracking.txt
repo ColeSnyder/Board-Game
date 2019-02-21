@@ -27,7 +27,8 @@ Feb 7th - group meeting 1 hour
 Feb 10th - 3 hours - logic work and flow with Cole.
 Feb 11th - group meeting 30 mins
 Feb 13th - 3 hours - gui
-Feb 18th -7:00 - 9:00PM => 2 hours - player queue and join handling.
+Feb 18th - 2 hours - player queue and join handling.
+Feb 21st - 3 hours - getting page routing working and adding coins
 
 
 // Sid ******************************************************************************************
