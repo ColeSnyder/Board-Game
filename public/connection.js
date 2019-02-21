@@ -14,13 +14,12 @@ var btn = document.getElementById("joinGameButton");
 
 btn.addEventListener('click', function() {
     socket.emit('object', {
-        // message: message.value
     });
 });
 
 
 //Listen for events
-socket.on('object', function(data) {
+socket.on('player1', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
     window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
 })

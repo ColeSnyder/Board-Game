@@ -47,10 +47,8 @@ io.on('connection', function(socket) {
     playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
     var num = playerArray.length;
-    socket.emit('player'+num, num);
+    this.emit('player'+num, num);
   });
-
-
 
 });
 
