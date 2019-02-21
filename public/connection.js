@@ -10,12 +10,10 @@ var btn = document.getElementById("joinGameButton");
     output = document.getElementById("output");
 
 // Emit
-
 btn.addEventListener('click', function() {
     socket.emit('object', {
     });
 });
-
 
 //Listen for events
 socket.on('player1', function(data) {
