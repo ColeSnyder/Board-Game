@@ -1,29 +1,38 @@
 var playerNum;
-var socket = io.connect("192.168.0.16:3001");
+
+var CurrentIP = "192.168.0.17";
+
+var socket = io.connect(CurrentIP + ":3001");
 
 // Query DOM
-var join = document.getElementById("joinGame");
-var input = document.getElementById("input");
+var btn = document.getElementById("joinGameButton");
+    // message = document.getElementById("message");
+    output = document.getElementById("output");
 
-//Emit Events
-join.addEventListener('click', function() {
-    socket.emit('joinRequest', {
-        input: input.value
-    }); 
-    window.location.href = "http://192.168.0.16:3001/LoadPool.html";
+// Emit
+btn.addEventListener('click', function() {
+    socket.emit('object', {
+    });
 });
 
-// join.addEventListener('click', function() {
-//     socket.emit('OtherObject', {
-//         input: input.value
-//     }); 
-// });
+//Listen for events
+socket.on('player1', function(data) {
+    console.log("into");
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+});
 
-//Listen for events 
-socket.on('Request', function(data) {
-    console.log("into last socket");
-    var playerNum = data.num;
-    var a = data.asdf;
-    console.log(playerNum);
-    queueOutput.innerHTML += '<h1>' + playerNum.value + a + '</h1>';
+socket.on('player2', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+});
+
+socket.on('player3', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+});
+
+socket.on('player4', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });

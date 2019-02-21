@@ -27,7 +27,7 @@ app.get('/player4', function(req, res){
   console.log('Routing to index4.ejs')
  res.render('player4');
 });
-  
+
 app.get('*', function(req, res) {
   res.render('error');
 });
@@ -40,27 +40,16 @@ server.listen(3001, '0.0.0.0', function(){
 // Everything below this line will have to do with Socket.io *********************************************
 
 io.on('connection', function(socket) {
-  console.log("Made socket connection", socket.id);
+  console.log("Made socket connection" + socket.id)
+
   socket.on('object', function(data) {
-    io.sockets.emit('object', data);
-  });
-  socket.on('joinRequest', function(data) {
-    playerArray.push("player"+playerArray.length);
+    playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
-    var playerNum = playerArray.length;
-    var asdf = data.input;
-    socket.emit('Request', 
-    {
-      num: playerNum, asdf: asdf
-    });
-    console.log("emitted");
+    var num = playerArray.length;
+      io.to(socket.id).emit("player"+num, num);
   });
 });
 
 // Player position array ********************************************************************************
 
 var playerArray = new Array;
-
-// if (playerArray.length == 4) {
-
-// }
