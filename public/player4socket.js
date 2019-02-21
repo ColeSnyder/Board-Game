@@ -12,7 +12,7 @@ var btn = document.getElementById("joinGameButton");
 // Emit
 
 btn.addEventListener('click', function() {
-    socket.emit('object4', {
+    socket.emit('object', {
     });
 });
 
