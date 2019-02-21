@@ -3,7 +3,10 @@ var ColesIPHome = "192.168.0.16";
 var ColesIPWSU = "10.19.80.107";
 
 var socket = io.connect(ColesIPHome + ":3001");
+<<<<<<< HEAD
 var socket2 = io.connect(ColesIPHome + ":3001/LoadPool.html");
+=======
+>>>>>>> 98bf4552fabe2ce9e9ebc20bc9beb6cc96b41817
 
 // Query DOM
 var btn = document.getElementById("joinGameButton");
