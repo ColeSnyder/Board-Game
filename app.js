@@ -43,7 +43,28 @@ server.listen(3001, '0.0.0.0', function(){
 io.on('connection', function(socket) {
   console.log("Made socket connection" + socket.id)
 
-  socket.on('object', function(data) {
+  socket.on('objec1', function(data) {
+    playerArray.push("player" + playerArray.length);
+    console.log(playerArray.length);
+    var num = playerArray.length;
+    socket.emit('player'+num, num);
+  });
+
+  socket.on('objec2', function(data) {
+    playerArray.push("player" + playerArray.length);
+    console.log(playerArray.length);
+    var num = playerArray.length;
+    socket.emit('player'+num, num);
+  });
+
+  socket.on('objec3', function(data) {
+    playerArray.push("player" + playerArray.length);
+    console.log(playerArray.length);
+    var num = playerArray.length;
+    socket.emit('player'+num, num);
+  });
+
+  socket.on('objec4', function(data) {
     playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
     var num = playerArray.length;
