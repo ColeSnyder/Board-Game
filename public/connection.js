@@ -19,17 +19,24 @@ btn.addEventListener('click', function() {
 
 
 //Listen for events
-this.on('player1', function(data) {
+socket.on('player1', function(data) {
+    alert("into");
+    console.log("into");
     // output.innerHTML += '<p>' + data + '</p>';
     window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
-})
-
-this.on('player2', function(data) {
-    // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
-})
+});
 
 socket.on('player2', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
     window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
-})
+});
+
+socket.on('player3', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+});
+
+socket.on('player4', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+});

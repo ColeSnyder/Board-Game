@@ -47,9 +47,8 @@ io.on('connection', function(socket) {
     playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
     var num = playerArray.length;
-    this.emit('player'+num, num);
+    socket.broadcast.to(socket.id).emit("player"+num, num);
   });
-
 });
 
 // Player position array ********************************************************************************
