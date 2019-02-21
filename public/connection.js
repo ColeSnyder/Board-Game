@@ -7,27 +7,20 @@ var socket = io.connect(ColesIPHome + ":3001");
 
 // Query DOM
 var btn = document.getElementById("joinGameButton");
-var message = document.getElementById("message");
+    // message = document.getElementById("message");
+    output = document.getElementById("output");
 
-//Emit Events
+// Emit
+
 btn.addEventListener('click', function() {
-    socket.emit('joinRequest', {
-        message: message.value
+    socket.emit('object', {
+        // message: message.value
     });
-    // window.location.href = "http://" + ColesIPHome + ":3001/LoadPool.html";
 });
 
-// join.addEventListener('click', function() {
-//     socket.emit('OtherObject', {
-//         input: input.value
-//     });
-// });
 
 //Listen for events
-socket.on('joinRequest', function(data) {
-    console.log("into last socket");
-    // var playerNum = data.num;
-    // var a = data.asdf;
-    console.log(data.message);
-    queueOutput.innerHTML += '<h1>' + data.message + '</h1>';
-});
+socket.on('object', function(data) {
+    // output.innerHTML += '<p>' + data + '</p>';
+    window.location.href = "http://" + ColesIPHome + ":3001/player" + data;
+})

@@ -41,21 +41,17 @@ server.listen(3001, '0.0.0.0', function(){
 // Everything below this line will have to do with Socket.io *********************************************
 
 io.on('connection', function(socket) {
-  console.log("Made socket connection", socket.id);
-  // socket.on('object', function(data) {
-  //   io.sockets.emit('object', data);
-  // });
-  socket.on('joinRequest', function() {
-    playerArray.push("player"+playerArray.length);
+  console.log("Made socket connection" + socket.id)
+
+  socket.on('object', function(data) {
+    playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);
     var num = playerArray.length;
-
-// var url = "http://" + ColesIPHome + ":3001/player" + playerArray.length;
-    window.location = "www.Goole.com";
-
-    // console.log(data.message);
-    // io.sockets.emit('joinRequest', data);
+    io.sockets.emit('object', num);
   });
+
+
+
 });
 
 // Player position array ********************************************************************************
