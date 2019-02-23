@@ -4,6 +4,21 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
+var Players = []
+
+
+
+
+function createPlayer(Name, ID) {  
+    var Player = [];
+    Player.name = Name;
+    Player.ID =  ID;
+    Player.Hand = [];
+    Player.Points = 0;
+    
+    return Player;
+}
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,7 +56,8 @@ server.listen(3001, '0.0.0.0', function(){
 
 io.on('connection', function(socket) {
   console.log("Made socket connection" + socket.id)
-
+  var counter = 1;
+  Players.push(createPlayer(("P" + counter), socket.id));
   socket.on('object', function(data) {
     playerArray.push("player" + playerArray.length);
     console.log(playerArray.length);

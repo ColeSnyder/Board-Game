@@ -15,6 +15,16 @@ h2 {
 h3 {
     text-align: center;
 }
+.grid-container {
+  display:  inline-grid;
+  align-self: center;
+  grid-template-columns: 75px 125px 125px 125px 125px;
+  grid-template-rows:  75px 125px  125px  125px  125px;
+  padding-top: 2%;
+  width: 550px;
+  justify-content: center;
+  margin: auto;
+}
 
 button {
     /* since button is a built in css variable, put all styling for irregular buttons(like join)

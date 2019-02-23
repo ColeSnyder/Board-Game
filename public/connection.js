@@ -19,20 +19,20 @@ btn.addEventListener('click', function() {
 socket.on('player1', function(data) {
     console.log("into");
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+    window.location.href = "http://" + CurrentIP + ":3001/player1" + data;
 });
 
 socket.on('player2', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+    window.location.href = "http://" + CurrentIP + ":3001/player2" + data;
 });
 
 socket.on('player3', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+    window.location.href = "http://" + CurrentIP + ":3001/player3" + data;
 });
 
 socket.on('player4', function(data) {
     // output.innerHTML += '<p>' + data + '</p>';
-    window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+    window.location.href = "http://" + CurrentIP + ":3001/player4" + data;
 });

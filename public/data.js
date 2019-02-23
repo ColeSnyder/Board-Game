@@ -55,6 +55,7 @@ function CreatePlayer(Name, ID) {
     Player.name = Name;
     Player.ID =  ID;
     Player.Hand = [];
+    Player.points
 
     return Player;
 }
@@ -68,8 +69,9 @@ function Winner(Player) {
     return false;
  }
 
-function AddNumber() {
-
+function AddNumber(Player) {
+    //Select a number 
+    
 }
 
 function join(Player) {
@@ -124,24 +126,24 @@ function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
-// function setBoard() {
-//     console.log("Testing")
-//     for (let i = 0; i < Players.length; i++) {
-//         const Current = Players[i].Hand;
-//         for (let j = 0; j < Players.length; j++) {
-//             const element = Players[j].Hand;
+function setBoard() {
+    console.log("Testing")
+    for (let i = 0; i < Players.length; i++) {
+        const Current = Players[i].Hand;
+        for (let j = 0; j < Players.length; j++) {
+            const element = Players[j].Hand;
 
-//             var CurrentNum = (j+1) + (4*i)
-//             console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")")
-//             if(!Comapare(Current, element)){
-//                 console.log("This is a false")
-//                 $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
-//             }
-//             if(Comapare(Current, element)){
-//                 console.log("This is a truth")
-//                 $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
-//             }
-//         }
+            var CurrentNum = (j+1) + (4*i)
+            console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+1+")")
+            if(!Comapare(Current, element)){
+                console.log("This is a false")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+1+")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
+            }
+            if(Comapare(Current, element)){
+                console.log("This is a truth")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+1+")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
+            }
+        }
 //         }
 
 //   }
