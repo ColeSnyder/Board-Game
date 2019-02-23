@@ -1,22 +1,22 @@
 /*********************************** Public data ****************************************/
-//here we will store the data for the board(whether squares are green or red)
+//Public data will now be stored in 'connection.js' since we need the socket connection to send data. 
+//It also makes more sense to keep it there now
 
 /*********************************** Player 1 data ****************************************/
 
 var Players = [];
 
 var P1 = CreatePlayer("P1",1);
-FillHand(P1);
+FillHand(P1, "P1");
 console.log(P1.Hand);
 init(P1)
-
 
 
 
 /*********************************** Player 2 data ****************************************/
 
 var P2 = CreatePlayer("P2",2 );
-FillHand(P2);
+FillHand(P2, "P2");
 console.log(P2.Hand);
 
 
@@ -24,7 +24,7 @@ console.log(P2.Hand);
 /*********************************** Player 3 data ****************************************/
 
 var P3 = CreatePlayer("P3", 3);
-FillHand(P3);
+FillHand(P3, "P3");
 console.log(P3.Hand);
 
 
@@ -32,9 +32,9 @@ console.log(P3.Hand);
 /*********************************** Player 4 data ****************************************/
 
 var P4 = CreatePlayer("P4", 4);
-FillHand(P4);
+FillHand(P4, "P4");
 console.log(P4.Hand);
- ///  Testing  arera
+ ///  Testing  area
  document.addEventListener("DOMContentLoaded", function(event) {
     join();
     join();
@@ -107,13 +107,16 @@ function RandomNum() {
     return random
 }
 
-function FillHand(player) {
-   for (let i = 0; i < 3    ; i++) {
+function FillHand(player, playerString) {
+   for (let i = 0; i < 3; i++) {
         var Num =  RandomNum();
         if(player.Hand.includes(Num)){
            Num = RandomNum();
         }
-            player.Hand.push(Num)
+        document.getElementById(playerString + "-" + Num).style.opacity = .3;
+        console.log(Num);
+
+        player.Hand.push(Num)
    }
 }
 
@@ -121,9 +124,9 @@ function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
-function selectNumber(playerNum, idSelected, numberSelected) {
+function selectNumber(playerNum, numberSelected) {
     if (playerNum == 1) {
-        document.getElementById(idSelected).style.opacity = .3;
+        document.getElementById("P1-" + numberSelected).style.opacity = .3;
         P1.player.Hand.push(numberSelected);
     } else if (playerNum == 2) {
         document.getElementById(idSelected).style.opacity = .3;
