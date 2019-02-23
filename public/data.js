@@ -100,9 +100,7 @@ function RedOrGreen() {
             Comapare(Current, element)
             }
         }
-
     }
-
 
 function RandomNum() {
     var random =  Math.floor(Math.random() * 20) + 1
@@ -116,12 +114,29 @@ function FillHand(player) {
            Num = RandomNum();
         }
             player.Hand.push(Num)
-
    }
 }
 
 function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
+}
+
+function selectNumber(playerNum, idSelected, numberSelected) {
+    if (playerNum == 1) {
+        document.getElementById(idSelected).style.opacity = .3;
+        P1.player.Hand.push(numberSelected);
+    } else if (playerNum == 2) {
+        document.getElementById(idSelected).style.opacity = .3;
+        P2.player.Hand.push(numberSelected);
+    } else if (playerNum == 3) {
+        document.getElementById(idSelected).style.opacity = .3;
+        P1.player.Hand.push(numberSelected);
+    } else if (playerNum == 4) {
+        document.getElementById(idSelected).style.opacity = .3;
+        P1.player.Hand.push(numberSelected);
+    } else {
+        console.log("Player number not found");
+    }
 }
 
 // function setBoard() {
