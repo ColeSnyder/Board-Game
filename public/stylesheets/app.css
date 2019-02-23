@@ -111,8 +111,8 @@ font-size: .6em;
 .grid-container {
     display:  inline-grid;
     align-self: center;
-    grid-template-columns: 125px 125px 125px 125px;
-    grid-template-rows:  125px  125px  125px  125px;
+    grid-template-columns: 75px 125px 125px 125px 125px;
+    grid-template-rows:  75px 125px  125px  125px  125px;
     padding-top: 2%;
     width: 550px;
     justify-content: center;
