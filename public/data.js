@@ -141,7 +141,6 @@ function selectNumber(playerNum, numberSelected) {
         console.log("Player number not found");
     }
 }
-
 // function setBoard() {
 //     console.log("Testing")
 //     for (let i = 0; i < Players.length; i++) {

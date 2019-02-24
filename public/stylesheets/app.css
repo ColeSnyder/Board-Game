@@ -159,10 +159,10 @@ font-size: .6em;
   }
 
   .playerNumbers {
-    background-color: #F7F536;
+    background-color: #ffa342;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 10px;
-
+    border-radius: 5px;
     font-size: 30px;
     text-align: center;
   }
