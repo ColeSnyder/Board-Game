@@ -169,6 +169,7 @@ font-size: .6em;
 
   .playerNumbers:hover {
     cursor: pointer;
+    background-color: #ffaf5b;
   }
 
 header {
