@@ -4,7 +4,6 @@
     <title>Board Game</title>
     <link rel='stylesheet' href='/stylesheets/app.css' type="text/css"/>
     <link rel="icon" href="icon.png">
-
   </head>
   <body>
 
@@ -25,7 +24,7 @@
 
             <div id="selected-num">
               <p id="current-player"> Player <u>X</u> selected: </p>
-              <p id="current-num"> X </p>
+              <p id="current-num">  </p>
             </div>
             <div id="wins">
               <hr>
@@ -47,31 +46,31 @@
           <div class="grid-item">
         <div class="grid-container">
           
-          <div class="even"> </div>
-          <div class="odd"> P1</div>
-          <div class="even">P2 </div>
-          <div class="odd">P3</div>
-          <div class="even">P4</div>
+          <div class="labelBox" class="even"> </div>
+          <div class="labelBox" class="odd">P1</div>
+          <div class="labelBox" class="even">P2 </div>
+          <div class="labelBox" class="odd">P3</div>
+          <div class="labelBox" class="even">P4</div>
 
-          <div class="odd">P1</div>
-          <div class="even"></div>
-          <div class="odd"></div>
-          <div class="even"></div>
-          <div class="odd"></div>
-
-          <div class="even">P2</div>
-          <div class="odd"></div>
-          <div class="even"></div>
-          <div class="odd"></div>
-          <div class="even"></div>
-
-          <div class="odd">P3</div>
+          <div class="labelBox" class="odd">P1</div>
           <div class="even"></div>
           <div class="odd"></div>
           <div class="even"></div>
           <div class="odd"></div>
 
-          <div class="even">P4</div>
+          <div class="labelBox" class="even">P2</div>
+          <div class="odd"></div>
+          <div class="even"></div>
+          <div class="odd"></div>
+          <div class="even"></div>
+
+          <div class="labelBox" class="odd">P3</div>
+          <div class="even"></div>
+          <div class="odd"></div>
+          <div class="even"></div>
+          <div class="odd"></div>
+
+          <div class="labelBox" class="even">P4</div>
           <div class="odd"></div>
           <div class="even"></div>
           <div class="odd"></div>
@@ -90,7 +89,6 @@
           <div class="playerNumbers" id="P1-7" onclick='selectNumber(1, 7)'>7</div>
           <div class="playerNumbers" id="P1-8" onclick='selectNumber(1, 8)'>8</div>
           <div class="playerNumbers" id="P1-9" onclick='selectNumber(1, 9)'>9</div>
-
           <div class="playerNumbers" id="P1-10" onclick='selectNumber(1, 10)'>10</div>
           <div class="playerNumbers" id="P1-11" onclick='selectNumber(1, 11)'>11</div>
           <div class="playerNumbers" id="P1-12" onclick='selectNumber(1, 12)'>12</div>
@@ -111,6 +109,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="data.js"></script>
-    <script src="/connection"></script>
+    <script src="connection.js"></script>
   </body>
 </html>

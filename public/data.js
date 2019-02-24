@@ -9,7 +9,7 @@ var Players = [];
 var P1 = CreatePlayer("P1",1);
 FillHand(P1, "P1");
 console.log(P1.Hand);
-init(P1)
+init(P1);
 
 
 
@@ -18,7 +18,7 @@ init(P1)
 var P2 = CreatePlayer("P2",2 );
 FillHand(P2, "P2");
 console.log(P2.Hand);
-
+init(P2);
 
 
 /*********************************** Player 3 data ****************************************/
@@ -129,18 +129,19 @@ function selectNumber(playerNum, numberSelected) {
         document.getElementById("P1-" + numberSelected).style.opacity = .3;
         P1.player.Hand.push(numberSelected);
     } else if (playerNum == 2) {
-        document.getElementById(idSelected).style.opacity = .3;
+        document.getElementById("P2-" + numberSelected).style.opacity = .3;
         P2.player.Hand.push(numberSelected);
     } else if (playerNum == 3) {
-        document.getElementById(idSelected).style.opacity = .3;
-        P1.player.Hand.push(numberSelected);
+        document.getElementById("P3-" + numberSelected).style.opacity = .3;
+        P3.player.Hand.push(numberSelected);
     } else if (playerNum == 4) {
-        document.getElementById(idSelected).style.opacity = .3;
-        P1.player.Hand.push(numberSelected);
+        document.getElementById("P4-" + numberSelected).style.opacity = .3;
+        P4.player.Hand.push(numberSelected);
     } else {
         console.log("Player number not found");
     }
 }
+
 // function setBoard() {
 //     console.log("Testing")
 //     for (let i = 0; i < Players.length; i++) {

@@ -48,6 +48,15 @@ io.on('connection', function(socket) {
     var num = playerArray.length;
       io.to(socket.id).emit("player"+num, num);
   });
+
+  socket.on('P1Number', function(data) {
+    io.emit('P1Number', data);
+  });
+
+  socket.on('P2Number', function(data) {
+    io.sockets.emit('P2Number', data);
+  });
+
 });
 
 // Player position array ********************************************************************************
