@@ -57,12 +57,12 @@ for (i=0; i<buttonArray1.length; i++) {
     });
 }
 
-for (i=0; i<buttonArray2.length; i++) {
-    document.getElementById(buttonArray2[i]).addEventListener('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P2Number', numberChosen);
-    });
-}
+// for (i=0; i<buttonArray2.length; i++) {
+//     document.getElementById(buttonArray2[i]).addEventListener('click', function() {
+//         var numberChosen = this.innerHTML;
+//         socket.emit('P2Number', numberChosen);
+//     });
+// }
 
 
 socket.on('P1Number', function(data) {
@@ -70,7 +70,7 @@ socket.on('P1Number', function(data) {
     document.getElementById("current-num").innerHTML = data;
 });
 
-// socket.on('P2Number', function(data) {
-//     console.log("back into client side" + data);
-//     document.getElementById("current-num").innerHTML = data;
-// });
+socket.on('P2Number', function(data) {
+    console.log("back into client side" + data);
+    document.getElementById("current-num").innerHTML = data;
+});
