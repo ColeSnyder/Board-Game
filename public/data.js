@@ -1,5 +1,5 @@
 /*********************************** Public data ****************************************/
-//Public data will now be stored in 'connection.js' since we need the socket connection to send data. 
+//Public data will now be stored in 'connection.js' since we need the socket connection to send data.
 //It also makes more sense to keep it there now
 
 /*********************************** Player 1 data ****************************************/
@@ -36,6 +36,7 @@ FillHand(P4, "P4");
 console.log(P4.Hand);
  ///  Testing  area
  document.addEventListener("DOMContentLoaded", function(event) {
+
     join();
     join();
     join();
@@ -113,7 +114,7 @@ function FillHand(player, playerString) {
         if(player.Hand.includes(Num)){
            Num = RandomNum();
         }
-        document.getElementById(playerString + "-" + Num).style.opacity = .3;
+      //  document.getElementById(playerString + "-" + Num).style.opacity = .3;
         console.log(Num);
 
         player.Hand.push(Num)
@@ -142,24 +143,24 @@ function selectNumber(playerNum, numberSelected) {
     }
 }
 
-// function setBoard() {
-//     console.log("Testing")
-//     for (let i = 0; i < Players.length; i++) {
-//         const Current = Players[i].Hand;
-//         for (let j = 0; j < Players.length; j++) {
-//             const element = Players[j].Hand;
+function setBoard() {
+    console.log("Testing")
+    for (let i = 0; i < Players.length; i++) {
+        const Current = Players[i].Hand;
+        for (let j = 0; j < Players.length; j++) {
+            const element = Players[j].Hand;
 
-//             var CurrentNum = (j+1) + (4*i)
-//             console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")")
-//             if(!Comapare(Current, element)){
-//                 console.log("This is a false")
-//                 $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
-//             }
-//             if(Comapare(Current, element)){
-//                 console.log("This is a truth")
-//                 $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
-//             }
-//         }
-//         }
+            var CurrentNum = (j+1) + (4*i)
+            console.log("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")")
+            if(!Comapare(Current, element)){
+                console.log("This is a false")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
+            }
+            if(Comapare(Current, element)){
+                console.log("This is a truth")
+                $("body > main > div > div:nth-child(2) > div > div:nth-child("+CurrentNum+")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
+            }
+        }
+        }
 
-//   }
+  }
