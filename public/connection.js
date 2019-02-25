@@ -1,6 +1,6 @@
 var playerNum;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "10.19.32.145";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -57,13 +57,12 @@ for (i=0; i<buttonArray1.length; i++) {
     });
 }
 
-// for (i=0; i<buttonArray2.length; i++) {
-//     document.getElementById(buttonArray2[i]).addEventListener('click', function() {
-//         var numberChosen = this.innerHTML;
-//         socket.emit('P2Number', numberChosen);
-//     });
-// }
-
+for (i=0; i<buttonArray2.length; i++) {
+    document.getElementById(buttonArray2[i]).addEventListener('click', function() {
+        var numberChosen = this.innerHTML;
+        socket.emit('P2Number', numberChosen);
+    });
+}
 
 socket.on('P1Number', function(data) {
     console.log("back into client side" + data);

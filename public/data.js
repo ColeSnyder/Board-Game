@@ -10,6 +10,9 @@ var P1 = CreatePlayer("P1",1);
 FillHand(P1, "P1");
 console.log(P1.Hand);
 init(P1);
+document.getElementById("P1-" + P1.Hand[0]).style.opacity = .3;
+document.getElementById("P1-" + P1.Hand[1]).style.opacity = .3;
+document.getElementById("P1-" + P1.Hand[2]).style.opacity = .3;
 
 
 
@@ -17,7 +20,7 @@ init(P1);
 
 var P2 = CreatePlayer("P2",2 );
 FillHand(P2, "P2");
-console.log(P2.Hand);
+// console.log(P2.Hand);
 init(P2);
 
 
@@ -25,7 +28,7 @@ init(P2);
 
 var P3 = CreatePlayer("P3", 3);
 FillHand(P3, "P3");
-console.log(P3.Hand);
+// console.log(P3.Hand);
 
 
 
@@ -33,7 +36,7 @@ console.log(P3.Hand);
 
 var P4 = CreatePlayer("P4", 4);
 FillHand(P4, "P4");
-console.log(P4.Hand);
+// console.log(P4.Hand);
  ///  Testing  area
  document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -45,7 +48,7 @@ console.log(P4.Hand);
     RedOrGreen();
     setBoard();
     console.log("+++++++++++++++++++++")
-    console.log(Players)
+    // console.log(Players)
 
  });
 
@@ -61,8 +64,8 @@ function CreatePlayer(Name, ID) {
 }
 
 function Comapare(arr1, arr2) {
-    console.log(arr1 + "\n" + arr2)
-   console.log(arr2.every(val => arr1.includes(val)))
+    // console.log(arr1 + "\n" + arr2)
+//    console.log(arr2.every(val => arr1.includes(val)))
    return arr2.every(val => arr1.includes(val))
 }
 function Winner(Player) {
@@ -117,7 +120,7 @@ function FillHand(player, playerString) {
       //  document.getElementById(playerString + "-" + Num).style.opacity = .3;
         console.log(Num);
 
-        player.Hand.push(Num)
+        player.Hand.push(Num);
    }
 }
 
