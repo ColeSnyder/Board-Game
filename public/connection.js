@@ -1,6 +1,6 @@
 var playerNum;
 
-var CurrentIP = "10.19.35.218";
+var CurrentIP = "10.19.32.145";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -59,31 +59,27 @@ for(i=1; i<20; i++){
     buttonArray4.push(button);
 }
 
-for (i=0; i<buttonArray1.length; i++) {
-    $(buttonArray1[i]).on('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P1Number', numberChosen);
-    });
-}
 
-for (i=0; i<buttonArray2.length; i++) {
-    $(buttonArray2[i]).on('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P2Number', numberChosen);
-    });
-}
-for (i=0; i<buttonArray3.length; i++) {
-    $(buttonArray3[i]).on('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P3Number', numberChosen);
-    });
-}
-for (i=0; i<buttonArray4.length; i++) {
-    $(buttonArray4[i]).on('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P4Number', numberChosen);
-    });
-}
+   
+       
+// for (i=0; i<buttonArray2.length; i++) {
+//     $(buttonArray2[i]).on('click', function() {
+//         var numberChosen = this.innerHTML;
+//         socket.emit('P2Number', numberChosen);
+//     });
+// }
+// for (i=0; i<buttonArray3.length; i++) {
+//     $(buttonArray3[i]).on('click', function() {
+//         var numberChosen = this.innerHTML;
+//         socket.emit('P3Number', numberChosen);
+//     });
+// }
+// for (i=0; i<buttonArray4.length; i++) {
+//     $(buttonArray4[i]).on('click', function() {
+//         var numberChosen = this.innerHTML;
+//         socket.emit('P4Number', numberChosen);
+//     });
+// }
 
 socket.on('P1Number', function(data) {
     console.log("back into client side" + data);
@@ -204,10 +200,15 @@ function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
-function selectNumber(numberSelected) {
-
-        $(Player.Name+"-" + numberSelected).css("opacity", ".3")
-        return numberSelected
+function selectNumber(player, numberSelected) {
+        // console.log(Name+"-" + numberSelected);
+        // var Selector =  Player.Name+ '-' + numberSelected
+        // document.getElementById(Selector).style.opacity = "0.3";
+        document.getElementById("P"+player+"-"+numberSelected).style.opacity = .3;
+       
+        console.log(numberSelected)
+        socket.emit('P1Number', numberSelected);
+       
     
 }
 
