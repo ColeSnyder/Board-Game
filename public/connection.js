@@ -205,8 +205,9 @@ function init(Player){
 }
 
 function selectNumber(numberSelected) {
+        console.log(Name+"-" + numberSelected);
+        document.getElementById(Player.Name+ '-' + numberSelected).style.opacity = .3;
 
-        $(Player.Name+"-" + numberSelected).css("opacity", ".3")
         return numberSelected
     
 }
