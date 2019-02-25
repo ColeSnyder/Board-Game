@@ -59,13 +59,9 @@ for(i=1; i<20; i++){
     buttonArray4.push(button);
 }
 
-for (i=0; i<buttonArray1.length; i++) {
-    $(buttonArray1[i]).on('click', function() {
-        var numberChosen = this.innerHTML;
-        socket.emit('P1Number', numberChosen);
-    });
-}
 
+   
+       
 for (i=0; i<buttonArray2.length; i++) {
     $(buttonArray2[i]).on('click', function() {
         var numberChosen = this.innerHTML;
@@ -205,10 +201,14 @@ function init(Player){
 }
 
 function selectNumber(numberSelected) {
-        console.log(Name+"-" + numberSelected);
-        document.getElementById(Player.Name+ '-' + numberSelected).style.opacity = .3;
-
-        return numberSelected
+        // console.log(Name+"-" + numberSelected);
+        // var Selector =  Player.Name+ '-' + numberSelected
+        // document.getElementById(Selector).style.opacity = "0.3";
+     
+       
+        console.log(numberSelected)
+        socket.emit('P1Number', numberSelected);
+       
     
 }
 
