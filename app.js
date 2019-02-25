@@ -4,6 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
+var Player= []
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -52,9 +53,14 @@ io.on('connection', function(socket) {
   socket.on('P1Number', function(data) {
     io.emit('P1Number', data);
   });
-
+  
   socket.on('P2Number', function(data) {
     io.sockets.emit('P2Number', data);
+  });
+
+  socket.on('sendPlayer', function(data) {
+    Player.push(data)
+    console.log(Player)
   });
 
 });
