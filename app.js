@@ -53,9 +53,16 @@ io.on('connection', function(socket) {
   socket.on('P1Number', function(data) {
     io.emit('P1Number', data);
   });
-  
+
   socket.on('P2Number', function(data) {
     io.sockets.emit('P2Number', data);
+  });
+
+  socket.on('P3Number', function(data) {
+    io.emit('P3Number', data);
+  });
+  socket.on('P4Number', function(data) {
+    io.emit('P4Number', data);
   });
 
   socket.on('sendPlayer', function(data) {

@@ -38,7 +38,7 @@ socket.on('player4', function(data) {
 var buttonArray1 = [];
 var buttonArray2 = [];
 var buttonArray3 = [];
-var buttonArray3 = [];
+var buttonArray4 = [];
 
 for(i=1; i<20; i++){
     var button = "P1-" + i;
@@ -48,6 +48,15 @@ for(i=1; i<20; i++){
 for(i=1; i<20; i++){
     var button = "P2-" + i;
     buttonArray2.push(button);
+}
+
+for(i=1; i<20; i++){
+    var button = "P3-" + i;
+    buttonArray3.push(button);
+}
+for(i=1; i<20; i++){
+    var button = "P4-" + i;
+    buttonArray4.push(button);
 }
 
 for (i=0; i<buttonArray1.length; i++) {
@@ -63,6 +72,18 @@ for (i=0; i<buttonArray2.length; i++) {
         socket.emit('P2Number', numberChosen);
     });
 }
+for (i=0; i<buttonArray3.length; i++) {
+    $(buttonArray3[i]).on('click', function() {
+        var numberChosen = this.innerHTML;
+        socket.emit('P3Number', numberChosen);
+    });
+}
+for (i=0; i<buttonArray4.length; i++) {
+    $(buttonArray4[i]).on('click', function() {
+        var numberChosen = this.innerHTML;
+        socket.emit('P4Number', numberChosen);
+    });
+}
 
 socket.on('P1Number', function(data) {
     console.log("back into client side" + data);
@@ -70,6 +91,14 @@ socket.on('P1Number', function(data) {
 });
 
 socket.on('P2Number', function(data) {
+    console.log("back into client side" + data);
+    document.getElementById("current-num").innerHTML = data;
+});
+socket.on('P3Number', function(data) {
+    console.log("back into client side" + data);
+    document.getElementById("current-num").innerHTML = data;
+});
+socket.on('P4Number', function(data) {
     console.log("back into client side" + data);
     document.getElementById("current-num").innerHTML = data;
 });
