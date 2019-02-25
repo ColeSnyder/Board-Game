@@ -1,10 +1,10 @@
 var playerNum;
 
-var CurrentIP = "10.19.32.145";
+var CurrentIP = "10.19.32.172";
 
 var socket = io.connect(CurrentIP + ":3001");
 
-// ++BEGIN++ JOIN GAME CONTENT **************************************************************** 
+// ++BEGIN++ JOIN GAME CONTENT ****************************************************************
 // Query DOM
 var btn = document.getElementById("joinGameButton");
     output = document.getElementById("output");
@@ -33,7 +33,7 @@ socket.on('player3', function(data) {
 socket.on('player4', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
-// ++END++ JOIN GAME CONTENT **************************************************************** 
+// ++END++ JOIN GAME CONTENT ****************************************************************
 
 var buttonArray1 = [];
 var buttonArray2 = [];
@@ -51,14 +51,14 @@ for(i=1; i<20; i++){
 }
 
 for (i=0; i<buttonArray1.length; i++) {
-    document.getElementById(buttonArray1[i]).addEventListener('click', function() {
+    $(buttonArray1[i]).on('click', function() {
         var numberChosen = this.innerHTML;
         socket.emit('P1Number', numberChosen);
     });
 }
 
 for (i=0; i<buttonArray2.length; i++) {
-    document.getElementById(buttonArray2[i]).addEventListener('click', function() {
+    $(buttonArray2[i]).on('click', function() {
         var numberChosen = this.innerHTML;
         socket.emit('P2Number', numberChosen);
     });
@@ -77,7 +77,7 @@ socket.on('P2Number', function(data) {
 
 
 
-//*************************************** DATA HANDLING FROM HERE DOWN ************************************* 
+//*************************************** DATA HANDLING FROM HERE DOWN *************************************
 
 /*********************************** Public data ****************************************/
 //Public data will now be stored in 'connection.js' since we need the socket connection to send data.
@@ -103,6 +103,9 @@ var P2 = CreatePlayer("P2",2 );
 FillHand(P2, "P2");
 // console.log(P2.Hand);
 init(P2);
+document.getElementById("P2-" + P2.Hand[0]).style.opacity = .3;
+document.getElementById("P2-" + P2.Hand[1]).style.opacity = .3;
+document.getElementById("P2-" + P2.Hand[2]).style.opacity = .3;
 
 
 /*********************************** Player 3 data ****************************************/
@@ -248,4 +251,3 @@ function setBoard() {
         }
 
   }
-
