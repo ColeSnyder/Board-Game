@@ -51,7 +51,9 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P1Number', function(data) {
+    Player[0].Hand.push(data)
     io.emit('P1Number', data);
+    console.log
   });
   
   socket.on('P2Number', function(data) {

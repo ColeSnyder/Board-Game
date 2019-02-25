@@ -175,22 +175,11 @@ function init(Player){
     var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
-function selectNumber(playerNum, numberSelected) {
-    if (playerNum == 1) {
-        document.getElementById("P1-" + numberSelected).style.opacity = .3;
-        P1.player.Hand.push(numberSelected);
-    } else if (playerNum == 2) {
-        document.getElementById("P2-" + numberSelected).style.opacity = .3;
-        P2.player.Hand.push(numberSelected);
-    } else if (playerNum == 3) {
-        document.getElementById("P3-" + numberSelected).style.opacity = .3;
-        P3.player.Hand.push(numberSelected);
-    } else if (playerNum == 4) {
-        document.getElementById("P4-" + numberSelected).style.opacity = .3;
-        P4.player.Hand.push(numberSelected);
-    } else {
-        console.log("Player number not found");
-    }
+function selectNumber(numberSelected) {
+
+        $(Player.Name+"-" + numberSelected).css("opacity", ".3")
+        return numberSelected
+    
 }
 
 function setBoard() {
