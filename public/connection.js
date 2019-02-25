@@ -88,6 +88,12 @@ socket.on('P2Number', function(data) {
 var Player =  CreatePlayer(Name, ID)
 FillHand(Player)
 init(Player)
+
+// $("P"+ID+"-"+Player.Hand[0]).css("opacity", .3);
+document.getElementById("P"+ID+"-"+Player.Hand[0]).style.opacity = .3;
+document.getElementById("P"+ID+"-"+Player.Hand[1]).style.opacity = .3;
+document.getElementById("P"+ID+"-"+Player.Hand[2]).style.opacity = .3;
+
 socket.emit('sendPlayer', {
     Name: Player.Name,
     ID: Player.ID,
@@ -101,7 +107,6 @@ function CreatePlayer(Name, ID) {
     Player.name = Name;
     Player.ID =  ID;
     Player.Hand = [];
-
     return Player;
 }
 
