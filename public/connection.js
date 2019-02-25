@@ -1,6 +1,6 @@
 var playerNum;
 
-var CurrentIP = "10.19.35.218";
+var CurrentIP = "10.19.32.172";
 
 var socket = io.connect(CurrentIP + ":3001");
 
