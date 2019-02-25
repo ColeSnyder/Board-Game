@@ -76,8 +76,65 @@ socket.on('P2Number', function(data) {
 
 
 
-FillHand(CreatePlayer(Name, ID));
 
+//*************************************** DATA HANDLING FROM HERE DOWN ************************************* 
+
+/*********************************** Public data ****************************************/
+//Public data will now be stored in 'connection.js' since we need the socket connection to send data.
+//It also makes more sense to keep it there now
+
+/*********************************** Player 1 data ****************************************/
+
+var Players = [];
+
+var P1 = CreatePlayer("P1",1);
+FillHand(P1, "P1");
+console.log(P1.Hand);
+init(P1);
+document.getElementById("P1-" + P1.Hand[0]).style.opacity = .3;
+document.getElementById("P1-" + P1.Hand[1]).style.opacity = .3;
+document.getElementById("P1-" + P1.Hand[2]).style.opacity = .3;
+
+
+
+/*********************************** Player 2 data ****************************************/
+
+var P2 = CreatePlayer("P2",2 );
+FillHand(P2, "P2");
+// console.log(P2.Hand);
+init(P2);
+
+
+/*********************************** Player 3 data ****************************************/
+
+var P3 = CreatePlayer("P3", 3);
+FillHand(P3, "P3");
+// console.log(P3.Hand);
+
+
+
+/*********************************** Player 4 data ****************************************/
+
+var P4 = CreatePlayer("P4", 4);
+FillHand(P4, "P4");
+// console.log(P4.Hand);
+ ///  Testing  area
+ document.addEventListener("DOMContentLoaded", function(event) {
+
+    join();
+    join();
+    join();
+    join();
+    join(); // throws error test
+    RedOrGreen();
+    setBoard();
+    console.log("+++++++++++++++++++++")
+    // console.log(Players)
+
+ });
+
+
+/*********************************** Functions  ****************************************/
 function CreatePlayer(Name, ID) {
     var Player = [];
     Player.name = Name;
@@ -87,8 +144,9 @@ function CreatePlayer(Name, ID) {
     return Player;
 }
 
-
 function Comapare(arr1, arr2) {
+    // console.log(arr1 + "\n" + arr2)
+//    console.log(arr2.every(val => arr1.includes(val)))
    return arr2.every(val => arr1.includes(val))
 }
 function Winner(Player) {
@@ -143,7 +201,7 @@ function FillHand(player, playerString) {
       //  document.getElementById(playerString + "-" + Num).style.opacity = .3;
         console.log(Num);
 
-        player.Hand.push(Num)
+        player.Hand.push(Num);
    }
 }
 
