@@ -33,6 +33,7 @@ Feb 18th - 2 hours - player queue and join handling.
 Feb 21st - 3 hours - getting page routing working and adding coins
 Feb 24th - 1 hour - helping Cole with debugging backend
 Feb 25th - 5 hours - group work on backend
+Feb 25th - 2 hours - getting player turns figured out
 
 
 // Sid ******************************************************************************************
