@@ -2,11 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-<<<<<<< Updated upstream
 var CurrentIP = "192.168.0.16";
-=======
-var CurrentIP = "10.20.84.190";
->>>>>>> Stashed changes
 
 var socket = io.connect(CurrentIP + ":3001");
 
