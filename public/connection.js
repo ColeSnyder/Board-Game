@@ -195,6 +195,7 @@ function selectNumber(player, numberSelected) {
         console.log(numberSelected)
         socket.emit('P'+player+'Number', + numberSelected);
         console.log('P'+player+', ' + numberSelected);
+        document.getElementById("span1").innerHTML = player;
         document.getElementById("span").innerHTML = turnNumber + 1;
     }    
 }
