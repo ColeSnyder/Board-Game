@@ -23,6 +23,9 @@
 2/16 11:00 - 3:00PM => 4.0 HOURS 
 2/17 6:00 - 7:00PM => 1 HOUR - TESTING OF DATA AND FIXING BUG
 2/18 2:00 - 4:30 => 2.5 HOURS 
+2/20 10-3 - 5 hours 
+2/21 4-5 1 hour
+2/22 3-5 2 hours 
 
 // Steven Mcvicker ******************************************************************************************
 Frontend focus - 
