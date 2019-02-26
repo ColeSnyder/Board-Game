@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "192.168.0.17";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -223,7 +223,13 @@ function selectNumber(player, numberSelected) {
         console.log(numberSelected)
         socket.emit('P'+player+'Number', + numberSelected);
         console.log('P'+player+', ' + numberSelected);
+<<<<<<< HEAD
     }    
+=======
+        document.getElementById("span1").innerHTML = player;
+        document.getElementById("span").innerHTML = turnNumber + 1;
+    }
+>>>>>>> a13e62c716418682e9bb997ef82f0fc12d30da9a
 }
 
 function setBoard() {
