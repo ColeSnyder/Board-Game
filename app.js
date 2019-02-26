@@ -86,10 +86,9 @@ io.on('connection', function(socket) {
   });
 
   
-
 if(Player.length == 3 ){
   console.log("sending traffic....")
-  socket.broadcast.emit("getarray", {
+  io.emit("getarray", {
     Player
   })
 }
