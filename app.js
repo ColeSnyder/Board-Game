@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
-var Player= []
+var Player= [];
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,27 +51,28 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P1Number', function(data) {
-    console.log("helpo"+ data)
-    Player[0].Hand.push(data)
-    
+    Player[0].Hand.push(data);
+    console.log("hand is " +Player[0].Hand);
     io.emit('P1Number', data);
-    console.log(Player)
   });
 
   socket.on('P2Number', function(data) {
+    Player[1].Hand.push(data);
     io.sockets.emit('P2Number', data);
   });
 
   socket.on('P3Number', function(data) {
+    Player[2].Hand.push(data);
     io.emit('P3Number', data);
   });
   socket.on('P4Number', function(data) {
+    Player[3].Hand.push(data);
     io.emit('P4Number', data);
   });
 
   socket.on('sendPlayer', function(data) {
-    Player.push(data)
-    console.log(Player)
+    Player.push(data);
+    console.log(Player);
   });
 
 });
@@ -79,3 +80,8 @@ io.on('connection', function(socket) {
 // Player position array ********************************************************************************
 
 var playerArray = new Array;
+
+var playerArray1 = [];
+var playerArray2 = [];
+var playerArray3 = [];
+var playerArray4 = [];

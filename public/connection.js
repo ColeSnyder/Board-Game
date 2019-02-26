@@ -1,6 +1,6 @@
 var playerNum;
 
-var CurrentIP = "10.19.32.145";
+var CurrentIP = "192.168.0.16";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -60,26 +60,6 @@ for(i=1; i<20; i++){
 }
 
 
-   
-       
-// for (i=0; i<buttonArray2.length; i++) {
-//     $(buttonArray2[i]).on('click', function() {
-//         var numberChosen = this.innerHTML;
-//         socket.emit('P2Number', numberChosen);
-//     });
-// }
-// for (i=0; i<buttonArray3.length; i++) {
-//     $(buttonArray3[i]).on('click', function() {
-//         var numberChosen = this.innerHTML;
-//         socket.emit('P3Number', numberChosen);
-//     });
-// }
-// for (i=0; i<buttonArray4.length; i++) {
-//     $(buttonArray4[i]).on('click', function() {
-//         var numberChosen = this.innerHTML;
-//         socket.emit('P4Number', numberChosen);
-//     });
-// }
 
 socket.on('P1Number', function(data) {
     console.log("back into client side" + data);
@@ -197,18 +177,14 @@ function FillHand(player, playerString) {
 }
 
 function init(Player){
-    var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
+    // var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
 function selectNumber(player, numberSelected) {
-        // console.log(Name+"-" + numberSelected);
-        // var Selector =  Player.Name+ '-' + numberSelected
-        // document.getElementById(Selector).style.opacity = "0.3";
         document.getElementById("P"+player+"-"+numberSelected).style.opacity = .3;
-       
         console.log(numberSelected)
-        socket.emit('P1Number', numberSelected);
-       
+        socket.emit('P'+player+'Number', + numberSelected);
+        console.log('P'+player+', ' + numberSelected);
     
 }
 
