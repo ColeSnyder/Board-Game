@@ -1,12 +1,8 @@
 var playerNum;
 
-<<<<<<< HEAD
 var turnNumber = 1;
 
 var CurrentIP = "192.168.0.16";
-=======
-var CurrentIP = "10.19.32.145";
->>>>>>> 400cf76efd0997c329a3264e9949db000baacada
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -65,24 +61,37 @@ for(i=1; i<20; i++){
     buttonArray4.push(button);
 }
 
-socket.on('P1Number', function(data) {
-    console.log("back into client side" + data);
-    document.getElementById("current-num").innerHTML = data;
-});
+if(turnNumber == 1) {
+    socket.on('P1Number', function(data) {
+        console.log("back into client side" + data);
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+    });
+}
 
-socket.on('P2Number', function(data) {
-    console.log("back into client side" + data);
-    document.getElementById("current-num").innerHTML = data;
-});
-socket.on('P3Number', function(data) {
-    console.log("back into client side" + data);
-    document.getElementById("current-num").innerHTML = data;
-});
-socket.on('P4Number', function(data) {
-    console.log("back into client side" + data);
-    document.getElementById("current-num").innerHTML = data;
-});
+if(turnNumber == 2) {
+    socket.on('P2Number', function(data) {
+        console.log("back into client side" + data);
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+    });
+}
 
+if(turnNumber == 3) {
+    socket.on('P3Number', function(data) {
+        console.log("back into client side" + data);
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+    });
+}
+
+if(turnNumber == 4) {
+    socket.on('P4Number', function(data) {
+        console.log("back into client side" + data);
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber = 1;
+    });
+}
 
 
 
@@ -172,23 +181,22 @@ function FillHand(player, playerString) {
         if(player.Hand.includes(Num)){
            Num = RandomNum();
         }
-      //  document.getElementById(playerString + "-" + Num).style.opacity = .3;
         console.log(Num);
-
         player.Hand.push(Num);
    }
 }
 
 function init(Player){
-    // var PlayerNumber =  document.getElementById('numbers').innerHTML = "{"+ Player.Hand + "}";
 }
 
 function selectNumber(player, numberSelected) {
+    if(turnNumber == player) {
         document.getElementById("P"+player+"-"+numberSelected).style.opacity = .3;
         console.log(numberSelected)
         socket.emit('P'+player+'Number', + numberSelected);
         console.log('P'+player+', ' + numberSelected);
-    
+        document.getElementById("span").innerHTML = turnNumber + 1;
+    }    
 }
 
 function setBoard() {
