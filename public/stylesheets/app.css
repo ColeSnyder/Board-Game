@@ -17,6 +17,12 @@ h3 {
     text-align: center;
 }
 
+#current-num {
+  font-size: 2.5em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 button {
     /* since button is a built in css variable, put all styling for irregular buttons(like join)
     as their own item in css. I did this by adding a joinGameButton id and put all unique styling in there. */
