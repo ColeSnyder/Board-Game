@@ -91,6 +91,7 @@ for (i = 1; i < 20; i++) {
         }
     });
 
+
     socket.on('P3Number', function (data) {
         if (turnNumber == 3) {
             console.log("back into client side" + data);
@@ -118,6 +119,7 @@ for (i = 1; i < 20; i++) {
             turnNumber = 1;
         }
     });
+
 
 
 
