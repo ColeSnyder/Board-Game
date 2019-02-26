@@ -51,21 +51,26 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P1Number', function(data) {
-    console.log("helpo"+ data)
+  //  console.log("helpo"+ data)
     Player[0].Hand.push(data)
-    
+    console.log(Player[0])
     io.emit('P1Number', data);
-    console.log(Player)
   });
 
   socket.on('P2Number', function(data) {
-    io.sockets.emit('P2Number', data);
+    Player[1].Hand.push(data)
+    console.log(Player[1])
+    io.emit('P2Number', data);
   });
 
   socket.on('P3Number', function(data) {
+    Player[2].Hand.push(data)
+    console.log(Player[2])
     io.emit('P3Number', data);
   });
   socket.on('P4Number', function(data) {
+    Player[3].Hand.push(data)
+    console.log(Player[3])
     io.emit('P4Number', data);
   });
 
