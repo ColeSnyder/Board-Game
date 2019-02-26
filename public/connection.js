@@ -64,6 +64,12 @@ for(i=1; i<20; i++){
 if(turnNumber == 1) {
     socket.on('P1Number', function(data) {
         console.log("back into client side" + data);
+        if(document.getElementById("player")) {
+            document.getElementById("player").innerHTML = 1;
+        }
+        if(document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
+        }
         document.getElementById("current-num").innerHTML = data;
         turnNumber++;
     });
@@ -72,6 +78,12 @@ if(turnNumber == 1) {
 if(turnNumber == 2) {
     socket.on('P2Number', function(data) {
         console.log("back into client side" + data);
+        if(document.getElementById("player")) {
+            document.getElementById("player").innerHTML = 2;
+        }
+        if(document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
+        }
         document.getElementById("current-num").innerHTML = data;
         turnNumber++;
     });
@@ -80,6 +92,12 @@ if(turnNumber == 2) {
 if(turnNumber == 3) {
     socket.on('P3Number', function(data) {
         console.log("back into client side" + data);
+        if(document.getElementById("player")) {
+            document.getElementById("player").innerHTML = 3;
+        }
+        if(document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
+        }
         document.getElementById("current-num").innerHTML = data;
         turnNumber++;
     });
@@ -88,6 +106,12 @@ if(turnNumber == 3) {
 if(turnNumber == 4) {
     socket.on('P4Number', function(data) {
         console.log("back into client side" + data);
+        if(document.getElementById("player")) {
+            document.getElementById("player").innerHTML = 4;
+        }
+        if(document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
+        }
         document.getElementById("current-num").innerHTML = data;
         turnNumber = 1;
     });
@@ -191,12 +215,14 @@ function init(Player){
 
 function selectNumber(player, numberSelected) {
     if(turnNumber == player) {
+        // if(document.getElementById("player")) {
+        // document.getElementById("player").innerHTML = player.value;
+        // }
+        // document.getElementById("span").innerHTML = turnNumber + 1;
         document.getElementById("P"+player+"-"+numberSelected).style.opacity = .3;
         console.log(numberSelected)
         socket.emit('P'+player+'Number', + numberSelected);
         console.log('P'+player+', ' + numberSelected);
-        document.getElementById("span1").innerHTML = player;
-        document.getElementById("span").innerHTML = turnNumber + 1;
     }    
 }
 
