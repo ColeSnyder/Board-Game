@@ -119,7 +119,7 @@ for (i = 1; i < 20; i++) {
                 document.getElementById("Player").innerHTML = 4;
             }
             if (document.getElementById("span")) {
-                document.getElementById("span").innerHTML = turnNumber + 1;
+                document.getElementById("span").innerHTML = 1;
             }
             document.getElementById("current-num").innerHTML = data;
             turnNumber = 1;
