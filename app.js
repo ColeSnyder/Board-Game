@@ -57,16 +57,19 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P2Number', function(data) {
-    Player[1].Hand.push(data);
-    io.sockets.emit('P2Number', data);
+    Player[1].Hand.push(data)
+    console.log(Player[1])
+    io.emit('P2Number', data);
   });
 
   socket.on('P3Number', function(data) {
-    Player[2].Hand.push(data);
+    Player[2].Hand.push(data)
+    console.log(Player[2])
     io.emit('P3Number', data);
   });
   socket.on('P4Number', function(data) {
-    Player[3].Hand.push(data);
+    Player[3].Hand.push(data)
+    console.log(Player[3])
     io.emit('P4Number', data);
   });
 
