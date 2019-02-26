@@ -2,7 +2,11 @@ var playerNum;
 
 var turnNumber = 1;
 
+<<<<<<< Updated upstream
 var CurrentIP = "192.168.0.16";
+=======
+var CurrentIP = "10.20.84.190";
+>>>>>>> Stashed changes
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -34,6 +38,12 @@ socket.on('player3', function (data) {
 
 socket.on('player4', function (data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
+});
+socket.on('getarray', function(data){
+    console.log('received')
+    var Playerarray = data
+    console.log(Playerarray)
+    setBoard(Playerarray)
 });
 // ++END++ JOIN GAME CONTENT ****************************************************************
 
@@ -146,6 +156,7 @@ socket.emit('sendPlayer', {
     Hand: Player.Hand
 });
 
+
 /*********************************** Functions  ****************************************/
 function CreatePlayer(Name, ID) {
     var Player = [];
@@ -226,10 +237,11 @@ function selectNumber(player, numberSelected) {
     }
 }
 
-function setBoard() {
-    console.log("Testing")
+function setBoard(Players) {
+ console.log(Players);
+ 
     for (let i = 0; i < Players.length; i++) {
-        const Current = Players[i].Hand;
+        const Current = Player[i].Hand;
         for (let j = 0; j < Players.length; j++) {
             const element = Players[j].Hand;
 

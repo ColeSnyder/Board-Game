@@ -53,32 +53,46 @@ io.on('connection', function(socket) {
   socket.on('P1Number', function(data) {
     Player[0].Hand.push(data);
     console.log("hand is " +Player[0].Hand);
+    Player.sort();
     io.emit('P1Number', data);
   });
 
   socket.on('P2Number', function(data) {
     console.log("into p2");
     Player[1].Hand.push(data);
+    
     console.log(Player[1]);
     io.emit('P2Number', data);
   });
 
   socket.on('P3Number', function(data) {
     Player[2].Hand.push(data);
+    
     console.log(Player[2]);
     io.emit('P3Number', data);
   });
   socket.on('P4Number', function(data) {
     Player[3].Hand.push(data);
-    console.log(Player[3]);
+    
+    console.log(Player[4]);
     io.emit('P4Number', data);
   });
 
   socket.on('sendPlayer', function(data) {
+
     Player.push(data);
+
     console.log(Player);
   });
 
+  
+
+if(Player.length == 3 ){
+  console.log("sending traffic....")
+  socket.broadcast.emit("getarray", {
+    Player
+  })
+}
 
   
 });
@@ -91,3 +105,4 @@ var playerArray1 = [];
 var playerArray2 = [];
 var playerArray3 = [];
 var playerArray4 = [];
+
