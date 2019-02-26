@@ -57,6 +57,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P2Number', function(data) {
+    console.log("into p2");
     Player[1].Hand.push(data);
     console.log(Player[1]);
     io.emit('P2Number', data);
