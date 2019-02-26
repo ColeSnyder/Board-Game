@@ -1,5 +1,7 @@
 var playerNum;
 
+var turnNumber = 1;
+
 var CurrentIP = "192.168.0.16";
 
 var socket = io.connect(CurrentIP + ":3001");
@@ -59,8 +61,6 @@ for(i=1; i<20; i++){
     buttonArray4.push(button);
 }
 
-
-
 socket.on('P1Number', function(data) {
     console.log("back into client side" + data);
     document.getElementById("current-num").innerHTML = data;
@@ -90,9 +90,9 @@ socket.on('P4Number', function(data) {
 
 /*********************************** Player 1 data ****************************************/
 
-var Player =  CreatePlayer(Name, ID)
-FillHand(Player)
-init(Player)
+var Player =  CreatePlayer(Name, ID);
+FillHand(Player);
+init(Player);
 
 // $("P"+ID+"-"+Player.Hand[0]).css("opacity", .3);
 document.getElementById("P"+ID+"-"+Player.Hand[0]).style.opacity = .3;
@@ -103,9 +103,8 @@ socket.emit('sendPlayer', {
     Name: Player.Name,
     ID: Player.ID,
     Hand: Player.Hand
-})
+});
 
-console.log(Player)
 /*********************************** Functions  ****************************************/
 function CreatePlayer(Name, ID) {
     var Player = [];
