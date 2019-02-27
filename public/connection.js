@@ -149,6 +149,7 @@ document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
 socket.emit('sendPlayer', {
     Name: Player.Name,
     ID: Player.ID,
+    Points: 0,
     Hand: Player.Hand
 });
 console.log(Player)

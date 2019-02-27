@@ -5,7 +5,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
 var Player= [];
-
+var points = [];
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -93,6 +93,18 @@ if(Player.length == 3 ){
   })
 }
 
+socket.on('Player1Wins', function(data) {
+  
+});
+socket.on('Player2Wins', function(data) {
+ 
+});
+socket.on('Player3Wins', function(data) {
+  
+});
+socket.on('Player4Wins', function(data) {
+  
+});
 });
 
 // Player position array ********************************************************************************
