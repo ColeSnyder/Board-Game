@@ -15,6 +15,7 @@
 2/23 - 11:00-12:00 => 1.5 HOURS
 2/25 - 1:00-4:30 => 3.5 HOURS
 2/25 - 8:30-10:30 => 2 HOURS
+2/26 - 6:00-8:30 => 2.5 HOURS
 
 // ANDREW ******************************************************************************************
 2/7 - 6:30 - 8:15 => 1.75 HOURS
@@ -40,6 +41,7 @@ Feb 18th - 2 hours - player queue and join handling.
 Feb 21st - 3 hours - getting page routing working and adding coins
 Feb 24th - 1 hour - helping Cole with debugging backend
 Feb 25th - 5 hours - group work on backend
+Feb 26th - 2 hours 
 
 
 // Sid ******************************************************************************************
