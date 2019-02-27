@@ -58,7 +58,6 @@ io.on('connection', function(socket) {
   });
 
   socket.on('P2Number', function(data) {
-    console.log("into p2");
     Player[1].Hand.push(data);
     
     console.log(Player[1]);
@@ -79,12 +78,9 @@ io.on('connection', function(socket) {
   });
 
   socket.on('sendPlayer', function(data) {
-
     Player.push(data);
-
     console.log(Player);
   });
-
   
 if(Player.length == 3 ){
   console.log("sending traffic....")
@@ -93,7 +89,6 @@ if(Player.length == 3 ){
   })
 }
 
-  
 });
 
 // Player position array ********************************************************************************
@@ -104,4 +99,3 @@ var playerArray1 = [];
 var playerArray2 = [];
 var playerArray3 = [];
 var playerArray4 = [];
-
