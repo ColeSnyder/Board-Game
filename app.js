@@ -127,7 +127,26 @@ socket.on('Player4Wins', function(data) {
 //       Winner: Player[3]
 //   })
 // }
-
+function Comapare(arr1, arr2) {
+  return arr2.every(val => arr1.includes(val))
+}
+for (let i = 0; i < Player.length; i++) {
+  const current = Player[i];
+  for (let j = 0; j < Player.length; j++) {
+    const element = Player[j];
+    var Token =  current.Name+"-"+element.Name
+      if(Comapare(current.Hand, element.Hand)){
+        io.on("Change", {
+          Token
+        })
+      }
+  }
+}
+function Comapare(arr1, arr2) {
+  // console.log(arr1 + "\n" + arr2)
+  //    console.log(arr2.every(val => arr1.includes(val)))
+  return arr2.every(val => arr1.includes(val))
+}
 
 
 var playerArray = new Array;
