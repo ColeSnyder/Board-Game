@@ -126,7 +126,10 @@ for (i = 1; i < 20; i++) {
         }
     });
 
+    socket.on('Change', function (data) {
+        $(data).html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
 
+    });
 
 
 //*************************************** DATA HANDLING FROM HERE DOWN *************************************
@@ -163,11 +166,7 @@ function CreatePlayer(Name, ID) {
     return Player;
 }
 
-function Comapare(arr1, arr2) {
-    // console.log(arr1 + "\n" + arr2)
-    //    console.log(arr2.every(val => arr1.includes(val)))
-    return arr2.every(val => arr1.includes(val))
-}
+
 function Winner(Player) {
     return false;
 }
