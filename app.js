@@ -5,7 +5,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
 var Player= [];
-var points = [];
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -94,20 +94,41 @@ if(Player.length == 3 ){
 }
 
 socket.on('Player1Wins', function(data) {
-  
+    data.points++
 });
 socket.on('Player2Wins', function(data) {
- 
+  data.points++
 });
 socket.on('Player3Wins', function(data) {
-  
+  data.points++
 });
 socket.on('Player4Wins', function(data) {
-  
+  data.points++
 });
 });
-
 // Player position array ********************************************************************************
+if(Player[0].points == 10){
+  io.emit("GameoverP1", {
+      Winner: Player[0]
+  })
+}
+if(Player[1].points == 10){
+  io.emit("GameoverP1", {
+      Winner: Player[1]
+  })
+}
+if(Player[2].points == 10){
+  io.emit("GameoverP1", {
+      Winner: Player[2]
+  })
+}
+if(Player[3].points == 10){
+  io.emit("GameoverP1", {
+      Winner: Player[3]
+  })
+}
+
+
 
 var playerArray = new Array;
 
