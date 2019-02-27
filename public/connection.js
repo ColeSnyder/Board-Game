@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "10.19.37.146";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -151,7 +151,7 @@ socket.emit('sendPlayer', {
     ID: Player.ID,
     Hand: Player.Hand
 });
-
+console.log(Player)
 
 /*********************************** Functions  ****************************************/
 function CreatePlayer(Name, ID) {
@@ -234,24 +234,29 @@ function selectNumber(player, numberSelected) {
 }
 
 function setBoard(Players) {
+    console.log("setBoard Op")
  console.log(Players);
- 
-    for (let i = 0; i < Players.length; i++) {
-        const Current = Player[i].Hand;
-        for (let j = 0; j < Players.length; j++) {
-            const element = Players[j].Hand;
+ console.log(Object.keys(Player).length)
+    for (let i = 0; i < Object.keys(Player).length; i++) {
+        const Current = Player.Hand;
+        console.log("Here is the Players Hand "+ Player.Hand)
+        for (let j = 0; j < Object.keys(Player).length; j++) {
+            console.log(Players);
+            var first = JSON.stringify(Players)
+            var Playerslist = first.split("}")
+            console.log(first)
+            //const element = Players[j].Hand;
+            console.log("Hi "+ Players[1]);
+            // if (!Comapare(Current, element)) {
+            //     console.log("This is a false")
+            //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
+            // }
+            // if (Comapare(Current, element)) {
+            //     console.log("This is a truth")
+            //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
+            // }
 
-            var CurrentNum = (j + 1) + (4 * i)
-            console.log("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")")
-            if (!Comapare(Current, element)) {
-                console.log("This is a false")
-                $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
-            }
-            if (Comapare(Current, element)) {
-                console.log("This is a truth")
-                $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
-            }
         }
+        
     }
-
 }
