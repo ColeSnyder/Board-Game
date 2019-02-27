@@ -48,6 +48,14 @@ Feb 26th - 2 hours
 2/7- meeting group
 2/8- reading and understanding game -1-1.5 hrs
 2/9- began making the game board- 2 hrs
-2/10- logic understamding of game- 1.5 hrs
+2/10- logic understanding of game- 1.5 hrs
 2/14- understanding socket/node- 1hr
+2/17- individual game run through -2 hr
 2/19- working on the index and rules page-1-1.5 hrs
+2/20- Css for index page and work on other views-2hrs
+2/22- Changed the player grid to 5*5 -0.5 hrs
+2/23- undersood the functionality of data.js and app.js -2hrs
+2/25- team meeting to work on sending data to server -2-3hrs
+2/26- began commenting some areas -20 min
+2/27- group meeting after class - setting up goals-setting up furthur ids-2hrs
+ 
