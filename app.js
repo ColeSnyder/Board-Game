@@ -107,26 +107,26 @@ socket.on('Player4Wins', function(data) {
 });
 });
 // Player position array ********************************************************************************
-if(Player[0].points == 10){
-  io.emit("GameoverP1", {
-      Winner: Player[0]
-  })
-}
-if(Player[1].points == 10){
-  io.emit("GameoverP1", {
-      Winner: Player[1]
-  })
-}
-if(Player[2].points == 10){
-  io.emit("GameoverP1", {
-      Winner: Player[2]
-  })
-}
-if(Player[3].points == 10){
-  io.emit("GameoverP1", {
-      Winner: Player[3]
-  })
-}
+// if(Player[0].points == 10){
+//   io.emit("GameoverP1", {
+//       Winner: Player[0]
+//   })
+// }
+// if(Player[1].points == 10){
+//   io.emit("GameoverP1", {
+//       Winner: Player[1]
+//   })
+// }
+// if(Player[2].points == 10){
+//   io.emit("GameoverP1", {
+//       Winner: Player[2]
+//   })
+// }
+// if(Player[3].points == 10){
+//   io.emit("GameoverP1", {
+//       Winner: Player[3]
+//   })
+// }
 
 
 

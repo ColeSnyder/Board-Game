@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "10.19.37.146";
+var CurrentIP = "10.19.80.214";
 
 var socket = io.connect(CurrentIP + ":3001");
 
