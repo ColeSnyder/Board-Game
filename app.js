@@ -60,10 +60,10 @@ io.on('connection', function(socket) {
 
         //save response from compare to variable
 
-        io.emit('P1Number', {
-            data,
+        io.emit('P1Number',
+            data
             //whatever the other variable is
-        });
+        );
     });
 
     socket.on('P2Number', function(data) {
@@ -93,25 +93,25 @@ io.on('connection', function(socket) {
         console.log(Player);
     });
 
-    // if(Player.length == 3 ){
-    //   console.log("sending traffic....")
-    //   io.emit("getarray", {
-    //     Player
-    //   });
+    // if (Player.length == 3) {
+    //     console.log("sending traffic....")
+    //     io.emit("getarray", {
+    //         Player
+    //     });
     // }
 
-    socket.on('Player1Wins', function(data) {
-        data.points++
-    });
-    socket.on('Player2Wins', function(data) {
-        data.points++
-    });
-    socket.on('Player3Wins', function(data) {
-        data.points++
-    });
-    socket.on('Player4Wins', function(data) {
-        data.points++
-    });
+    // socket.on('Player1Wins', function(data) {
+    //     data.points++
+    // });
+    // socket.on('Player2Wins', function(data) {
+    //     data.points++
+    // });
+    // socket.on('Player3Wins', function(data) {
+    //     data.points++
+    // });
+    // socket.on('Player4Wins', function(data) {
+    //     data.points++
+    // });
 
 });
 // Player position array ********************************************************************************
@@ -135,10 +135,13 @@ io.on('connection', function(socket) {
 //       Winner: Player[3]
 //   })
 // }
-function Comapare(currentPlayer, player2, player3, player4) {
-    var firstCompare = player2.Hand.every(val => currentPlayer.Hand.includes(val));
-    var secondCompare = player3.Hand.every(val => currentPlayer.Hand.includes(val));
-    var thirdCompare = player4.Hand.every(val => currentPlayer.Hand.includes(val));
+function Comapare(currentPlayer, temp2, temp3, temp4) {
+    var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
+    console.log(firstCompare)
+    var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
+    console.log(secondCompare)
+    var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
+    console.log(thirdCompare)
 
 
 

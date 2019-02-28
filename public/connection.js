@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "192.168.0.17";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -13,26 +13,25 @@ output = document.getElementById("output");
 
 // Emit
 if (btn) {
-    btn.addEventListener('click', function () {
-        socket.emit('object', {
-        });
+    btn.addEventListener('click', function() {
+        socket.emit('object', {});
     });
 }
 
 //Listen for events
-socket.on('player1', function (data) {
+socket.on('player1', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
 
-socket.on('player2', function (data) {
+socket.on('player2', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
 
-socket.on('player3', function (data) {
+socket.on('player3', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
 
-socket.on('player4', function (data) {
+socket.on('player4', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
 // socket.on('getarray', function(data){
@@ -68,68 +67,68 @@ for (i = 1; i < 20; i++) {
 }
 
 
-    socket.on('P1Number', function (data) {
-        if (turnNumber == 1) {
-            console.log("back into client side" + data);
-            if (document.getElementById("Player")) {
-                document.getElementById("Player").innerHTML = 1;
-            }
-            if (document.getElementById("span")) {
-                document.getElementById("span").innerHTML = turnNumber + 1;
-            }
-            document.getElementById("current-num").innerHTML = data;
-            turnNumber++;
-            console.log(turnNumber);
+socket.on('P1Number', function(data) {
+    if (turnNumber == 1) {
+        console.log("back into client side" + data);
+        if (document.getElementById("Player")) {
+            document.getElementById("Player").innerHTML = 1;
         }
-    });
-
-    socket.on('P2Number', function (data) {
-        if (turnNumber == 2) {
-            console.log("back into client side" + data);
-            if (document.getElementById("Player")) {
-                document.getElementById("Player").innerHTML = 2;
-            }
-            if (document.getElementById("span")) {
-                document.getElementById("span").innerHTML = turnNumber + 1;
-            }
-            document.getElementById("current-num").innerHTML = data;
-            turnNumber++;
+        if (document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
         }
-    });
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+        console.log(turnNumber);
+    }
+});
 
-
-    socket.on('P3Number', function (data) {
-        if (turnNumber == 3) {
-            console.log("back into client side" + data);
-            if (document.getElementById("Player")) {
-                document.getElementById("Player").innerHTML = 3;
-            }
-            if (document.getElementById("span")) {
-                document.getElementById("span").innerHTML = turnNumber + 1;
-            }
-            document.getElementById("current-num").innerHTML = data;
-            turnNumber++;
+socket.on('P2Number', function(data) {
+    if (turnNumber == 2) {
+        console.log("back into client side" + data);
+        if (document.getElementById("Player")) {
+            document.getElementById("Player").innerHTML = 2;
         }
-    });
-
-    socket.on('P4Number', function (data) {
-        if (turnNumber == 4) {
-            console.log("back into client side" + data);
-            if (document.getElementById("Player")) {
-                document.getElementById("Player").innerHTML = 4;
-            }
-            if (document.getElementById("span")) {
-                document.getElementById("span").innerHTML = 1;
-            }
-            document.getElementById("current-num").innerHTML = data;
-            turnNumber = 1;
+        if (document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
         }
-    });
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+    }
+});
 
-    socket.on('Change', function (data) {
-        $(data).html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
 
-    });
+socket.on('P3Number', function(data) {
+    if (turnNumber == 3) {
+        console.log("back into client side" + data);
+        if (document.getElementById("Player")) {
+            document.getElementById("Player").innerHTML = 3;
+        }
+        if (document.getElementById("span")) {
+            document.getElementById("span").innerHTML = turnNumber + 1;
+        }
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber++;
+    }
+});
+
+socket.on('P4Number', function(data) {
+    if (turnNumber == 4) {
+        console.log("back into client side" + data);
+        if (document.getElementById("Player")) {
+            document.getElementById("Player").innerHTML = 4;
+        }
+        if (document.getElementById("span")) {
+            document.getElementById("span").innerHTML = 1;
+        }
+        document.getElementById("current-num").innerHTML = data;
+        turnNumber = 1;
+    }
+});
+
+socket.on('Change', function(data) {
+    $(data).html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
+
+});
 
 
 //*************************************** DATA HANDLING FROM HERE DOWN *************************************
@@ -189,6 +188,7 @@ function join(Player) {
         Players.push(P4);
     }
 }
+
 function Disconnect(Player) {
     // no idea how we want to impliment this
 }
@@ -221,42 +221,41 @@ function FillHand(player, playerString) {
     }
 }
 
-function init(Player) {
-}
+function init(Player) {}
 
 function selectNumber(player, numberSelected) {
     if (turnNumber == player) {
         document.getElementById("P" + player + "-" + numberSelected).style.opacity = .3;
         console.log(numberSelected)
-        socket.emit('P' +player+ 'Number', + numberSelected);
+        socket.emit('P' + player + 'Number', +numberSelected);
         console.log('P' + player + ', ' + numberSelected);
     }
 }
 
-function setBoard(Players) {
-    console.log("setBoard Op")
- console.log(Players);
- console.log(Object.keys(Player).length)
-    for (let i = 0; i < Object.keys(Player).length; i++) {
-        const Current = Player.Hand;
-        console.log("Here is the Players Hand "+ Player.Hand)
-        for (let j = 0; j < Object.keys(Player).length; j++) {
-            console.log(Players);
-            var first = JSON.stringify(Players)
-            var Playerslist = first.split("}")
-            console.log(first)
-            //const element = Players[j].Hand;
-            console.log("Hi "+ Players[1]);
-            // if (!Comapare(Current, element)) {
-            //     console.log("This is a false")
-            //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
-            // }
-            // if (Comapare(Current, element)) {
-            //     console.log("This is a truth")
-            //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
-            // }
+// function setBoard(Players) {
+//     console.log("setBoard Op")
+//     console.log(Players);
+//     console.log(Object.keys(Player).length)
+//     for (let i = 0; i < Object.keys(Player).length; i++) {
+//         const Current = Player.Hand;
+//         console.log("Here is the Players Hand " + Player.Hand)
+//         for (let j = 0; j < Object.keys(Player).length; j++) {
+//             console.log(Players);
+//             var first = JSON.stringify(Players)
+//             var Playerslist = first.split("}")
+//             console.log(first)
+//                 //const element = Players[j].Hand;
+//             console.log("Hi " + Players[1]);
+//             // if (!Comapare(Current, element)) {
+//             //     console.log("This is a false")
+//             //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
+//             // }
+//             // if (Comapare(Current, element)) {
+//             //     console.log("This is a truth")
+//             //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
+//             // }
 
-        }
-        
-    }
-}
+//         }
+
+//     }
+// }
