@@ -54,8 +54,16 @@ io.on('connection', function(socket) {
     Player[0].Hand.push(data);
     console.log(Player)
     console.log("hand is " +Player[0].Hand);
-    io.emit('P1Number', data);
-   
+
+    //call compare function
+    Comapare(Player[0], Player[1], Player[2], Player[3]);
+
+    //save response from compare to variable
+
+    io.emit('P1Number', {
+      data,
+      //whatever the other variable is
+    });
   });
 
   socket.on('P2Number', function(data) {
@@ -63,7 +71,6 @@ io.on('connection', function(socket) {
     console.log(Player)
     console.log(Player[1]);
     io.emit('P2Number', data);
-   
   });
 
   socket.on('P3Number', function(data) {
@@ -86,12 +93,12 @@ io.on('connection', function(socket) {
     console.log(Player);
   });
   
-if(Player.length == 3 ){
-  console.log("sending traffic....")
-  io.emit("getarray", {
-    Player
-  })
-}
+// if(Player.length == 3 ){
+//   console.log("sending traffic....")
+//   io.emit("getarray", {
+//     Player
+//   });
+// }
 
 socket.on('Player1Wins', function(data) {
     data.points++
@@ -105,6 +112,7 @@ socket.on('Player3Wins', function(data) {
 socket.on('Player4Wins', function(data) {
   data.points++
 });
+
 });
 // Player position array ********************************************************************************
 // if(Player[0].points == 10){
@@ -127,9 +135,42 @@ socket.on('Player4Wins', function(data) {
 //       Winner: Player[3]
 //   })
 // }
-function Comapare(arr1, arr2) {
-  return arr2.every(val => arr1.includes(val))
+function Comapare(player1, player2, player3, player4) {
+  var firstCompare = player2.Hand.every(val => player1.Hand.includes(val));
+  var secondCompare = player3.Hand.every(val => player1.Hand.includes(val));
+  var thirdCompare = player4.Hand.every(val => player1.Hand.includes(val));
+  
+  
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 for (let i = 0; i < Player.length; i++) {
   const current = Player[i];
   for (let j = 0; j < Player.length; j++) {
@@ -141,11 +182,6 @@ for (let i = 0; i < Player.length; i++) {
         })
       }
   }
-}
-function Comapare(arr1, arr2) {
-  // console.log(arr1 + "\n" + arr2)
-  //    console.log(arr2.every(val => arr1.includes(val)))
-  return arr2.every(val => arr1.includes(val))
 }
 
 

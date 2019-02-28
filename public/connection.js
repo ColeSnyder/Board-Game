@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "10.19.80.214";
+var CurrentIP = "192.168.0.16";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -35,12 +35,12 @@ socket.on('player3', function (data) {
 socket.on('player4', function (data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
-socket.on('getarray', function(data){
-    console.log('received')
-    var Playerarray = data
-    console.log(Playerarray)
-    setBoard(Playerarray)
-});
+// socket.on('getarray', function(data){
+//     console.log('received')
+//     var Playerarray = data
+//     console.log(Playerarray)
+//     setBoard(Playerarray)
+// });
 // ++END++ JOIN GAME CONTENT ****************************************************************
 
 var buttonArray1 = [];
