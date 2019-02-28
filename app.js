@@ -100,18 +100,46 @@ io.on('connection', function(socket) {
     //     });
     // }
 
-    // socket.on('Player1Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player2Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player3Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player4Wins', function(data) {
-    //     data.points++
-    // });
+    socket.on('Player1Wins', function(data) {
+        for (let i = 0; i < Player[0].Hand.length - 3; i++) {
+          var sum = 0;
+          sum +=  Player[0].Hand[i]
+        }
+        Player[0].points += sum;
+        Player[1].points += 10
+        Player[2].points += 10
+        Player[3].points += 10
+    });
+    socket.on('Player2Wins', function(data) {
+      for (let i = 0; i < Player[1].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[1].Hand[i]
+      }
+      Player[1].points += sum;
+      Player[0].points += 10
+      Player[2].points += 10
+      Player[3].points += 10
+    });
+    socket.on('Player3Wins', function(data) {
+      for (let i = 0; i < Player[2].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[2].Hand[i]
+      }
+      Player[2].points += sum;
+      Player[1].points += 10
+      Player[0].points += 10
+      Player[3].points += 10
+    });
+    socket.on('Player4Wins', function(data) {
+      for (let i = 0; i < Player[3].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[3].Hand[i]
+      }
+      Player[3].points += sum;
+      Player[1].points += 10
+      Player[2].points += 10
+      Player[0].points += 10
+    });
 
 });
 // Player position array ********************************************************************************
