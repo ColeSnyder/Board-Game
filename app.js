@@ -154,11 +154,11 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
         match += "p" + currentPlayer.ID + "p" + temp4.ID + " ";
     }
     console.log(thirdCompare);
-    
-    console.log(match.value);
 
+    console.log(match);
+    // return match;
     if (match != null) {
-      return match.value;
+      return match;
     }
 
 }
