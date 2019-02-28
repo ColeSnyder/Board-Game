@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "10.19.88.203";
+var CurrentIP = "10.19.36.45";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -230,15 +230,36 @@ function selectNumber(player, numberSelected) {
         console.log('P' + player + ', ' + numberSelected);
     }
 }
-
+setboard()
 function setboard() {
-console.log("into setboard");
-var green = document.createElement("green");
+// console.log("into setboard");
+// var green = document.createElement("green");
 
-green.src = "http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png";
-var area = document.getElementById("p1p1");
+// green.src = "http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png";
+// $("p1p1").html("http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png");
  
-area.appendChild(green);
+// area.appendChild(green);
+
+var id = ["p1","p2","p3","p4"]
+
+for (let i = 0; i < 4; i++) {
+    var element = id[i]
+    for (let j = 0; j < 4; j++) {
+        const current = id[j];
+        
+        var IDedit = element+current
+        console.log(IDedit)
+        if(element == current){
+            console.log("Green")
+            document.getElementById(IDedit).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"
+        }else{
+            console.log("red")
+            document.getElementById(IDedit).innerHTML = "<img src=\"http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png\">"
+            
+        }
+    }
+    
+}
 }
  
 
