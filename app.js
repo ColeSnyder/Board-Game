@@ -56,7 +56,7 @@ io.on('connection', function(socket) {
         console.log(Player[0]);
         //call compare function
         Comapare(Player[0], Player[1], Player[2], Player[3]);
-        console.log(Player[0].ID);
+        // console.log(Player[0].ID);
         //save response from compare to variable
         io.emit('P1Number', data);
     });
@@ -155,52 +155,31 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
     }
     console.log(thirdCompare);
 
-    console.log(match);
+    if(match != undefined){
+      console.log(match);
+    }
     // return match;
     if (match != null) {
       return match;
     }
-
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-for (let i = 0; i < Player.length; i++) {
-    const current = Player[i];
-    for (let j = 0; j < Player.length; j++) {
-        const element = Player[j];
-        var Token = current.Name + "-" + element.Name
-        if (Comapare(current.Hand, element.Hand)) {
-            io.on("Change", {
-                Token
-            })
-        }
-    }
-}
+// for (let i = 0; i < Player.length; i++) {
+//     const current = Player[i];
+//     for (let j = 0; j < Player.length; j++) {
+//         const element = Player[j];
+//         var Token = current.Name + "-" + element.Name
+//         if (Comapare(current.Hand, element.Hand)) {
+//             io.on("Change", {
+//                 Token
+//             })
+//         }
+//     }
+// }
 
 
 var playerArray = new Array;
