@@ -56,6 +56,7 @@ io.on('connection', function(socket) {
         console.log(Player[0]);
         //call compare function
         Comapare(Player[0], Player[1], Player[2], Player[3]);
+        console.log(Player[0].ID);
         //save response from compare to variable
         io.emit('P1Number', data);
     });
@@ -138,23 +139,22 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
 
     var match
 
-
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
     if (firstCompare == true) {
-        match = "p" + currentPlayer.id + "p" + temp2.id + " ";
+        match = "p" + currentPlayer.ID + "p" + temp2.ID + " ";
     }
     console.log(firstCompare);
     var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
     if (secondCompare == true) {
-        match += "p" + currentPlayer.id + "p" + temp3.id + " ";
+        match += "p" + currentPlayer.ID + "p" + temp3.ID + " ";
     }
     console.log(secondCompare);
     var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
     if (thirdCompare == true) {
-        match += "p" + currentPlayer.id + "p" + temp4.id + " ";
+        match += "p" + currentPlayer.ID + "p" + temp4.ID + " ";
     }
     console.log(thirdCompare);
-    console.log(match);
+    console.log(match.value);
     return match;
 
 
