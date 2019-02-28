@@ -53,23 +53,18 @@ io.on('connection', function(socket) {
     socket.on('P1Number', function(data) {
         Player[0].Hand.push(data);
         console.log(Player)
-        console.log("hand is " + Player[0].Hand);
-
+        console.log(Player[0]);
         //call compare function
         Comapare(Player[0], Player[1], Player[2], Player[3]);
-
         //save response from compare to variable
-
-        io.emit('P1Number',
-            data
-            //whatever the other variable is
-        );
+        io.emit('P1Number', data);
     });
 
     socket.on('P2Number', function(data) {
         Player[1].Hand.push(data);
         console.log(Player)
         console.log(Player[1]);
+        Comapare(Player[1], Player[0], Player[2], Player[3]);
         io.emit('P2Number', data);
     });
 
@@ -77,6 +72,7 @@ io.on('connection', function(socket) {
         Player[2].Hand.push(data);
         console.log(Player)
         console.log(Player[2]);
+        Comapare(Player[2], Player[0], Player[1], Player[3]);
         io.emit('P3Number', data);
 
     });
@@ -84,6 +80,7 @@ io.on('connection', function(socket) {
         Player[3].Hand.push(data);
         console.log(Player)
         console.log(Player[3]);
+        Comapare(Player[3], Player[0], Player[1], Player[2]);
         io.emit('P4Number', data);
 
     });
