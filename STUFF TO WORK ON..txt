@@ -1,5 +1,5 @@
-1)Setboard function :- throws initial board state-WORKING ON (SID)
-2)Handle comparison server side
+1)Setboard function :- throws initial board state- DONE - Cole
+2)Handle comparison server side - Done - Steven and Cole
 3)sending info from server to client based on if someone becomes a subset of the other
 4)Keep track of player points ingame (at the end of every round) track player wins(who won at the end of each game)
 5)determine winner at the end using player wins and player points
