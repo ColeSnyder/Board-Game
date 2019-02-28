@@ -66,7 +66,8 @@ io.on('connection', function(socket) {
         console.log(Player[1]);
         var match = Comapare(Player[1], Player[0], Player[2], Player[3]);
 
-        io.emit('P2Number', {data, match});
+        // io.emit('P2Number', {data, match});
+        io.emit('P2Number', data);
     });
 
     socket.on('P3Number', function(data) {
@@ -135,27 +136,27 @@ io.on('connection', function(socket) {
 // }
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
-  var match
+    var match
 
 
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
-    if(firstCompare == true) {
-      match = "p" + currentPlayer.id + "p" + temp2.id + " ";
+    if (firstCompare == true) {
+        match = "p" + currentPlayer.id + "p" + temp2.id + " ";
     }
     console.log(firstCompare);
     var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
-    if(secondCompare == true) {
-      match += "p" + currentPlayer.id + "p" + temp3.id + " ";
+    if (secondCompare == true) {
+        match += "p" + currentPlayer.id + "p" + temp3.id + " ";
     }
     console.log(secondCompare);
     var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
-    if(thirdCompare == true) {
-      match += "p" + currentPlayer.id + "p" + temp4.id + " ";
+    if (thirdCompare == true) {
+        match += "p" + currentPlayer.id + "p" + temp4.id + " ";
     }
     console.log(thirdCompare);
-
-    return match;
     console.log(match);
+    return match;
+
 
 }
 
