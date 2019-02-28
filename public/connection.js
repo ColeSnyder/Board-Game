@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "10.19.88.203";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -143,7 +143,6 @@ var Player = CreatePlayer(Name, ID);
 FillHand(Player);
 init(Player);
 
-// $("P"+ID+"-"+Player.Hand[0]).css("opacity", .3);
 document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
 document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
 document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -231,6 +230,20 @@ function selectNumber(player, numberSelected) {
         console.log('P' + player + ', ' + numberSelected);
     }
 }
+
+function setboard() {
+console.log("into setboard");
+var green = document.createElement("green");
+
+green.src = "http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png";
+var area = document.getElementById("p1p1");
+ 
+area.appendChild(green);
+}
+ 
+
+
+
 
 // function setBoard(Players) {
 //     console.log("setBoard Op")

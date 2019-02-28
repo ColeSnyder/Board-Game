@@ -137,7 +137,7 @@ io.on('connection', function(socket) {
 // }
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
-    var match
+    var match;
 
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
     if (firstCompare == true) {
@@ -154,9 +154,12 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
         match += "p" + currentPlayer.ID + "p" + temp4.ID + " ";
     }
     console.log(thirdCompare);
+    
     console.log(match.value);
-    return match;
 
+    if (match != null) {
+      return match.value;
+    }
 
 }
 
