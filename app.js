@@ -227,11 +227,60 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
         console.log("Player 3 points:" + Player[2].roundPoints);
         console.log("Player 4 points:" + Player[3].roundPoints);
 
+        if (match == "p1p2" && p1p2 == false) {
+            p1p2 = true;
+            return match;
+        }
+        if (match == "p1p3" && p1p3 == false) {
+            p1p3 = true;
+            return match;
+        }
+        if (match == "p1p4" && p1p4 == false) {
+            p1p4 = true;
+            return match;
+        }
+        if (match == "p2p1" && p2p1 == false) {
+            p2p1 = true;
+            return match;
+        }
+        if (match == "p2p3" && p2p3 == false) {
+            p2p3 = true;
+            return match;
+        }
+        if (match == "p2p4" && p2p4 == false) {
+            p2p4 = true;
+            return match;
+        }
+        if (match == "p3p1" && p3p1 == false) {
+            p3p1 = true;
+            return match;
+        }
+        if (match == "p3p2" && p3p2 == false) {
+            p3p2 = true;
+            return match;
+        }
+        if (match == "p3p4" && p3p4 == false) {
+            p3p4 = true;
+            return match;
+        }
+        if (match == "p4p1" && p4p1 == false) {
+            p4p1 = true;
+            return match;
+        }
+        if (match == "p4p2" && p4p2 == false) {
+            p4p2 = true;
+            return match;
+        }
+        if (match == "p4p3" && p4p3 == false) {
+            p4p3 = true;
+            return match;
+        }
+
     }
     // return match;
-    if (match != null) {
-        return match;
-    }
+    // if (match != null) {
+    //     return match;
+    // }
 }
 
 
