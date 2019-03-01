@@ -288,6 +288,10 @@ function setboard() {
     }
 }
 
+function updatePoints() {
+    
+}
+
 socket.on('Player1Wins', function(data) {
     var player1Points = data.P1Points;
     var player2Points = data.P2Points;
@@ -297,6 +301,7 @@ socket.on('Player1Wins', function(data) {
     console.log("player2: " + player2Points);
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
+    setboard();
 });
 
 socket.on('Player2Wins', function(data) {
@@ -308,6 +313,7 @@ socket.on('Player2Wins', function(data) {
     console.log("player2: " + player2Points);
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
+    setboard();
 });
 
 socket.on('Player3Wins', function(data) {
@@ -319,6 +325,7 @@ socket.on('Player3Wins', function(data) {
     console.log("player2: " + player2Points);
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
+    setboard();
 });
 
 socket.on('Player4Wins', function(data) {
@@ -330,6 +337,7 @@ socket.on('Player4Wins', function(data) {
     console.log("player2: " + player2Points);
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
+    setboard();
 });
 
 
