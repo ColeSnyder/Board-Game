@@ -5,10 +5,19 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
 var Player = [];
-// var player1roundpoints = 0;
-// var player2roundpoints = 0;
-// var player3roundpoints = 0;
-// var player4roundpoints = 0;
+var p1p2 = false;
+var p1p3 = false;
+var p1p4 = false;
+var p2p1 = false;
+var p2p3 = false;
+var p2p4 = false;
+var p3p1 = false;
+var p3p2 = false;
+var p3p4 = false;
+var p4p1 = false;
+var p4p2 = false;
+var p4p3 = false;
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -193,7 +202,7 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
     console.log(firstCompare);
     var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
     if (secondCompare == true) {
-        match += "p" + currentPlayer.ID + "p" + temp3.ID;
+        match = "p" + currentPlayer.ID + "p" + temp3.ID;
         currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
         if (currentPlayer.roundPoints == 4) {
             //end round
@@ -203,7 +212,7 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
     console.log(secondCompare);
     var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
     if (thirdCompare == true) {
-        match += "p" + currentPlayer.ID + "p" + temp4.ID;
+        match = "p" + currentPlayer.ID + "p" + temp4.ID;
         currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
         if (currentPlayer.roundPoints == 4) {
             //end round
