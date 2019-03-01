@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "10.19.36.45";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -143,7 +143,6 @@ var Player = CreatePlayer(Name, ID);
 FillHand(Player);
 init(Player);
 
-// $("P"+ID+"-"+Player.Hand[0]).css("opacity", .3);
 document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
 document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
 document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -231,6 +230,41 @@ function selectNumber(player, numberSelected) {
         console.log('P' + player + ', ' + numberSelected);
     }
 }
+setboard()
+function setboard() {
+// console.log("into setboard");
+// var green = document.createElement("green");
+
+// green.src = "http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png";
+// $("p1p1").html("http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png");
+ 
+// area.appendChild(green);
+
+var id = ["p1","p2","p3","p4"]
+
+for (let i = 0; i < 4; i++) {
+    var element = id[i]
+    for (let j = 0; j < 4; j++) {
+        const current = id[j];
+        
+        var IDedit = element+current
+        console.log(IDedit)
+        if(element == current){
+            console.log("Green")
+            document.getElementById(IDedit).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"
+        }else{
+            console.log("red")
+            document.getElementById(IDedit).innerHTML = "<img src=\"http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png\">"
+            
+        }
+    }
+    
+}
+}
+ 
+
+
+
 
 // function setBoard(Players) {
 //     console.log("setBoard Op")

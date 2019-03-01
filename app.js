@@ -56,7 +56,7 @@ io.on('connection', function(socket) {
         console.log(Player[0]);
         //call compare function
         Comapare(Player[0], Player[1], Player[2], Player[3]);
-        console.log(Player[0].ID);
+        // console.log(Player[0].ID);
         //save response from compare to variable
         io.emit('P1Number', data);
     });
@@ -100,18 +100,46 @@ io.on('connection', function(socket) {
     //     });
     // }
 
-    // socket.on('Player1Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player2Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player3Wins', function(data) {
-    //     data.points++
-    // });
-    // socket.on('Player4Wins', function(data) {
-    //     data.points++
-    // });
+    socket.on('Player1Wins', function(data) {
+        for (let i = 0; i < Player[0].Hand.length - 3; i++) {
+          var sum = 0;
+          sum +=  Player[0].Hand[i]
+        }
+        Player[0].points += sum;
+        Player[1].points += 10
+        Player[2].points += 10
+        Player[3].points += 10
+    });
+    socket.on('Player2Wins', function(data) {
+      for (let i = 0; i < Player[1].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[1].Hand[i]
+      }
+      Player[1].points += sum;
+      Player[0].points += 10
+      Player[2].points += 10
+      Player[3].points += 10
+    });
+    socket.on('Player3Wins', function(data) {
+      for (let i = 0; i < Player[2].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[2].Hand[i]
+      }
+      Player[2].points += sum;
+      Player[1].points += 10
+      Player[0].points += 10
+      Player[3].points += 10
+    });
+    socket.on('Player4Wins', function(data) {
+      for (let i = 0; i < Player[3].Hand.length - 3; i++) {
+        var sum = 0;
+        sum +=  Player[3].Hand[i]
+      }
+      Player[3].points += sum;
+      Player[1].points += 10
+      Player[2].points += 10
+      Player[0].points += 10
+    });
 
 });
 // Player position array ********************************************************************************
@@ -137,7 +165,7 @@ io.on('connection', function(socket) {
 // }
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
-    var match
+    var match;
 
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
     if (firstCompare == true) {
@@ -154,50 +182,32 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
         match += "p" + currentPlayer.ID + "p" + temp4.ID + " ";
     }
     console.log(thirdCompare);
-    console.log(match.value);
-    return match;
 
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-for (let i = 0; i < Player.length; i++) {
-    const current = Player[i];
-    for (let j = 0; j < Player.length; j++) {
-        const element = Player[j];
-        var Token = current.Name + "-" + element.Name
-        if (Comapare(current.Hand, element.Hand)) {
-            io.on("Change", {
-                Token
-            })
-        }
+    if(match != undefined){
+      console.log(match);
+    }
+    // return match;
+    if (match != null) {
+      return match;
     }
 }
+
+
+
+
+
+// for (let i = 0; i < Player.length; i++) {
+//     const current = Player[i];
+//     for (let j = 0; j < Player.length; j++) {
+//         const element = Player[j];
+//         var Token = current.Name + "-" + element.Name
+//         if (Comapare(current.Hand, element.Hand)) {
+//             io.on("Change", {
+//                 Token
+//             })
+//         }
+//     }
+// }
 
 
 var playerArray = new Array;
