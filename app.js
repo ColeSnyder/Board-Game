@@ -17,6 +17,7 @@ var p3p4 = false;
 var p4p1 = false;
 var p4p2 = false;
 var p4p3 = false;
+var roundCount = 0;
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -205,6 +206,38 @@ io.on('connection', function(socket) {
 //       Winner: Player[3]
 //   })
 // }
+
+if(roundCount == 10){
+    function Winner(){
+        for (let i = 0; i < Player.length; i++) {
+            var winner;
+            var pointsTrack = 0;
+            const element = Player[i];
+            if(element.points > pointsTrack){
+                pointsTrack = element.points
+                winner = element
+            }
+        }
+    }
+}
+function RoundCounter() {
+    if(p1p2 && p1p3 && p1p4){
+        roundCount++
+    }
+    if(p2p1 && p2p3 && p2p4){
+        roundCount++
+    }
+    if(p3p2 && p3p1 && p3p4){
+        roundCount++
+    }
+    if(p1p2 && p1p3 && p1p4){
+        roundCount++
+    }
+    if(p4p2 && p4p3 && p4p1){
+        roundCount++
+    }
+
+  }
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
     var tempMatch1;
