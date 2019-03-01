@@ -178,36 +178,36 @@ io.on('connection', function(socket) {
         for (let i = 0; i < Player[0].Hand.length; i++) {
             Player[0].Points += Player[0].Hand[i];
         }
-        Player[1].points += 10;
-        Player[2].points += 10;
-        Player[3].points += 10;
+        Player[1].Points += 10;
+        Player[2].Points += 10;
+        Player[3].Points += 10;
     }
 
     function adjustPlayer2GP() {
         for (let i = 0; i < Player[1].Hand.length; i++) {
           Player[1].Points += Player[1].Hand[i];
         }
-        Player[0].points += 10;
-        Player[2].points += 10;
-        Player[3].points += 10;
+        Player[0].Points += 10;
+        Player[2].Points += 10;
+        Player[3].Points += 10;
     }
 
     function adjustPlayer3GP() {
         for (let i = 0; i < Player[2].Hand.length; i++) {
           Player[2].Points += Player[2].Hand[i];
       }
-      Player[0].points += 10;
-      Player[1].points += 10;
-      Player[3].points += 10;
+      Player[0].Points += 10;
+      Player[1].Points += 10;
+      Player[3].Points += 10;
     }
 
     function adjustPlayer4GP() {
         for (let i = 0; i < Player[3].Hand.length; i++) {
           Player[3].Points += Player[3].Hand[i];
       }
-      Player[0].points += 10;
-      Player[1].points += 10;
-      Player[2].points += 10;
+      Player[0].Points += 10;
+      Player[1].Points += 10;
+      Player[2].Points += 10;
     }
 
 });
