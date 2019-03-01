@@ -78,8 +78,8 @@ io.on('connection', function(socket) {
         });
         match = "";
 
-        if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
-            console.log("Round Over");
+        if (Player[0].roundPoints == 3) {
+            console.log("Player 1 wins");
             //place round winning code here
             //place round winning code here
             //adjust points
@@ -97,8 +97,8 @@ io.on('connection', function(socket) {
             match: match
         });
         match = "";
-        if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
-            console.log("Round Over");
+        if (Player[1].roundPoints == 3) {
+            console.log("Player 2 wins");
             //place round winning code here
             //adjust points
             //emit game over
@@ -115,8 +115,8 @@ io.on('connection', function(socket) {
             match: match
         });
         match = "";
-        if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
-            console.log("Round Over");
+        if (Player[2].roundPoints == 3) {
+            console.log("Player 3 wins");
             //place round winning code here
             //place round winning code here
             //adjust points
@@ -133,8 +133,8 @@ io.on('connection', function(socket) {
             match: match
         });
         match = "";
-        if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
-            console.log("Round Over");
+        if (Player[3].roundPoints == 3) {
+            console.log("Player 4 wins");
             //place round winning code here
             //place round winning code here
             //adjust points
