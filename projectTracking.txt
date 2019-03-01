@@ -42,6 +42,7 @@ Feb 21st - 3 hours - getting page routing working and adding coins
 Feb 24th - 1 hour - helping Cole with debugging backend
 Feb 25th - 5 hours - group work on backend
 Feb 26th - 2 hours 
+Feb 28th - 4 hours - getting point system working
 
 
 // Sid ******************************************************************************************
