@@ -81,6 +81,9 @@ io.on('connection', function(socket) {
         if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
             console.log("Round Over");
             //place round winning code here
+            //place round winning code here
+            //adjust points
+            //emit game over
         }
     });
 
@@ -97,6 +100,8 @@ io.on('connection', function(socket) {
         if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
             console.log("Round Over");
             //place round winning code here
+            //adjust points
+            //emit game over
         }
     });
 
@@ -113,6 +118,9 @@ io.on('connection', function(socket) {
         if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
             console.log("Round Over");
             //place round winning code here
+            //place round winning code here
+            //adjust points
+            //emit game over
         }
     });
     socket.on('P4Number', function(data) {
@@ -128,6 +136,9 @@ io.on('connection', function(socket) {
         if (Player[0].roundPoints == 3 || Player[1].roundPoints == 3 || Player[2].roundPoints == 3 || Player[3].roundPoints == 3) {
             console.log("Round Over");
             //place round winning code here
+            //place round winning code here
+            //adjust points
+            //emit game over
         }
     });
 
@@ -210,18 +221,20 @@ io.on('connection', function(socket) {
 //   })
 // }
 
-if (roundCount == 10) {
-    function Winner() {
-        for (let i = 0; i < Player.length; i++) {
-            var winner;
-            var pointsTrack = 0;
-            const element = Player[i];
-            if (element.points > pointsTrack) {
-                pointsTrack = element.points
-                winner = element
-            }
+function Winner() {
+    for (let i = 0; i < Player.length; i++) {
+        var winner;
+        var pointsTrack = 0;
+        const element = Player[i];
+        if (element.points > pointsTrack) {
+            pointsTrack = element.points
+            winner = element
         }
     }
+}
+
+if (roundCount == 10) {
+    Winner();
 }
 
 function RoundCounter() {
