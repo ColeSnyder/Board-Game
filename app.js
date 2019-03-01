@@ -5,6 +5,10 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
 var Player = [];
+// var player1roundpoints = 0;
+// var player2roundpoints = 0;
+// var player3roundpoints = 0;
+// var player4roundpoints = 0;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -55,13 +59,14 @@ io.on('connection', function(socket) {
         console.log(Player)
         console.log(Player[0]);
         //call compare function
-       var match = Comapare(Player[0], Player[1], Player[2], Player[3]);
+        var match = Comapare(Player[0], Player[1], Player[2], Player[3]);
         // console.log(Player[0].ID);
         //save response from compare to variable
         io.emit('P1Number', {
-          data: data,
-          match: match
+            data: data,
+            match: match
         });
+        match = "";
     });
 
     socket.on('P2Number', function(data) {
@@ -70,9 +75,10 @@ io.on('connection', function(socket) {
         console.log(Player[1]);
         var match = Comapare(Player[1], Player[0], Player[2], Player[3]);
         io.emit('P2Number', {
-          data: data,
-          match: match
+            data: data,
+            match: match
         });
+        match = "";
     });
 
     socket.on('P3Number', function(data) {
@@ -81,10 +87,10 @@ io.on('connection', function(socket) {
         console.log(Player[2]);
         var match = Comapare(Player[2], Player[0], Player[1], Player[3]);
         io.emit('P3Number', {
-          data: data,
-          match: match
+            data: data,
+            match: match
         });
-
+        match = "";
     });
     socket.on('P4Number', function(data) {
         Player[3].Hand.push(data);
@@ -92,8 +98,8 @@ io.on('connection', function(socket) {
         console.log(Player[3]);
         var match = Comapare(Player[3], Player[0], Player[1], Player[2]);
         io.emit('P4Number', {
-          data: data,
-          match: match
+            data: data,
+            match: match
         });
     });
 
@@ -111,8 +117,8 @@ io.on('connection', function(socket) {
 
     socket.on('Player1Wins', function(data) {
         for (let i = 0; i < Player[0].Hand.length - 3; i++) {
-          var sum = 0;
-          sum +=  Player[0].Hand[i]
+            var sum = 0;
+            sum += Player[0].Hand[i]
         }
         Player[0].points += sum;
         Player[1].points += 10;
@@ -120,34 +126,34 @@ io.on('connection', function(socket) {
         Player[3].points += 10;
     });
     socket.on('Player2Wins', function(data) {
-      for (let i = 0; i < Player[1].Hand.length - 3; i++) {
-        var sum = 0;
-        sum +=  Player[1].Hand[i]
-      }
-      Player[1].points += sum;
-      Player[0].points += 10;
-      Player[2].points += 10;
-      Player[3].points += 10;
+        for (let i = 0; i < Player[1].Hand.length - 3; i++) {
+            var sum = 0;
+            sum += Player[1].Hand[i]
+        }
+        Player[1].points += sum;
+        Player[0].points += 10;
+        Player[2].points += 10;
+        Player[3].points += 10;
     });
     socket.on('Player3Wins', function(data) {
-      for (let i = 0; i < Player[2].Hand.length - 3; i++) {
-        var sum = 0;
-        sum +=  Player[2].Hand[i]
-      }
-      Player[2].points += sum;
-      Player[1].points += 10;
-      Player[0].points += 10;
-      Player[3].points += 10;
+        for (let i = 0; i < Player[2].Hand.length - 3; i++) {
+            var sum = 0;
+            sum += Player[2].Hand[i]
+        }
+        Player[2].points += sum;
+        Player[1].points += 10;
+        Player[0].points += 10;
+        Player[3].points += 10;
     });
     socket.on('Player4Wins', function(data) {
-      for (let i = 0; i < Player[3].Hand.length - 3; i++) {
-        var sum = 0;
-        sum +=  Player[3].Hand[i]
-      }
-      Player[3].points += sum;
-      Player[1].points += 10;
-      Player[2].points += 10;
-      Player[0].points += 10;
+        for (let i = 0; i < Player[3].Hand.length - 3; i++) {
+            var sum = 0;
+            sum += Player[3].Hand[i]
+        }
+        Player[3].points += sum;
+        Player[1].points += 10;
+        Player[2].points += 10;
+        Player[0].points += 10;
     });
 
 });
@@ -179,26 +185,43 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
     if (firstCompare == true) {
         match = "p" + currentPlayer.ID + "p" + temp2.ID;
-        //"player"+currentPlayer.ID+"roundpoints"++;
+        currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
+        if (currentPlayer.roundPoints == 4) {
+            //end round
+        }
     }
     console.log(firstCompare);
     var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
     if (secondCompare == true) {
         match += "p" + currentPlayer.ID + "p" + temp3.ID;
+        currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
+        if (currentPlayer.roundPoints == 4) {
+            //end round
+        }
+
     }
     console.log(secondCompare);
     var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
     if (thirdCompare == true) {
         match += "p" + currentPlayer.ID + "p" + temp4.ID;
+        currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
+        if (currentPlayer.roundPoints == 4) {
+            //end round
+        }
     }
     console.log(thirdCompare);
 
-    if(match != undefined){
-      console.log(match);
+    if (match != undefined) {
+        console.log(match);
+        console.log("Player 1 points:" + Player[0].roundPoints);
+        console.log("Player 2 points:" + Player[1].roundPoints);
+        console.log("Player 3 points:" + Player[2].roundPoints);
+        console.log("Player 4 points:" + Player[3].roundPoints);
+
     }
     // return match;
     if (match != null) {
-      return match;
+        return match;
     }
 }
 
