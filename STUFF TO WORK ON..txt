@@ -1,9 +1,9 @@
 1)Setboard function :- throws initial board state-WORKING ON (SID)
-2)Handle comparison server side-Steve and Cole
-3)sending info from server to client based on if someone becomes a subset of the other-Cole
-4)Keep track of player points ingame (at the end of every round) track player wins(who won at the end of each game)-andrews 
-5)determine winner at the end using player wins and player points-Andrew
-6)fixing p3 and p4 view-
+2)Handle comparison server side
+3)sending info from server to client based on if someone becomes a subset of the other
+4)Keep track of player points ingame (at the end of every round) track player wins(who won at the end of each game)
+5)determine winner at the end using player wins and player points
+6)fixing p3 and p4 view
 7)add ids to each view-DONE(SID)
-
+ 
 
