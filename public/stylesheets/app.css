@@ -17,6 +17,10 @@ h3 {
     text-align: center;
 }
 
+li {
+  text-align: left;
+}
+
 #current-num {
   font-size: 2.5em;
   margin-top: 20px;

@@ -81,10 +81,17 @@ io.on('connection', function(socket) {
         if (Player[0].roundPoints == 3) {
             console.log("Player 1 wins");
             //place round winning code here
-            //place round winning code here
-            //adjust points
-            //emit game over
             adjustPlayer1GP();
+            var P1Points = Player[0].Points;
+            var P2Points = Player[1].Points;
+            var P3Points = Player[2].Points;
+            var P4Points = Player[3].Points;
+            io.emit('Player1Wins', {
+              P1Points: P1Points,
+              P2Points: P2Points,
+              P3Points: P3Points,
+              P4Points: P4Points,
+            });
             console.log(Player[0].Points);
             console.log(Player[1].Points);
             console.log(Player[2].Points);
@@ -94,7 +101,7 @@ io.on('connection', function(socket) {
 
     socket.on('P2Number', function(data) {
         Player[1].Hand.push(data);
-        console.log(Player)
+        console.log(Player);
         console.log(Player[1]);
         var match = Comapare(Player[1], Player[0], Player[2], Player[3]);
         io.emit('P2Number', {
@@ -104,10 +111,17 @@ io.on('connection', function(socket) {
         match = "";
         if (Player[1].roundPoints == 3) {
             console.log("Player 2 wins");
-            //place round winning code here
-            //adjust points
-            //emit game over
-            adjustPlayer2GP()
+            adjustPlayer2GP();
+            var P1Points = Player[0].Points;
+            var P2Points = Player[1].Points;
+            var P3Points = Player[2].Points;
+            var P4Points = Player[3].Points;
+            io.emit('Playe2Wins', {
+              P1Points: P1Points,
+              P2Points: P2Points,
+              P3Points: P3Points,
+              P4Points: P4Points,
+            });
             console.log(Player[0].Points);
             console.log(Player[1].Points);
             console.log(Player[2].Points);
@@ -127,11 +141,17 @@ io.on('connection', function(socket) {
         match = "";
         if (Player[2].roundPoints == 3) {
             console.log("Player 3 wins");
-            //place round winning code here
-            //place round winning code here
-            //adjust points
-            //emit game over
-            adjustPlayer3GP()
+            adjustPlayer3GP();
+            var P1Points = Player[0].Points;
+            var P2Points = Player[1].Points;
+            var P3Points = Player[2].Points;
+            var P4Points = Player[3].Points;
+            io.emit('Player3Wins', {
+              P1Points: P1Points,
+              P2Points: P2Points,
+              P3Points: P3Points,
+              P4Points: P4Points,
+            });
             console.log(Player[0].Points);
             console.log(Player[1].Points);
             console.log(Player[2].Points);
@@ -150,11 +170,17 @@ io.on('connection', function(socket) {
         match = "";
         if (Player[3].roundPoints == 3) {
             console.log("Player 4 wins");
-            //place round winning code here
-            //place round winning code here
-            //adjust points
-            //emit game over
-            adjustPlayer4GP()
+            adjustPlayer4GP();
+            var P1Points = Player[0].Points;
+            var P2Points = Player[1].Points;
+            var P3Points = Player[2].Points;
+            var P4Points = Player[3].Points;
+            io.emit('Player4Wins', {
+              P1Points: P1Points,
+              P2Points: P2Points,
+              P3Points: P3Points,
+              P4Points: P4Points,
+            });
             console.log(Player[0].Points);
             console.log(Player[1].Points);
             console.log(Player[2].Points);

@@ -287,3 +287,49 @@ function setboard() {
 
     }
 }
+
+socket.on('Player1Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+});
+
+socket.on('Player2Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+});
+
+socket.on('Player3Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+});
+
+socket.on('Player4Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+});
+
+
