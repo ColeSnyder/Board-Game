@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "10.19.36.45";
+var CurrentIP = "192.168.0.16";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -69,29 +69,38 @@ for (i = 1; i < 20; i++) {
 
 socket.on('P1Number', function(data) {
     if (turnNumber == 1) {
-        console.log("back into client side" + data);
+        console.log("back into client side" + data.data);
+        console.log(data.match);
+        if(data.match != undefined) {
+            console.log("into change statement");
+            var idToChange = data.match;
+            document.getElementById(idToChange).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"        }
         if (document.getElementById("Player")) {
             document.getElementById("Player").innerHTML = 1;
         }
         if (document.getElementById("span")) {
             document.getElementById("span").innerHTML = turnNumber + 1;
         }
-        document.getElementById("current-num").innerHTML = data;
+        document.getElementById("current-num").innerHTML = data.data;
         turnNumber++;
-        console.log(turnNumber);
     }
 });
 
 socket.on('P2Number', function(data) {
     if (turnNumber == 2) {
-        console.log("back into client side" + data);
+        console.log("back into client side" + data.data);
+        console.log(data.match);
+        if(data.match != undefined) {
+            console.log("into change statement");
+            var idToChange = data.match;
+            document.getElementById(idToChange).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"        }
         if (document.getElementById("Player")) {
             document.getElementById("Player").innerHTML = 2;
         }
         if (document.getElementById("span")) {
             document.getElementById("span").innerHTML = turnNumber + 1;
         }
-        document.getElementById("current-num").innerHTML = data;
+        document.getElementById("current-num").innerHTML = data.data;
         turnNumber++;
     }
 });
@@ -99,28 +108,39 @@ socket.on('P2Number', function(data) {
 
 socket.on('P3Number', function(data) {
     if (turnNumber == 3) {
-        console.log("back into client side" + data);
+        console.log("back into client side" + data.data);
+        console.log(data.match);
+        if(data.match != undefined) {
+            console.log("into change statement");
+            var idToChange = data.match;
+            document.getElementById(idToChange).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"
+        }
         if (document.getElementById("Player")) {
             document.getElementById("Player").innerHTML = 3;
         }
         if (document.getElementById("span")) {
             document.getElementById("span").innerHTML = turnNumber + 1;
         }
-        document.getElementById("current-num").innerHTML = data;
+        document.getElementById("current-num").innerHTML = data.data;
         turnNumber++;
     }
 });
 
 socket.on('P4Number', function(data) {
     if (turnNumber == 4) {
-        console.log("back into client side" + data);
+        console.log("back into client side" + data.data);
+        console.log(data.match);
+        if(data.match != undefined) {
+            console.log("into change statement");
+            var idToChange = data.match;
+            document.getElementById(idToChange).innerHTML = " <img src=\"http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png\">"        }
         if (document.getElementById("Player")) {
             document.getElementById("Player").innerHTML = 4;
         }
         if (document.getElementById("span")) {
             document.getElementById("span").innerHTML = 1;
         }
-        document.getElementById("current-num").innerHTML = data;
+        document.getElementById("current-num").innerHTML = data.data;
         turnNumber = 1;
     }
 });
@@ -261,35 +281,3 @@ for (let i = 0; i < 4; i++) {
     
 }
 }
- 
-
-
-
-
-// function setBoard(Players) {
-//     console.log("setBoard Op")
-//     console.log(Players);
-//     console.log(Object.keys(Player).length)
-//     for (let i = 0; i < Object.keys(Player).length; i++) {
-//         const Current = Player.Hand;
-//         console.log("Here is the Players Hand " + Player.Hand)
-//         for (let j = 0; j < Object.keys(Player).length; j++) {
-//             console.log(Players);
-//             var first = JSON.stringify(Players)
-//             var Playerslist = first.split("}")
-//             console.log(first)
-//                 //const element = Players[j].Hand;
-//             console.log("Hi " + Players[1]);
-//             // if (!Comapare(Current, element)) {
-//             //     console.log("This is a false")
-//             //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png">')
-//             // }
-//             // if (Comapare(Current, element)) {
-//             //     console.log("This is a truth")
-//             //     $("body > main > div > div:nth-child(2) > div > div:nth-child(" + CurrentNum + ")").html('<img src="http://www.clker.com/cliparts/q/j/I/0/8/d/green-circle-icon-th.png">')
-//             // }
-
-//         }
-
-//     }
-// }

@@ -55,10 +55,13 @@ io.on('connection', function(socket) {
         console.log(Player)
         console.log(Player[0]);
         //call compare function
-        Comapare(Player[0], Player[1], Player[2], Player[3]);
+       var match = Comapare(Player[0], Player[1], Player[2], Player[3]);
         // console.log(Player[0].ID);
         //save response from compare to variable
-        io.emit('P1Number', data);
+        io.emit('P1Number', {
+          data: data,
+          match: match
+        });
     });
 
     socket.on('P2Number', function(data) {
@@ -66,26 +69,32 @@ io.on('connection', function(socket) {
         console.log(Player)
         console.log(Player[1]);
         var match = Comapare(Player[1], Player[0], Player[2], Player[3]);
-
-        // io.emit('P2Number', {data, match});
-        io.emit('P2Number', data);
+        io.emit('P2Number', {
+          data: data,
+          match: match
+        });
     });
 
     socket.on('P3Number', function(data) {
         Player[2].Hand.push(data);
         console.log(Player)
         console.log(Player[2]);
-        Comapare(Player[2], Player[0], Player[1], Player[3]);
-        io.emit('P3Number', data);
+        var match = Comapare(Player[2], Player[0], Player[1], Player[3]);
+        io.emit('P3Number', {
+          data: data,
+          match: match
+        });
 
     });
     socket.on('P4Number', function(data) {
         Player[3].Hand.push(data);
-        console.log(Player)
+        console.log(Player);
         console.log(Player[3]);
-        Comapare(Player[3], Player[0], Player[1], Player[2]);
-        io.emit('P4Number', data);
-
+        var match = Comapare(Player[3], Player[0], Player[1], Player[2]);
+        io.emit('P4Number', {
+          data: data,
+          match: match
+        });
     });
 
     socket.on('sendPlayer', function(data) {
@@ -106,9 +115,9 @@ io.on('connection', function(socket) {
           sum +=  Player[0].Hand[i]
         }
         Player[0].points += sum;
-        Player[1].points += 10
-        Player[2].points += 10
-        Player[3].points += 10
+        Player[1].points += 10;
+        Player[2].points += 10;
+        Player[3].points += 10;
     });
     socket.on('Player2Wins', function(data) {
       for (let i = 0; i < Player[1].Hand.length - 3; i++) {
@@ -116,9 +125,9 @@ io.on('connection', function(socket) {
         sum +=  Player[1].Hand[i]
       }
       Player[1].points += sum;
-      Player[0].points += 10
-      Player[2].points += 10
-      Player[3].points += 10
+      Player[0].points += 10;
+      Player[2].points += 10;
+      Player[3].points += 10;
     });
     socket.on('Player3Wins', function(data) {
       for (let i = 0; i < Player[2].Hand.length - 3; i++) {
@@ -126,9 +135,9 @@ io.on('connection', function(socket) {
         sum +=  Player[2].Hand[i]
       }
       Player[2].points += sum;
-      Player[1].points += 10
-      Player[0].points += 10
-      Player[3].points += 10
+      Player[1].points += 10;
+      Player[0].points += 10;
+      Player[3].points += 10;
     });
     socket.on('Player4Wins', function(data) {
       for (let i = 0; i < Player[3].Hand.length - 3; i++) {
@@ -136,9 +145,9 @@ io.on('connection', function(socket) {
         sum +=  Player[3].Hand[i]
       }
       Player[3].points += sum;
-      Player[1].points += 10
-      Player[2].points += 10
-      Player[0].points += 10
+      Player[1].points += 10;
+      Player[2].points += 10;
+      Player[0].points += 10;
     });
 
 });
@@ -169,17 +178,18 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
 
     var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
     if (firstCompare == true) {
-        match = "p" + currentPlayer.ID + "p" + temp2.ID + " ";
+        match = "p" + currentPlayer.ID + "p" + temp2.ID;
+        //"player"+currentPlayer.ID+"roundpoints"++;
     }
     console.log(firstCompare);
     var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
     if (secondCompare == true) {
-        match += "p" + currentPlayer.ID + "p" + temp3.ID + " ";
+        match += "p" + currentPlayer.ID + "p" + temp3.ID;
     }
     console.log(secondCompare);
     var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
     if (thirdCompare == true) {
-        match += "p" + currentPlayer.ID + "p" + temp4.ID + " ";
+        match += "p" + currentPlayer.ID + "p" + temp4.ID;
     }
     console.log(thirdCompare);
 
