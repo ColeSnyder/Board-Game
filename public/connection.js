@@ -288,8 +288,20 @@ function setboard() {
     }
 }
 
-function updatePoints() {
-    
+function updatePoints(player1Points, player2Points, player3Points, player4Points) {
+    document.getElementById(PointsPlayer1).innerHTML = player1Points;
+    document.getElementById(PointsPlayer2).innerHTML = player2Points;
+    document.getElementById(PointsPlayer3).innerHTML = player3Points;
+    document.getElementById(PointsPlayer4).innerHTML = player4Points;
+}
+
+function resetButtons() {
+    for(i=1; i<21; i++) {
+        document.getElementById("P1-"+i).style.opacity = 1;
+        document.getElementById("P2-"+i).style.opacity = 1;
+        document.getElementById("P3-"+i).style.opacity = 1;
+        document.getElementById("P4-"+i).style.opacity = 1;
+    }
 }
 
 socket.on('Player1Wins', function(data) {
@@ -302,6 +314,8 @@ socket.on('Player1Wins', function(data) {
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
     setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
 });
 
 socket.on('Player2Wins', function(data) {
