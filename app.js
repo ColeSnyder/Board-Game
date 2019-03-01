@@ -84,6 +84,11 @@ io.on('connection', function(socket) {
             //place round winning code here
             //adjust points
             //emit game over
+            adjustPlayer1GP();
+            console.log(Player[0].points.value);
+            console.log(Player[1].points.value);
+            console.log(Player[2].points.value);
+            console.log(Player[3].points.value);
         }
     });
 
@@ -102,6 +107,11 @@ io.on('connection', function(socket) {
             //place round winning code here
             //adjust points
             //emit game over
+            adjustPlayer2GP()
+            console.log(Player[0].points.value);
+            console.log(Player[1].points.value);
+            console.log(Player[2].points.value);
+            console.log(Player[3].points.value);
         }
     });
 
@@ -121,6 +131,11 @@ io.on('connection', function(socket) {
             //place round winning code here
             //adjust points
             //emit game over
+            adjustPlayer3GP()
+            console.log(Player[0].points.value);
+            console.log(Player[1].points.value);
+            console.log(Player[2].points.value);
+            console.log(Player[3].points.value);
         }
     });
     socket.on('P4Number', function(data) {
@@ -139,6 +154,11 @@ io.on('connection', function(socket) {
             //place round winning code here
             //adjust points
             //emit game over
+            adjustPlayer4GP()
+            console.log(Player[0].points.value);
+            console.log(Player[1].points.value);
+            console.log(Player[2].points.value);
+            console.log(Player[3].points.value);
         }
     });
 
@@ -288,110 +308,110 @@ function Comapare(currentPlayer, temp2, temp3, temp4) {
         if (match == "p1p2" && p1p2 === false) {
             p1p2 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p1p3" && p1p3 === false) {
             p1p3 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p1p4" && p1p4 === false) {
             p1p4 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p2p1" && p2p1 === false) {
             p2p1 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p2p3" && p2p3 === false) {
             p2p3 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p2p4" && p2p4 === false) {
             p2p4 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p3p1" && p3p1 === false) {
             p3p1 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p3p2" && p3p2 === false) {
             p3p2 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p3p4" && p3p4 === false) {
             p3p4 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p4p1" && p4p1 === false) {
             p4p1 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p4p2" && p4p2 === false) {
             p4p2 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
             console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         } else if (match == "p4p3" && p4p3 === false) {
             p4p3 = true;
             currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
-            console.log(match);
-            console.log("Player 1 points:" + Player[0].roundPoints);
-            console.log("Player 2 points:" + Player[1].roundPoints);
-            console.log("Player 3 points:" + Player[2].roundPoints);
-            console.log("Player 4 points:" + Player[3].roundPoints);
+            // console.log(match);
+            // console.log("Player 1 points:" + Player[0].roundPoints);
+            // console.log("Player 2 points:" + Player[1].roundPoints);
+            // console.log("Player 3 points:" + Player[2].roundPoints);
+            // console.log("Player 4 points:" + Player[3].roundPoints);
             return match;
         }
     }
