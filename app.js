@@ -143,46 +143,49 @@ io.on('connection', function(socket) {
     //     });
     // }
 
-    socket.on('Player1Wins', function(data) {
+    function adjustPlayer1GP() {
         for (let i = 0; i < Player[0].Hand.length - 3; i++) {
             var sum = 0;
-            sum += Player[0].Hand[i]
+            sum += Player[0].Hand[i];
         }
         Player[0].points += sum;
         Player[1].points += 10;
         Player[2].points += 10;
         Player[3].points += 10;
-    });
-    socket.on('Player2Wins', function(data) {
+    }
+
+    function adjustPlayer2GP() {
         for (let i = 0; i < Player[1].Hand.length - 3; i++) {
             var sum = 0;
-            sum += Player[1].Hand[i]
+            sum += Player[1].Hand[i];
         }
         Player[1].points += sum;
         Player[0].points += 10;
         Player[2].points += 10;
         Player[3].points += 10;
-    });
-    socket.on('Player3Wins', function(data) {
+    }
+
+    function adjustPlayer3GP() {
         for (let i = 0; i < Player[2].Hand.length - 3; i++) {
             var sum = 0;
-            sum += Player[2].Hand[i]
+            sum += Player[2].Hand[i];
         }
         Player[2].points += sum;
         Player[1].points += 10;
         Player[0].points += 10;
         Player[3].points += 10;
-    });
-    socket.on('Player4Wins', function(data) {
+    }
+
+    function adjustPlayer4GP() {
         for (let i = 0; i < Player[3].Hand.length - 3; i++) {
             var sum = 0;
-            sum += Player[3].Hand[i]
+            sum += Player[3].Hand[i];
         }
         Player[3].points += sum;
         Player[1].points += 10;
         Player[2].points += 10;
         Player[0].points += 10;
-    });
+    }
 
 });
 // Player position array ********************************************************************************
@@ -207,37 +210,39 @@ io.on('connection', function(socket) {
 //   })
 // }
 
-if(roundCount == 10){
-    function Winner(){
+if (roundCount == 10) {
+    function Winner() {
         for (let i = 0; i < Player.length; i++) {
             var winner;
             var pointsTrack = 0;
             const element = Player[i];
-            if(element.points > pointsTrack){
+            if (element.points > pointsTrack) {
                 pointsTrack = element.points
                 winner = element
             }
         }
     }
 }
+
 function RoundCounter() {
-    if(p1p2 && p1p3 && p1p4){
+    if (p1p2 && p1p3 && p1p4) {
         roundCount++
     }
-    if(p2p1 && p2p3 && p2p4){
+    if (p2p1 && p2p3 && p2p4) {
         roundCount++
     }
-    if(p3p2 && p3p1 && p3p4){
+    if (p3p2 && p3p1 && p3p4) {
         roundCount++
     }
-    if(p1p2 && p1p3 && p1p4){
+    if (p1p2 && p1p3 && p1p4) {
         roundCount++
     }
-    if(p4p2 && p4p3 && p4p1){
+    if (p4p2 && p4p3 && p4p1) {
         roundCount++
     }
 
-  }
+}
+
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
     var tempMatch1;
