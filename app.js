@@ -85,10 +85,10 @@ io.on('connection', function(socket) {
             //adjust points
             //emit game over
             adjustPlayer1GP();
-            console.log(Player[0].points.value);
-            console.log(Player[1].points.value);
-            console.log(Player[2].points.value);
-            console.log(Player[3].points.value);
+            console.log(Player[0].Points);
+            console.log(Player[1].Points);
+            console.log(Player[2].Points);
+            console.log(Player[3].Points);
         }
     });
 
@@ -108,10 +108,10 @@ io.on('connection', function(socket) {
             //adjust points
             //emit game over
             adjustPlayer2GP()
-            console.log(Player[0].points.value);
-            console.log(Player[1].points.value);
-            console.log(Player[2].points.value);
-            console.log(Player[3].points.value);
+            console.log(Player[0].Points);
+            console.log(Player[1].Points);
+            console.log(Player[2].Points);
+            console.log(Player[3].Points);
         }
     });
 
@@ -132,10 +132,10 @@ io.on('connection', function(socket) {
             //adjust points
             //emit game over
             adjustPlayer3GP()
-            console.log(Player[0].points.value);
-            console.log(Player[1].points.value);
-            console.log(Player[2].points.value);
-            console.log(Player[3].points.value);
+            console.log(Player[0].Points);
+            console.log(Player[1].Points);
+            console.log(Player[2].Points);
+            console.log(Player[3].Points);
         }
     });
     socket.on('P4Number', function(data) {
@@ -155,10 +155,10 @@ io.on('connection', function(socket) {
             //adjust points
             //emit game over
             adjustPlayer4GP()
-            console.log(Player[0].points.value);
-            console.log(Player[1].points.value);
-            console.log(Player[2].points.value);
-            console.log(Player[3].points.value);
+            console.log(Player[0].Points);
+            console.log(Player[1].Points);
+            console.log(Player[2].Points);
+            console.log(Player[3].Points);
         }
     });
 
@@ -175,47 +175,39 @@ io.on('connection', function(socket) {
     // }
 
     function adjustPlayer1GP() {
-        for (let i = 0; i < Player[0].Hand.length - 3; i++) {
-            var sum = 0;
-            sum += Player[0].Hand[i];
+        for (let i = 0; i < Player[0].Hand.length; i++) {
+            Player[0].Points += Player[0].Hand[i];
         }
-        Player[0].points += sum;
         Player[1].points += 10;
         Player[2].points += 10;
         Player[3].points += 10;
     }
 
     function adjustPlayer2GP() {
-        for (let i = 0; i < Player[1].Hand.length - 3; i++) {
-            var sum = 0;
-            sum += Player[1].Hand[i];
+        for (let i = 0; i < Player[1].Hand.length; i++) {
+          Player[1].Points += Player[1].Hand[i];
         }
-        Player[1].points += sum;
         Player[0].points += 10;
         Player[2].points += 10;
         Player[3].points += 10;
     }
 
     function adjustPlayer3GP() {
-        for (let i = 0; i < Player[2].Hand.length - 3; i++) {
-            var sum = 0;
-            sum += Player[2].Hand[i];
-        }
-        Player[2].points += sum;
-        Player[1].points += 10;
-        Player[0].points += 10;
-        Player[3].points += 10;
+        for (let i = 0; i < Player[2].Hand.length; i++) {
+          Player[2].Points += Player[2].Hand[i];
+      }
+      Player[0].points += 10;
+      Player[1].points += 10;
+      Player[3].points += 10;
     }
 
     function adjustPlayer4GP() {
-        for (let i = 0; i < Player[3].Hand.length - 3; i++) {
-            var sum = 0;
-            sum += Player[3].Hand[i];
-        }
-        Player[3].points += sum;
-        Player[1].points += 10;
-        Player[2].points += 10;
-        Player[0].points += 10;
+        for (let i = 0; i < Player[3].Hand.length; i++) {
+          Player[3].Points += Player[3].Hand[i];
+      }
+      Player[0].points += 10;
+      Player[1].points += 10;
+      Player[2].points += 10;
     }
 
 });
