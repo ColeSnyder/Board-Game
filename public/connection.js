@@ -248,6 +248,13 @@ function FillHand(player, playerString) {
     }
 }
 
+function clearHand() {
+    for (let i = 0; i < Players.length; i++) {
+        Players[i].Hand.length = 0;
+        Players[i].roundPoints = 0;
+    }
+}
+
 function init(Player) {}
 
 function selectNumber(player, numberSelected) {
@@ -327,6 +334,12 @@ socket.on('Player1Wins', function(data) {
     setboard();
     updatePoints(player1Points, player2Points, player3Points, player4Points);
     resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
+
 });
 
 socket.on('Player2Wins', function(data) {
@@ -339,6 +352,13 @@ socket.on('Player2Wins', function(data) {
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
     setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
 });
 
 socket.on('Player3Wins', function(data) {
@@ -351,6 +371,13 @@ socket.on('Player3Wins', function(data) {
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
     setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
 });
 
 socket.on('Player4Wins', function(data) {
@@ -363,4 +390,11 @@ socket.on('Player4Wins', function(data) {
     console.log("player3: " + player3Points);
     console.log("player4: " + player4Points);
     setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
 });
