@@ -16,6 +16,11 @@
 2/25 - 1:00-4:30 => 3.5 HOURS
 2/25 - 8:30-10:30 => 2 HOURS
 2/26 - 6:00-8:30 => 2.5 HOURS
+2/27 - 12:30-1:00 => .5 HOURS
+2/28 - 3:30-5:00 => 1.5 HOURS
+2/28 - 7:00-8:00 => 1 HOURS
+3/1  - 4:00-6:30 => 2.5 HOURS
+
 
 // ANDREW ******************************************************************************************
 2/7 - 6:30 - 8:15 => 1.75 HOURS
@@ -42,7 +47,9 @@ Feb 21st - 3 hours - getting page routing working and adding coins
 Feb 24th - 1 hour - helping Cole with debugging backend
 Feb 25th - 5 hours - group work on backend
 Feb 26th - 2 hours 
+Feb 27th - 2 hours
 Feb 28th - 4 hours - getting point system working
+3/1  - 4:00-6:30 => 2.5 HOURS
 
 
 // Sid ******************************************************************************************
@@ -58,5 +65,5 @@ Feb 28th - 4 hours - getting point system working
 2/23- undersood the functionality of data.js and app.js -2hrs
 2/25- team meeting to work on sending data to server -2-3hrs
 2/26- began commenting some areas -20 min
-2/27- group meeting after class - setting up goals-setting up furthur ids-2hrs
+2/27- group meeting after class - setting up goals-setting up furthur ids-1hr
  
