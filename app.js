@@ -207,6 +207,8 @@ io.on('connection', function(socket) {
         Player[1].Points += 10;
         Player[2].Points += 10;
         Player[3].Points += 10;
+        console.log('adding one to count ')
+        roundCount++;
     }
 
     function adjustPlayer2GP() {
@@ -216,6 +218,8 @@ io.on('connection', function(socket) {
         Player[0].Points += 10;
         Player[2].Points += 10;
         Player[3].Points += 10;
+        console.log('adding one to count ')
+        roundCount++;
     }
 
     function adjustPlayer3GP() {
@@ -225,6 +229,8 @@ io.on('connection', function(socket) {
       Player[0].Points += 10;
       Player[1].Points += 10;
       Player[3].Points += 10;
+      console.log('adding one to count ')
+      roundCount++;
     }
 
     function adjustPlayer4GP() {
@@ -234,6 +240,8 @@ io.on('connection', function(socket) {
       Player[0].Points += 10;
       Player[1].Points += 10;
       Player[2].Points += 10;
+      console.log('adding one to count ')
+      roundCount++;
     }
 
 });
@@ -279,24 +287,7 @@ if (roundCount == 1) {
     Winner();
 }
 
-function RoundCounter() {
-    if (p1p2 && p1p3 && p1p4) {
-        roundCount++
-    }
-    if (p2p1 && p2p3 && p2p4) {
-        roundCount++
-    }
-    if (p3p2 && p3p1 && p3p4) {
-        roundCount++
-    }
-    if (p1p2 && p1p3 && p1p4) {
-        roundCount++
-    }
-    if (p4p2 && p4p3 && p4p1) {
-        roundCount++
-    }
 
-}
 
 function Comapare(currentPlayer, temp2, temp3, temp4) {
 
