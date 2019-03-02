@@ -289,18 +289,26 @@ function setboard() {
 }
 
 function updatePoints(player1Points, player2Points, player3Points, player4Points) {
-    document.getElementById(PointsPlayer1).innerHTML = player1Points;
-    document.getElementById(PointsPlayer2).innerHTML = player2Points;
-    document.getElementById(PointsPlayer3).innerHTML = player3Points;
-    document.getElementById(PointsPlayer4).innerHTML = player4Points;
+    document.getElementById("PointsPlayer1").innerHTML = player1Points;
+    document.getElementById("PointsPlayer2").innerHTML = player2Points;
+    document.getElementById("PointsPlayer3").innerHTML = player3Points;
+    document.getElementById("PointsPlayer4").innerHTML = player4Points;
 }
 
 function resetButtons() {
     for(i=1; i<21; i++) {
+        if(document.getElementById("P1-"+i) != null){
         document.getElementById("P1-"+i).style.opacity = 1;
-        document.getElementById("P2-"+i).style.opacity = 1;
-        document.getElementById("P3-"+i).style.opacity = 1;
-        document.getElementById("P4-"+i).style.opacity = 1;
+        }
+        if(document.getElementById("P2-"+i) != null){
+            document.getElementById("P2-"+i).style.opacity = 1;        
+        }
+        if(document.getElementById("P3-"+i) != null){
+            document.getElementById("P3-"+i).style.opacity = 1;
+        }
+        if(document.getElementById("P4-"+i) != null){
+            document.getElementById("P4-"+i).style.opacity = 1;        
+        }
     }
 }
 
