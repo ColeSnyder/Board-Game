@@ -249,9 +249,9 @@ function FillHand(player, playerString) {
 }
 
 function clearHand() {
-    for (let i = 0; i < Players.length; i++) {
-        Players[i].Hand.length = 0;
-        Players[i].roundPoints = 0;
+    for (let i = 0; i < Player.length; i++) {
+        Player[i].Hand.length = 0;
+        Player[i].roundPoints = 0;
     }
 }
 
