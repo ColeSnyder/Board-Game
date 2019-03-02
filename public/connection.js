@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.16";
+var CurrentIP = "192.168.0.17";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -106,7 +106,7 @@ socket.on('P2Number', function(data) {
         turnNumber++;
     }
 });
-socket.on("winnner",function (data) {  
+socket.on("winnner", function(data) {
     console.log(data)
 })
 
@@ -299,18 +299,18 @@ function updatePoints(player1Points, player2Points, player3Points, player4Points
 }
 
 function resetButtons() {
-    for(i=1; i<21; i++) {
-        if(document.getElementById("P1-"+i) != null){
-        document.getElementById("P1-"+i).style.opacity = 1;
+    for (i = 1; i < 21; i++) {
+        if (document.getElementById("P1-" + i) != null) {
+            document.getElementById("P1-" + i).style.opacity = 1;
         }
-        if(document.getElementById("P2-"+i) != null){
-            document.getElementById("P2-"+i).style.opacity = 1;        
+        if (document.getElementById("P2-" + i) != null) {
+            document.getElementById("P2-" + i).style.opacity = 1;
         }
-        if(document.getElementById("P3-"+i) != null){
-            document.getElementById("P3-"+i).style.opacity = 1;
+        if (document.getElementById("P3-" + i) != null) {
+            document.getElementById("P3-" + i).style.opacity = 1;
         }
-        if(document.getElementById("P4-"+i) != null){
-            document.getElementById("P4-"+i).style.opacity = 1;        
+        if (document.getElementById("P4-" + i) != null) {
+            document.getElementById("P4-" + i).style.opacity = 1;
         }
     }
 }
@@ -364,5 +364,3 @@ socket.on('Player4Wins', function(data) {
     console.log("player4: " + player4Points);
     setboard();
 });
-
-
