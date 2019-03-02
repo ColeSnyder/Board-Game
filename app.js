@@ -267,11 +267,15 @@ function Winner() {
         if (element.points > pointsTrack) {
             pointsTrack = element.points
             winner = element
+            
         }
     }
+    io.emit("winner", {
+        winner
+    })
 }
 
-if (roundCount == 10) {
+if (roundCount == 1) {
     Winner();
 }
 
