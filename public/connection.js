@@ -34,38 +34,83 @@ socket.on('player3', function(data) {
 socket.on('player4', function(data) {
     window.location.href = "http://" + CurrentIP + ":3001/player" + data;
 });
-// socket.on('getarray', function(data){
-//     console.log('received')
-//     var Playerarray = data
-//     console.log(Playerarray)
-//     setBoard(Playerarray)
-// });
-// ++END++ JOIN GAME CONTENT ****************************************************************
 
-var buttonArray1 = [];
-var buttonArray2 = [];
-var buttonArray3 = [];
-var buttonArray4 = [];
+socket.on('Player1Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+    setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
 
-for (i = 1; i < 20; i++) {
-    var button = "P1-" + i;
-    buttonArray1.push(button);
-}
+});
 
-for (i = 1; i < 20; i++) {
-    var button = "P2-" + i;
-    buttonArray2.push(button);
-}
+socket.on('Player2Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+    setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
+});
 
-for (i = 1; i < 20; i++) {
-    var button = "P3-" + i;
-    buttonArray3.push(button);
-}
-for (i = 1; i < 20; i++) {
-    var button = "P4-" + i;
-    buttonArray4.push(button);
-}
+socket.on('Player3Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+    setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
+});
 
+socket.on('Player4Wins', function(data) {
+    var player1Points = data.P1Points;
+    var player2Points = data.P2Points;
+    var player3Points = data.P3Points;
+    var player4Points = data.P4Points;
+    console.log("player1: " + player1Points);
+    console.log("player2: " + player2Points);
+    console.log("player3: " + player3Points);
+    console.log("player4: " + player4Points);
+    setboard();
+    updatePoints(player1Points, player2Points, player3Points, player4Points);
+    resetButtons();
+    clearHand();
+    FillHand(Player);
+    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
+    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
+});
 
 socket.on('P1Number', function(data) {
     if (turnNumber == 1) {
@@ -156,14 +201,33 @@ socket.on('Change', function(data) {
 
 });
 
+// ++END++ JOIN GAME CONTENT ****************************************************************
 
-//*************************************** DATA HANDLING FROM HERE DOWN *************************************
+var buttonArray1 = [];
+var buttonArray2 = [];
+var buttonArray3 = [];
+var buttonArray4 = [];
 
-/*********************************** Public data ****************************************/
-//Public data will now be stored in 'connection.js' since we need the socket connection to send data.
-//It also makes more sense to keep it there now
+for (i = 1; i < 20; i++) {
+    var button = "P1-" + i;
+    buttonArray1.push(button);
+}
 
-/*********************************** Player 1 data ****************************************/
+for (i = 1; i < 20; i++) {
+    var button = "P2-" + i;
+    buttonArray2.push(button);
+}
+
+for (i = 1; i < 20; i++) {
+    var button = "P3-" + i;
+    buttonArray3.push(button);
+}
+for (i = 1; i < 20; i++) {
+    var button = "P4-" + i;
+    buttonArray4.push(button);
+}
+
+// AFTER EMISSIONS ***************************************************************************
 
 var Player = CreatePlayer(Name, ID);
 FillHand(Player);
@@ -192,13 +256,8 @@ function CreatePlayer(Name, ID) {
     return Player;
 }
 
-
 function Winner(Player) {
     return false;
-}
-
-function AddNumber() {
-
 }
 
 function join(Player) {
@@ -214,10 +273,6 @@ function join(Player) {
     } else if (Players.length == 3) {
         Players.push(P4);
     }
-}
-
-function Disconnect(Player) {
-    // no idea how we want to impliment this
 }
 
 function RedOrGreen() {
@@ -268,14 +323,6 @@ function selectNumber(player, numberSelected) {
 setboard()
 
 function setboard() {
-    // console.log("into setboard");
-    // var green = document.createElement("green");
-
-    // green.src = "http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png";
-    // $("p1p1").html("http://www.clker.com/cliparts/9/1/5/2/119498475589498995button-red_benji_park_01.svg.thumb.png");
-
-    // area.appendChild(green);
-
     var id = ["p1", "p2", "p3", "p4"]
 
     for (let i = 0; i < 4; i++) {
@@ -321,80 +368,3 @@ function resetButtons() {
         }
     }
 }
-
-socket.on('Player1Wins', function(data) {
-    var player1Points = data.P1Points;
-    var player2Points = data.P2Points;
-    var player3Points = data.P3Points;
-    var player4Points = data.P4Points;
-    console.log("player1: " + player1Points);
-    console.log("player2: " + player2Points);
-    console.log("player3: " + player3Points);
-    console.log("player4: " + player4Points);
-    setboard();
-    updatePoints(player1Points, player2Points, player3Points, player4Points);
-    resetButtons();
-    clearHand();
-    FillHand(Player);
-    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
-
-});
-
-socket.on('Player2Wins', function(data) {
-    var player1Points = data.P1Points;
-    var player2Points = data.P2Points;
-    var player3Points = data.P3Points;
-    var player4Points = data.P4Points;
-    console.log("player1: " + player1Points);
-    console.log("player2: " + player2Points);
-    console.log("player3: " + player3Points);
-    console.log("player4: " + player4Points);
-    setboard();
-    updatePoints(player1Points, player2Points, player3Points, player4Points);
-    resetButtons();
-    clearHand();
-    FillHand(Player);
-    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
-});
-
-socket.on('Player3Wins', function(data) {
-    var player1Points = data.P1Points;
-    var player2Points = data.P2Points;
-    var player3Points = data.P3Points;
-    var player4Points = data.P4Points;
-    console.log("player1: " + player1Points);
-    console.log("player2: " + player2Points);
-    console.log("player3: " + player3Points);
-    console.log("player4: " + player4Points);
-    setboard();
-    updatePoints(player1Points, player2Points, player3Points, player4Points);
-    resetButtons();
-    clearHand();
-    FillHand(Player);
-    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
-});
-
-socket.on('Player4Wins', function(data) {
-    var player1Points = data.P1Points;
-    var player2Points = data.P2Points;
-    var player3Points = data.P3Points;
-    var player4Points = data.P4Points;
-    console.log("player1: " + player1Points);
-    console.log("player2: " + player2Points);
-    console.log("player3: " + player3Points);
-    console.log("player4: " + player4Points);
-    setboard();
-    updatePoints(player1Points, player2Points, player3Points, player4Points);
-    resetButtons();
-    clearHand();
-    FillHand(Player);
-    document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
-    document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
-});
