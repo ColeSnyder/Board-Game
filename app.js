@@ -239,13 +239,6 @@ if (!Winner) {
             console.log(Player);
         });
 
-        // if (Player.length == 3) {
-        //     console.log("sending traffic....")
-        //     io.emit("getarray", {
-        //         Player
-        //     });
-        // }
-
         function adjustPlayer1GP() {
             for (let i = 0; i < Player[0].Hand.length; i++) {
                 Player[0].Points += Player[0].Hand[i];
@@ -292,60 +285,44 @@ if (!Winner) {
         }
 
     });
-    // Player position array ********************************************************************************
-    // if(Player[0].points == 10){
-    //   io.emit("GameoverP1", {
-    //       Winner: Player[0]
-    //   })
-    // }
-    // if(Player[1].points == 10){
-    //   io.emit("GameoverP1", {
-    //       Winner: Player[1]
-    //   })
-    // }
-    // if(Player[2].points == 10){
-    //   io.emit("GameoverP1", {
-    //       Winner: Player[2]
-    //   })
-    // }
-    // if(Player[3].points == 10){
-    //   io.emit("GameoverP1", {
-    //       Winner: Player[3]
-    //   })
-    // }
 
-    // function checkWinner() {
-    //     if (P1Wins > P2Wins && P1Wins > P3Wins && P1Wins > P4Wins) {
-    //         console.log("player 1 is the big winner");
-    //     } else if (P2Wins > P1Wins && P2Wins > P3Wins && P2Wins > P4Wins) {
-    //         console.log("player 2 is the big winner");
-    //     } else if (P3Wins > P1Wins && P1Wins > P2Wins && P1Wins > P4Wins) {
-    //         console.log("player 3 is the big winner");
-    //     } else if (P4Wins > P1Wins && P4Wins > P3Wins && P4Wins > P2Wins) {
-    //         console.log("player 4 is the big winner");
-    //     } else {
-    //         console.log("error");
-    //     }
+    function Winner(Player1, Player2, Player3, Player4) {
 
+      console.log("Player1: " + Player1);
+      console.log("Player2: " + Player2);
+      console.log("Player3: " + Player3);
+      console.log("Player4: " + Player4);
 
-
-    // }
-
-
-
-    function Winner() {
-        for (let i = 0; i < Player.length; i++) {
-            var winner;
-            var pointsTrack = 0;
-            const element = Player[i];
-            if (element.points > pointsTrack) {
-                pointsTrack = element.points;
-                winner = element.id;
-
+      if ((Player1 > Player2) && (Player1 > Player3) && (Player1 > Player4)) {
+                var winner = 1;
+                io.emit("winner", winner);
+                console.log("player 1 is the big winner");
+            } else if ((Player2 > Player1) && (Player2 > Player3) && (Player2 > Player4)) {
+                var winner = 2;
+                io.emit("winner", winner);
+                console.log("player 2 is the big winner");
+            } else if ((Player3 > Player1) && (Player3 > Player2) && (Player3 > Player4)) {
+                var winner = 3;
+                io.emit("winner", winner);
+                console.log("player 3 is the big winner");
+            } else if ((Player4 > Player1) && (Player4 > Player2) && (Player4 > Player3)) {
+                var winner = 4;
+                io.emit("winner", winner);
+                console.log("player 4 is the big winner");
             }
-        }
-        console.log("We have a winner\n" + winner)
-        io.emit("winner", { winner: winner });
+
+        // for (let i = 0; i < Player.length; i++) {
+        //     var winner;
+        //     var pointsTrack = 0;
+        //     const element = Player[i];
+        //     if (element.points > pointsTrack) {
+        //         pointsTrack = element.points;
+        //         winner = element.ID;
+
+        //     }
+        // }
+        // console.log("We have a winner\n" + winner)
+        io.emit("winner", {winner: winner.value});
     }
 
     // if (roundCount === 1) {

@@ -2,7 +2,7 @@ var playerNum;
 
 var turnNumber = 1;
 
-var CurrentIP = "192.168.0.17";
+var CurrentIP = "192.168.0.16";
 
 var socket = io.connect(CurrentIP + ":3001");
 
@@ -52,7 +52,6 @@ socket.on('Player1Wins', function(data) {
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
-
 });
 
 socket.on('Player2Wins', function(data) {
@@ -153,7 +152,7 @@ socket.on('P2Number', function(data) {
 });
 socket.on("winner", function(data) {
     console.log(data);
-})
+});
 
 
 socket.on('P3Number', function(data) {
