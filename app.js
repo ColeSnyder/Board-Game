@@ -18,6 +18,10 @@ var p4p1 = false;
 var p4p2 = false;
 var p4p3 = false;
 var roundCount = 0;
+var Winner =  false 
+
+
+if(!Winner){
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -229,8 +233,9 @@ io.on('connection', function(socket) {
       Player[0].Points += 10;
       Player[1].Points += 10;
       Player[3].Points += 10;
-      console.log('adding one to count ')
+      console.log('adding one to count ' + roundCount)
       roundCount++;
+      console.log('adding one to count ' + roundCount)
     }
 
     function adjustPlayer4GP() {
@@ -278,12 +283,13 @@ function Winner() {
             
         }
     }
+    console.log("We have a winner\n" +  winner)
     io.emit("winner", {
         winner
     })
 }
 
-if (roundCount == 1) {
+if (roundCount === 1) {
     Winner();
 }
 
@@ -458,3 +464,4 @@ var playerArray1 = [];
 var playerArray2 = [];
 var playerArray3 = [];
 var playerArray4 = [];
+}
