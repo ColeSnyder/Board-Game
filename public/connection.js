@@ -106,8 +106,8 @@ socket.on('P2Number', function(data) {
         turnNumber++;
     }
 });
-socket.on("winnner", function(data) {
-    console.log(data)
+socket.on("winner", function(data) {
+    console.log(data);
 })
 
 
