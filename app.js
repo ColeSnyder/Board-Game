@@ -1,10 +1,22 @@
+/***
+Team Brogrammners :- Andrew Hamett,Cole Snyder,Siddhant Grover,Steven Mcvicker
+Project Description:A fully functional 4 player Board Game with the motive to turn each individual 
+player's row green.
+Class:CS 410 Software Engineering
+Professor :Sudershan Iyengar
+Date Due:3/3/2019
+app.js:used for connecting the pages,i.e. emmitting data ,connecting all pages tomgether
+****/
+// used to connect pages via socket
 var fs = require('fs');
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const path = require('path');
-var Player = [];
+
+var Player = [];// creates player array
+// booleans created to relate with the ids on the scoreboard;p1p1,p2p2,p3p3,p4p4 are green always by default
 var p1p2 = false;
 var p1p3 = false;
 var p1p4 = false;
@@ -17,17 +29,17 @@ var p3p4 = false;
 var p4p1 = false;
 var p4p2 = false;
 var p4p3 = false;
-var roundCount = 0;
+var roundCount = 0;// to keep track of number of rounds throhroughout the game
 var Winner = false
+//keeping track of player wins
 var P1Wins = 0;
 var P2Wins = 0;
 var P3Wins = 0;
 var P4Wins = 0;
 
 
-if (!Winner) {
-
-
+if (!Winner) {// if there is no winner 
+    // connecting all players together
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'ejs');
     app.use(express.json());
@@ -62,25 +74,25 @@ if (!Winner) {
 
     // Everything below this line will have to do with Socket.io *********************************************
 
-    io.on('connection', function(socket) {
+    io.on('connection', function(socket) {// using socket
         console.log("Made socket connection " + socket.id)
 
         socket.on('object', function(data) {
-            playerArray.push("player" + playerArray.length);
+            playerArray.push("player" + playerArray.length);//pushes player to player array
             console.log(playerArray.length);
-            var num = playerArray.length;
+            var num = playerArray.length;// length of array 
             io.to(socket.id).emit("player" + num, num);
         });
 
-        socket.on('P1Number', function(data) {
-            Player[0].Hand.push(data);
+        socket.on('P1Number', function(data) {// for player1
+            Player[0].Hand.push(data);//adds data to the players hand
             console.log(Player)
             console.log(Player[0]);
             //call compare function
-            var match = Comapare(Player[0], Player[1], Player[2], Player[3]);
+            var match = Comapare(Player[0], Player[1], Player[2], Player[3]);// comapre function build to compare playes hand to every individual hand 
             // console.log(Player[0].ID);
             //save response from compare to variable
-            io.emit('P1Number', {
+            io.emit('P1Number', {// sends data  of the player
                 data: data,
                 match: match
             });
@@ -88,14 +100,14 @@ if (!Winner) {
 
             if (Player[0].roundPoints == 3) {
                 console.log("Player 1 wins");
-                P1Wins = P1Wins + 1;
-                //place round winning code here
+                P1Wins = P1Wins + 1;// adds point after player wins
+                //placed round winning code here
                 adjustPlayer1GP();
                 var P1Points = Player[0].Points;
                 var P2Points = Player[1].Points;
                 var P3Points = Player[2].Points;
                 var P4Points = Player[3].Points;
-                io.emit('Player1Wins', {
+                io.emit('Player1Wins', {// send the number of wins
                     P1Points: P1Points,
                     P2Points: P2Points,
                     P3Points: P3Points,
@@ -115,25 +127,25 @@ if (!Winner) {
             }
         });
 
-        socket.on('P2Number', function(data) {
-            Player[1].Hand.push(data);
+        socket.on('P2Number', function(data) {// for player2
+            Player[1].Hand.push(data);//adds data to the players hand
             console.log(Player);
             console.log(Player[1]);
-            var match = Comapare(Player[1], Player[0], Player[2], Player[3]);
-            io.emit('P2Number', {
+            var match = Comapare(Player[1], Player[0], Player[2], Player[3]);// comapre function build to compare playes hand to every individual hand 
+            io.emit('P2Number', {// sends data  of the player
                 data: data,
                 match: match
             });
             match = "";
             if (Player[1].roundPoints == 3) {
                 console.log("Player 2 wins");
-                P2Wins = P2Wins + 1;
+                P2Wins = P2Wins + 1;// adds point after player wins
                 adjustPlayer2GP();
                 var P1Points = Player[0].Points;
                 var P2Points = Player[1].Points;
                 var P3Points = Player[2].Points;
                 var P4Points = Player[3].Points;
-                io.emit('Player2Wins', {
+                io.emit('Player2Wins', {// send the number of wins
                     P1Points: P1Points,
                     P2Points: P2Points,
                     P3Points: P3Points,
@@ -154,7 +166,7 @@ if (!Winner) {
 
             }
         });
-
+             // follows the same for player 3 and player 4
         socket.on('P3Number', function(data) {
             Player[2].Hand.push(data);
             console.log(Player)
@@ -231,16 +243,17 @@ if (!Winner) {
                 FillHand();
             }
         });
-
-        socket.on('sendPlayer', function(data) {
+        //
+        socket.on('sendPlayer', function(data) {// 
             Player.push(data);
             console.log(Player);
         });
 
-        function adjustPlayer1GP() {
+        function adjustPlayer1GP() {//adjust the game points if player 1 wins
             for (let i = 0; i < Player[0].Hand.length; i++) {
-                Player[0].Points += Player[0].Hand[i];
+                Player[0].Points += Player[0].Hand[i];// points = sum of hands
             }
+            // every other player gets 10 points
             Player[1].Points += 10;
             Player[2].Points += 10;
             Player[3].Points += 10;
@@ -248,17 +261,18 @@ if (!Winner) {
             roundCount++;
         }
 
-        function adjustPlayer2GP() {
+        function adjustPlayer2GP() {//adjust the game points if player 2 wins
             for (let i = 0; i < Player[1].Hand.length; i++) {
-                Player[1].Points += Player[1].Hand[i];
+                Player[1].Points += Player[1].Hand[i];// points = sum of hands
             }
+            // every other player gets 10 points
             Player[0].Points += 10;
             Player[2].Points += 10;
             Player[3].Points += 10;
             console.log('adding one to count ');
             roundCount++;
         }
-
+          // does the same as above function but for player 3 and 4
         function adjustPlayer3GP() {
             for (let i = 0; i < Player[2].Hand.length; i++) {
                 Player[2].Points += Player[2].Hand[i];
@@ -284,28 +298,28 @@ if (!Winner) {
 
     });
 
-    function Winner(Player1, Player2, Player3, Player4) {
+    function Winner(Player1, Player2, Player3, Player4) {// function that determines the winner
 
       console.log("Player1: " + Player1);
       console.log("Player2: " + Player2);
       console.log("Player3: " + Player3);
       console.log("Player4: " + Player4);
 
-      if ((Player1 > Player2) && (Player1 > Player3) && (Player1 > Player4)) {
-                var winner = 1;
-                io.emit("winner", winner);
+      if ((Player1 > Player2) && (Player1 > Player3) && (Player1 > Player4)) {// if player 1 has greatest points
+                var winner = 1;// player 1 is winner
+                io.emit("winner", winner);// send the winner
                 console.log("player 1 is the big winner");
-            } else if ((Player2 > Player1) && (Player2 > Player3) && (Player2 > Player4)) {
-                var winner = 2;
-                io.emit("winner", winner);
+            } else if ((Player2 > Player1) && (Player2 > Player3) && (Player2 > Player4)) {// if player 2 has greatest points
+                var winner = 2;// player 2 is winner
+                io.emit("winner", winner);// send the winner
                 console.log("player 2 is the big winner");
-            } else if ((Player3 > Player1) && (Player3 > Player2) && (Player3 > Player4)) {
-                var winner = 3;
-                io.emit("winner", winner);
+            } else if ((Player3 > Player1) && (Player3 > Player2) && (Player3 > Player4)) {// if player 3 has greatest points
+                var winner = 3;// player 3 is winner
+                io.emit("winner", winner);// send the winner
                 console.log("player 3 is the big winner");
-            } else if ((Player4 > Player1) && (Player4 > Player2) && (Player4 > Player3)) {
-                var winner = 4;
-                io.emit("winner", winner);
+            } else if ((Player4 > Player1) && (Player4 > Player2) && (Player4 > Player3)) {// if player 4 has greatest points
+                var winner = 4;// player 4 is winner
+                io.emit("winner", winner);// send the winner
                 console.log("player 4 is the big winner");
             }
 
@@ -331,14 +345,14 @@ if (!Winner) {
 
 
     function resetPlayer() {
-        for (let i = 0; i < Player.length; i++) {
+        for (let i = 0; i < Player.length; i++) {// goes through player array and resets all their point and hand to 0
             Player[i].Hand.length = 0;
             Player[i].roundPoints = 0;
         }
 
     }
 
-    function FillHand() {
+    function FillHand() {// done initially in every round to give every player a random hand
 
         for (let j = 0; j < Player.length; j++) {
             for (let i = 0; i < 3; i++) {
@@ -361,35 +375,35 @@ if (!Winner) {
 
 
 
-    function Comapare(currentPlayer, temp2, temp3, temp4) {
+    function Comapare(currentPlayer, temp2, temp3, temp4) {// compare method that individually compares the hand of each player
 
         var tempMatch1;
         var tempMatch2;
         var tempMatch3;
         var match;
 
-        var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));
+        var firstCompare = temp2.Hand.every(val => currentPlayer.Hand.includes(val));//compares value to the every value in players hand
         if (firstCompare == true) {
 
-            match = "p" + currentPlayer.ID + "p" + temp2.ID;
+            match = "p" + currentPlayer.ID + "p" + temp2.ID; // concatenates the string p with player id so it can be mapped to id on scoreboard to access dom
             //currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
         }
         console.log(firstCompare);
-        var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val));
+        var secondCompare = temp3.Hand.every(val => currentPlayer.Hand.includes(val))//compares value to the every value in players hand;
         if (secondCompare == true) {
-            match = "p" + currentPlayer.ID + "p" + temp3.ID;
+            match = "p" + currentPlayer.ID + "p" + temp3.ID; // concatenates the string p with player id so it can be mapped to id on scoreboard to access dom
             // currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
         }
         console.log(secondCompare);
-        var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));
+        var thirdCompare = temp4.Hand.every(val => currentPlayer.Hand.includes(val));//compares value to the every value in players hand
         if (thirdCompare == true) {
-            match = "p" + currentPlayer.ID + "p" + temp4.ID;
+            match = "p" + currentPlayer.ID + "p" + temp4.ID; // concatenates the string p with player id so it can be mapped to id on scoreboard to access dom
             //currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
         }
         console.log(thirdCompare);
 
         if (match != undefined) {
-
+              //uses the logic above to add roundpoints to the players 
             if (match == "p1p2" && p1p2 === false) {
                 p1p2 = true;
                 currentPlayer.roundPoints = currentPlayer.roundPoints + 1;
