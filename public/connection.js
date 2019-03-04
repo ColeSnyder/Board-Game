@@ -11,6 +11,8 @@ var playerNum;
 
 var turnNumber = 1;
 
+var matchNumber = 1;
+
 var CurrentIP = "192.168.0.16";// ipadress used 
 
 var socket = io.connect(CurrentIP + ":3001");//
@@ -58,6 +60,8 @@ socket.on('Player1Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();
     FillHand(Player);
+    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
+    document.getElementById("matchNum").value = matchNumberAdd + 1;
     // grabs the buttons pressed by the player,mapping uses id on the buttons
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
@@ -78,6 +82,8 @@ socket.on('Player2Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();
     FillHand(Player);
+    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
+    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -97,6 +103,8 @@ socket.on('Player3Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();//empties hand
     FillHand(Player);
+    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
+    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -116,6 +124,8 @@ socket.on('Player4Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();//empties hand
     FillHand(Player);
+    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
+    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
