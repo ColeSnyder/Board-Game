@@ -60,8 +60,6 @@ socket.on('Player1Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();
     FillHand(Player);
-    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
-    document.getElementById("matchNum").value = matchNumberAdd + 1;
     // grabs the buttons pressed by the player,mapping uses id on the buttons
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
@@ -82,8 +80,6 @@ socket.on('Player2Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();
     FillHand(Player);
-    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
-    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -103,8 +99,6 @@ socket.on('Player3Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();//empties hand
     FillHand(Player);
-    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
-    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -124,8 +118,6 @@ socket.on('Player4Wins', function(data) {//sets point,hand,etc for player grabs 
     resetButtons();
     clearHand();//empties hand
     FillHand(Player);
-    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
-    document.getElementById("matchNum").value = matchNumberAdd + 1;
     document.getElementById("P" + ID + "-" + Player.Hand[0]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[1]).style.opacity = .3;
     document.getElementById("P" + ID + "-" + Player.Hand[2]).style.opacity = .3;
@@ -339,10 +331,36 @@ function selectNumber(player, numberSelected) {// disbles the button once it was
         console.log('P' + player + ', ' + numberSelected);
     }
 }
-setboard()
+setboard();
 
 function setboard() {// used to set the initial board i.e the board at start of game
     var id = ["p1", "p2", "p3", "p4"]
+
+    var matchNumberAdd = document.getElementById("matchNum").innerHTML;
+    if(matchNumberAdd == "0") {
+        document.getElementById("matchNum").innerHTML = "1";
+    } else if(matchNumberAdd == "1") {
+        document.getElementById("matchNum").innerHTML = "2";
+    } else if(matchNumberAdd == "2") {
+        document.getElementById("matchNum").innerHTML = "3";
+    } else if(matchNumberAdd == "3") {
+        document.getElementById("matchNum").innerHTML = "4";
+    } else if(matchNumberAdd == "4") {
+        document.getElementById("matchNum").innerHTML = "5";
+    } else if(matchNumberAdd == "5") {
+        document.getElementById("matchNum").innerHTML = "6";
+    } else if(matchNumberAdd == "6") {
+        document.getElementById("matchNum").innerHTML = "7";
+    } else if(matchNumberAdd == "7") {
+        document.getElementById("matchNum").innerHTML = "8";
+    } else if(matchNumberAdd == "8") {
+        document.getElementById("matchNum").innerHTML = "9";
+    } else if(matchNumberAdd == "9") {
+        document.getElementById("matchNum").innerHTML = "10";
+    } else if(matchNumberAdd == "10") {
+        document.getElementById("matchNum").innerHTML = "1";
+    }
+    console.log(matchNumberAdd);
 
     for (let i = 0; i < 4; i++) {
         var element = id[i]

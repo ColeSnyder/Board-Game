@@ -111,7 +111,7 @@ if (!Winner) {// if there is no winner
                 console.log(Player[2].Points);
                 console.log(Player[3].Points);
 
-                if (roundCount === 1) {
+                if (roundCount === 10) {
                   Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                 }
                 resetPlayer();
@@ -148,7 +148,7 @@ if (!Winner) {// if there is no winner
                 console.log(Player[2].Points);
                 console.log(Player[3].Points);
 
-                if (roundCount === 1) {
+                if (roundCount === 10) {
                   Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                 }
                 resetPlayer();
@@ -185,7 +185,7 @@ if (!Winner) {// if there is no winner
                 console.log(Player[2].Points);
                 console.log(Player[3].Points);
 
-                if (roundCount === 1) {
+                if (roundCount === 10) {
                   Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                 }
                 resetPlayer();
@@ -221,7 +221,7 @@ if (!Winner) {// if there is no winner
                 console.log(Player[2].Points);
                 console.log(Player[3].Points);
 
-                if (roundCount === 1) {
+                if (roundCount === 10) {
                     Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                 }
                 resetPlayer();
