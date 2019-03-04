@@ -5,7 +5,7 @@ player's row green.
 Class:CS 410 Software Engineering
 Professor :Sudershan Iyengar
 Date Due:3/3/2019
-app.js:used for connecting the pages,i.e. emmitting data ,connecting all pages tomgether
+app.js:used for connecting the pages,i.e. emmitting data ,connecting all pages together and sending dats
 ****/
 // used to connect pages via socket
 var fs = require('fs');
