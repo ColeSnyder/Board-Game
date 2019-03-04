@@ -107,13 +107,11 @@ if (!Winner) {
                 console.log(Player[3].Points);
 
                 if (roundCount === 1) {
-                    Winner();
+                  Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                     //checkWinner();
                 }
-
                 resetPlayer();
                 FillHand();
-
             }
         });
 
@@ -135,7 +133,7 @@ if (!Winner) {
                 var P2Points = Player[1].Points;
                 var P3Points = Player[2].Points;
                 var P4Points = Player[3].Points;
-                io.emit('Playe2Wins', {
+                io.emit('Player2Wins', {
                     P1Points: P1Points,
                     P2Points: P2Points,
                     P3Points: P3Points,
@@ -147,7 +145,7 @@ if (!Winner) {
                 console.log(Player[3].Points);
 
                 if (roundCount === 1) {
-                    Winner();
+                  Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                     //checkWinner();
                 }
 
@@ -187,7 +185,7 @@ if (!Winner) {
                 console.log(Player[3].Points);
 
                 if (roundCount === 1) {
-                    Winner();
+                  Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                     //checkWinner();
                 }
 
@@ -225,7 +223,7 @@ if (!Winner) {
                 console.log(Player[3].Points);
 
                 if (roundCount === 1) {
-                    Winner();
+                    Winner(Player[0].Points, Player[1].Points, Player[2].Points, Player[3].Points);
                     //checkWinner();
                 }
 
@@ -322,7 +320,7 @@ if (!Winner) {
         //     }
         // }
         // console.log("We have a winner\n" + winner)
-        io.emit("winner", {winner: winner.value});
+        // io.emit("winner", {winner: winner.value});
     }
 
     // if (roundCount === 1) {
